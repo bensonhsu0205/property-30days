@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Day 03｜公設比高就是被坑嗎？ — 寶哥說物業管理小常識</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary: #1A6E8E;
+      --accent: #5BC8E8;
+      --dark: #0a1628;
+      --text: #0D1F2D;
+      --bg: #FFFFFF;
+      --bg-alt: #F0F8FC;
+      --border: #d0e8f0;
+      --serif: 'Noto Serif TC', serif;
+      --sans: 'Noto Sans TC', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.75;
+      font-size: 16px;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: linear-gradient(135deg, var(--dark) 0%, #0e3352 45%, var(--primary) 100%);
+      color: #fff;
+      padding: 60px 24px 52px;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 80% 20%, rgba(91,200,232,0.18) 0%, transparent 60%),
+                  radial-gradient(ellipse at 10% 90%, rgba(26,110,142,0.25) 0%, transparent 55%);
+      pointer-events: none;
+    }
+    header::after {
+      content: '';
+      position: absolute;
+      right: -60px; bottom: -60px;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      border: 2px solid rgba(91,200,232,0.15);
+      pointer-events: none;
+    }
+
+    .header-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .header-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 22px;
+      flex-wrap: wrap;
+    }
+
+    .day-badge {
+      font-family: var(--serif);
+      font-weight: 900;
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      background: var(--accent);
+      color: var(--dark);
+      padding: 4px 14px;
+      border-radius: 2px;
+      text-transform: uppercase;
+    }
+
+    .chapter-badge {
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.65);
+      border: 1px solid rgba(255,255,255,0.25);
+      padding: 4px 12px;
+      border-radius: 2px;
+    }
+
+    .header-title {
+      font-family: var(--serif);
+      font-weight: 900;
+      font-size: clamp(28px, 6vw, 46px);
+      line-height: 1.25;
+      color: #fff;
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+    }
+
+    .header-sub {
+      font-family: var(--sans);
+      font-size: 15px;
+      color: rgba(255,255,255,0.72);
+      font-weight: 300;
+      border-left: 3px solid var(--accent);
+      padding-left: 14px;
+      line-height: 1.6;
+    }
+
+    /* ── MAIN LAYOUT ── */
+    main { max-width: 860px; margin: 0 auto; padding: 0 0 60px; }
+
+    /* ── SECTIONS ── */
+    section {
+      padding: 48px 32px;
+      border-bottom: 1px solid var(--border);
+    }
+    section:nth-child(even) { background: var(--bg-alt); }
+    section:last-of-type { border-bottom: none; }
+
+    .section-label {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-weight: 700;
+      font-size: clamp(18px, 3vw, 22px);
+      color: var(--dark);
+      margin-bottom: 28px;
+      padding-bottom: 14px;
+      border-bottom: 2px solid var(--border);
+      position: relative;
+    }
+    .section-title::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: -2px;
+      width: 48px; height: 2px;
+      background: var(--accent);
+    }
+
+    /* ── TABLES ── */
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      min-width: 480px;
+    }
+
+    thead tr {
+      background: var(--primary);
+      color: #fff;
+    }
+    thead th {
+      font-family: var(--sans);
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.06em;
+      padding: 13px 16px;
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    tbody tr { border-bottom: 1px solid var(--border); transition: background 0.15s; }
+    tbody tr:hover { background: rgba(91,200,232,0.07); }
+    tbody tr:last-child { border-bottom: none; }
+
+    tbody td {
+      padding: 14px 16px;
+      vertical-align: top;
+      line-height: 1.65;
+      color: var(--text);
+    }
+
+    td:first-child {
+      font-weight: 700;
+      color: var(--primary);
+      white-space: nowrap;
+      font-size: 13px;
+    }
+
+    td .note {
+      display: block;
+      font-size: 12px;
+      color: #607080;
+      margin-top: 4px;
+      font-style: italic;
+    }
+
+    /* ── MISCONCEPTION TABLE ── */
+    .compare-table tbody td:first-child { color: #c0392b; }
+    .compare-table tbody td:last-child { color: #1a7a4a; font-weight: 500; }
+
+    .compare-table thead th:first-child { background: #b03030; }
+    .compare-table thead th:last-child { background: #1a6e8e; }
+    .compare-table thead { background: none; }
+
+    /* ── LAW TABLE ── */
+    .law-table td:first-child {
+      color: var(--dark);
+      font-family: var(--serif);
+      font-weight: 600;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    .article-num {
+      display: inline-block;
+      background: var(--dark);
+      color: var(--accent);
+      font-family: var(--serif);
+      font-weight: 700;
+      font-size: 12px;
+      padding: 2px 8px;
+      border-radius: 2px;
+      margin-right: 6px;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── CHECKLIST ── */
+    .checklist-group { margin-bottom: 32px; }
+    .checklist-group:last-child { margin-bottom: 0; }
+
+    .checklist-subtitle {
+      font-family: var(--serif);
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--dark);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .checklist-subtitle::before {
+      content: '';
+      display: inline-block;
+      width: 4px; height: 18px;
+      background: var(--accent);
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    .checklist {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 14px;
+      line-height: 1.65;
+      padding: 12px 16px;
+      background: var(--bg);
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+      user-select: none;
+    }
+    .checklist li:hover { border-color: var(--accent); }
+    .checklist li.checked {
+      background: rgba(91,200,232,0.08);
+      border-color: var(--accent);
+    }
+    .checklist li.checked .check-box { background: var(--primary); border-color: var(--primary); }
+    .checklist li.checked .check-box::after { opacity: 1; }
+
+    .check-box {
+      width: 20px; height: 20px;
+      border: 2px solid var(--border);
+      border-radius: 4px;
+      flex-shrink: 0;
+      margin-top: 2px;
+      position: relative;
+      transition: all 0.2s;
+    }
+    .check-box::after {
+      content: '';
+      position: absolute;
+      left: 4px; top: 1px;
+      width: 8px; height: 5px;
+      border-left: 2px solid #fff;
+      border-bottom: 2px solid #fff;
+      transform: rotate(-45deg);
+      opacity: 0;
+      transition: opacity 0.15s;
+    }
+
+    /* ── RED FLAG ── */
+    .redflag-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .redflag-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px 18px;
+      background: #fff5f5;
+      border-left: 4px solid #e74c3c;
+      border-radius: 0 6px 6px 0;
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .flag-icon {
+      font-size: 18px;
+      line-height: 1.4;
+      flex-shrink: 0;
+    }
+
+    .redflag-ref {
+      display: block;
+      font-size: 11px;
+      color: #999;
+      margin-top: 4px;
+      font-style: italic;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.55);
+      text-align: center;
+      padding: 36px 24px;
+    }
+
+    .footer-brand {
+      font-family: var(--serif);
+      font-weight: 700;
+      font-size: 16px;
+      color: #fff;
+      margin-bottom: 6px;
+      letter-spacing: 0.05em;
+    }
+
+    .footer-handle {
+      font-family: var(--sans);
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+      margin-bottom: 14px;
+    }
+
+    .footer-note {
+      font-size: 12px;
+      color: rgba(255,255,255,0.35);
+      line-height: 1.6;
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 640px) {
+      section { padding: 36px 20px; }
+      header { padding: 48px 20px 42px; }
+      table { font-size: 13px; }
+      thead th, tbody td { padding: 11px 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <div class="header-meta">
+      <span class="day-badge">DAY 03</span>
+      <span class="chapter-badge">第一章｜使用區分</span>
+    </div>
+    <h1 class="header-title">公設比高就是被坑嗎？</h1>
+    <p class="header-sub">比例不是重點，品質才是你每天住的日子。</p>
+  </div>
+</header>
+
+<main>
+
+  <!-- 核心知識表格 -->
+  <section>
+    <p class="section-label">Core Knowledge</p>
+    <h2 class="section-title">公設比完整觀念表</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>項目</th>
+            <th>說明</th>
+            <th>常見問題</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>什麼是公設比</td>
+            <td>共用部分登記面積 ÷ 全棟總登記面積 × 100%。台灣新成屋普遍落在 30～45%</td>
+            <td>「公設比是建商自己定的嗎？」<span class="note">非完全自訂，有法定必要共用部分限制</span></td>
+          </tr>
+          <tr>
+            <td>法定共用部分</td>
+            <td>依法必須存在、不可變為私用：走廊、樓梯、門廳、防火巷弄、結構體等</td>
+            <td>「這些能不算進去嗎？」<span class="note">不行，是公共安全法定必要設施</span></td>
+          </tr>
+          <tr>
+            <td>非法定共用部分</td>
+            <td>健身房、游泳池、交誼廳、空中花園等，建商附加設計</td>
+            <td>「這些是建商送的嗎？」<span class="note">不是，已含在房價內，維護費也由住戶分攤</span></td>
+          </tr>
+          <tr>
+            <td>約定共用部分</td>
+            <td>原本是專有部分，經住戶協議變為共同使用（如某戶改為社區閱覽室）</td>
+            <td>「這可以後來改嗎？」<span class="note">可以，但需經區分所有權人會議決議</span></td>
+          </tr>
+          <tr>
+            <td>公設比高的真正問題</td>
+            <td>不是比例本身，是「品質」和「使用率」。設施完善且使用頻繁才值</td>
+            <td>「公設比低就一定划算？」<span class="note">不一定，要看管理費結構與實際服務內容</span></td>
+          </tr>
+          <tr>
+            <td>費用怎麼分</td>
+            <td>共用部分維護費由公共基金支付，或依各住戶應有部分比例分攤</td>
+            <td>「我不用健身房，還要分攤嗎？」<span class="note">要，除非規約另有規定</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 常見誤解對照表 -->
+  <section>
+    <p class="section-label">Common Misconceptions</p>
+    <h2 class="section-title">常見誤解對照</h2>
+    <div class="table-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>❌ 誤解</th>
+            <th>✅ 正確觀念</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>公設比越低越好</td>
+            <td>公設比低代表附加設施少，不等於居住品質更好</td>
+          </tr>
+          <tr>
+            <td>公設比高 ＝ 被偷坪數</td>
+            <td>部分是法定必要存在，不是建商故意灌水</td>
+          </tr>
+          <tr>
+            <td>公設我不用，不該分攤費用</td>
+            <td>條例明定按應有部分比例分攤，除非區權會另有決議</td>
+          </tr>
+          <tr>
+            <td>買低公設比才省錢</td>
+            <td>低設施社區若管理品質差，長期居住成本不見得低</td>
+          </tr>
+          <tr>
+            <td>公設是建商送的</td>
+            <td>公設成本已含在房價內，後續維護費由全體住戶共同負擔</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 相關法規 -->
+  <section>
+    <p class="section-label">Legal Reference</p>
+    <h2 class="section-title">相關法規依據｜公寓大廈管理條例</h2>
+    <div class="table-wrap">
+      <table class="law-table">
+        <thead>
+          <tr>
+            <th>條號</th>
+            <th>內容摘要</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="article-num">第3條</span>第4款</td>
+            <td>共用部分定義：公寓大廈專有部分以外之其他部分及不屬專有之附屬建築物，供共同使用者</td>
+          </tr>
+          <tr>
+            <td><span class="article-num">第7條</span></td>
+            <td>法定共用部分不得獨立使用或約定為專用：包含走廊、樓梯、通往室外通路或門廳、防火巷弄、基礎、主要樑柱、承重牆壁、樓地板及屋頂構造</td>
+          </tr>
+          <tr>
+            <td><span class="article-num">第9條</span>第1項</td>
+            <td>各區分所有權人按其共有之應有部分比例，對建築物共用部分及其基地有使用收益之權；另有約定者從其約定</td>
+          </tr>
+          <tr>
+            <td><span class="article-num">第10條</span>第2項</td>
+            <td>共用部分之修繕、管理、維護由管理委員會為之，費用由公共基金支付或依應有部分比例分攤；規約另有規定者從其規定</td>
+          </tr>
+          <tr>
+            <td><span class="article-num">第11條</span></td>
+            <td>共用部分及相關設施之拆除、重大修繕或改良，應依區分所有權人會議決議為之，費用由公共基金支付或按應有部分比例分攤</td>
+          </tr>
+          <tr>
+            <td><span class="article-num">第36條</span>第2款</td>
+            <td>管理委員會職務包含共有及共用部分之清潔、維護、修繕及一般改良</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 住戶版評估清單 -->
+  <section>
+    <p class="section-label">Checklist · Resident</p>
+    <h2 class="section-title">公設品質評估清單｜住戶版</h2>
+    <p style="font-size:14px;color:#607080;margin-bottom:28px;">看屋或搬入前，帶這份去現場走一遍，點選打勾確認。</p>
+
+    <div class="checklist-group">
+      <div class="checklist-subtitle">基本確認</div>
+      <ul class="checklist" id="list1">
+        <li onclick="toggle(this)"><span class="check-box"></span><span>走廊、樓梯間是否整潔、照明正常</span></li>
+        <li onclick="toggle(this)"><span class="check-box"></span><span>大廳是否有人員管理或門禁系統</span></li>
+        <li onclick="toggle(this)"><span class="check-box"></span><span>電梯維護標示是否有更新紀錄</span></li>
+        <li onclick="toggle(this)"><span class="check-box"></span><span>公告欄是否有近期財務公告</span></li>
+      </ul>
+    </div>
+
+    <div class="checklist-group">
+      <div class="checklist-subtitle">附加設施（有的話）</div>
+      <ul class="checklist">
+        <li onclick="toggle(this)"><span class="check-box"></span><span>健身房設備是否正常運作、有人使用</span></li>
+        <li onclick="toggle(this)"><span class="check-box"></span><span>游泳池是否有開放時段與使用紀錄</span></li>
+        <li onclick="toggle(this)"><span class="check-box"></span><span>交誼廳是否有實際借用機制，還是只是擺設</span></li>
+        <li onclick="toggle(this)"><span class="check-box"></span><span>空中花園、中庭是否有定期維護</span></li>
+      </ul>
+    </div>
+
+    <div class="checklist-group">
+      <div class="checklist-subtitle">費用結構</div>
+      <ul class="checklist">
+        <li onclick="toggle(this)"><span class="check-box"></span><span>管理費金額是否與公設規模相符</span></li>
+        <li onclick="toggle(this)"><span class="check-box"></span><span>公共基金是否有專戶，可否查閱餘額</span></li>
+        <li onclick="toggle(this)"><span class="check-box"></span><span>是否有近期維修紀錄與費用公告</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 委員版 + 紅旗 -->
+  <section>
+    <p class="section-label">Red Flag · Committee</p>
+    <h2 class="section-title">紅旗警示清單｜委員版</h2>
+    <p style="font-size:14px;color:#607080;margin-bottom:28px;">發現以下情形，建議提上管委會或區權會討論。</p>
+
+    <ul class="redflag-list">
+      <li>
+        <span class="flag-icon">🚩</span>
+        <span>健身房器材損壞超過三個月無人處理<span class="redflag-ref">→ 管委會應依第36條第2款執行維護職務</span></span>
+      </li>
+      <li>
+        <span class="flag-icon">🚩</span>
+        <span>游泳池「長期維修」但無明確復開時間<span class="redflag-ref">→ 住戶有權依第9條主張使用收益之權</span></span>
+      </li>
+      <li>
+        <span class="flag-icon">🚩</span>
+        <span>交誼廳長期上鎖或被改作他用<span class="redflag-ref">→ 應依設置目的使用（第9條第2項）</span></span>
+      </li>
+      <li>
+        <span class="flag-icon">🚩</span>
+        <span>共用設施維護費用與實際使用狀況明顯不符<span class="redflag-ref">→ 財務透明度問題，應要求管委會公告說明</span></span>
+      </li>
+      <li>
+        <span class="flag-icon">🚩</span>
+        <span>公設管理費佔比過高但住戶使用率極低<span class="redflag-ref">→ 可提案至區權會討論費用分攤方式（第10條）</span></span>
+      </li>
+      <li>
+        <span class="flag-icon">🚩</span>
+        <span>共用部分有破損但遲遲未進行修繕<span class="redflag-ref">→ 可能已違反第10條管委會維護職務規定</span></span>
+      </li>
+      <li>
+        <span class="flag-icon">🚩</span>
+        <span>重大設施改善未召開區權會就逕行動工<span class="redflag-ref">→ 違反第11條，重大修繕需區權會決議</span></span>
+      </li>
+    </ul>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">寶哥說物業管理小常識</div>
+  <div class="footer-handle">@bensonhsu0205</div>
+  <p class="footer-note">
+    本資料依《公寓大廈管理條例》民國111年05月11日修正版整理<br>
+    內容僅供參考，實際法律適用請洽專業人士
+  </p>
+</footer>
+
+<script>
+  function toggle(el) {
+    el.classList.toggle('checked');
+  }
+</script>
+
+</body>
+</html>
