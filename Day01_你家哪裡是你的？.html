@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 01｜你家哪裡是你的？ — 寶哥說物業管理小常識</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #1A6E8E;
+    --accent: #5BC8E8;
+    --dark: #0a1628;
+    --text: #0D1F2D;
+    --bg: #FFFFFF;
+    --bg-alt: #F0F8FC;
+    --border: #C8E8F4;
+    --red-flag: #E84A4A;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  /* ── HEADER ── */
+  .hero {
+    background: linear-gradient(135deg, var(--dark) 0%, #0d2d45 45%, var(--primary) 100%);
+    padding: 56px 24px 48px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 60% at 80% 20%, rgba(91,200,232,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; }
+
+  .day-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(91,200,232,0.18);
+    border: 1px solid rgba(91,200,232,0.4);
+    border-radius: 999px;
+    padding: 4px 16px;
+    margin-bottom: 20px;
+  }
+  .day-badge .day-num {
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 900;
+    font-size: 13px;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+  }
+  .day-badge .day-tag {
+    font-size: 12px;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 0.08em;
+  }
+
+  .hero-title {
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 900;
+    font-size: clamp(28px, 6vw, 42px);
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 14px;
+    letter-spacing: 0.02em;
+  }
+  .hero-title .accent { color: var(--accent); }
+
+  .hero-sub {
+    font-size: 14px;
+    color: rgba(255,255,255,0.65);
+    letter-spacing: 0.04em;
+  }
+
+  /* ── SECTIONS ── */
+  .section {
+    padding: 40px 24px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .section.alt {
+    background: var(--bg-alt);
+    max-width: 100%;
+    padding: 40px 24px;
+  }
+  .section.alt .inner { max-width: 800px; margin: 0 auto; }
+
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .section-label .icon {
+    width: 32px; height: 32px;
+    background: var(--primary);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  .section-label h2 {
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 700;
+    font-size: 17px;
+    color: var(--primary);
+    letter-spacing: 0.04em;
+  }
+
+  /* ── CORE TABLE ── */
+  .core-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  .core-table thead tr {
+    background: var(--primary);
+    color: #fff;
+  }
+  .core-table thead th {
+    padding: 12px 14px;
+    text-align: left;
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+  }
+  .core-table tbody tr:nth-child(odd) { background: #fff; }
+  .core-table tbody tr:nth-child(even) { background: var(--bg-alt); }
+  .core-table tbody td {
+    padding: 13px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    line-height: 1.7;
+  }
+  .core-table tbody tr:last-child td { border-bottom: none; }
+  .core-table td:first-child {
+    font-weight: 700;
+    color: var(--primary);
+    white-space: nowrap;
+    font-size: 13px;
+  }
+
+  /* ── MISCONCEPTION TABLE ── */
+  .miscon-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  .miscon-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .miscon-row:last-child { border-bottom: none; }
+  .miscon-row.header {
+    background: var(--primary);
+  }
+  .miscon-row.header .col {
+    color: #fff;
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+  }
+  .col {
+    padding: 13px 16px;
+    line-height: 1.7;
+    font-size: 14px;
+  }
+  .col.wrong {
+    background: #FFF5F5;
+    border-right: 1px solid var(--border);
+  }
+  .col.wrong::before { content: '❌ '; font-size: 12px; }
+  .col.right {
+    background: #F0FAF5;
+  }
+  .col.right::before { content: '✅ '; font-size: 12px; }
+  .miscon-row:nth-child(even) .col.wrong { background: #fff5f5; }
+  .miscon-row:nth-child(even) .col.right { background: #f0faf5; }
+
+  /* ── LAW TABLE ── */
+  .law-list { display: flex; flex-direction: column; gap: 10px; }
+  .law-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--primary);
+    border-radius: 0 8px 8px 0;
+    padding: 14px 16px;
+  }
+  .law-num {
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--primary);
+    white-space: nowrap;
+    padding-top: 2px;
+    min-width: 52px;
+  }
+  .law-desc {
+    font-size: 14px;
+    line-height: 1.75;
+    color: var(--text);
+  }
+
+  /* ── SOP ── */
+  .sop-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .sop-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .sop-card-header {
+    background: var(--primary);
+    color: #fff;
+    padding: 12px 16px;
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 600;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .sop-card-body { padding: 16px; }
+  .sop-step {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    margin-bottom: 12px;
+  }
+  .sop-step:last-child { margin-bottom: 0; }
+  .step-num {
+    width: 24px; height: 24px;
+    background: var(--accent);
+    color: var(--dark);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .step-text { font-size: 13px; line-height: 1.7; color: var(--text); }
+  .step-text .arrow { color: var(--primary); font-weight: 600; }
+
+  /* ── RED FLAG ── */
+  .flag-list { display: flex; flex-direction: column; gap: 10px; }
+  .flag-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    background: #fff;
+    border: 1px solid #fcd4d4;
+    border-left: 4px solid var(--red-flag);
+    border-radius: 0 8px 8px 0;
+    padding: 13px 16px;
+  }
+  .flag-check {
+    width: 20px; height: 20px;
+    border: 2px solid #e0b4b4;
+    border-radius: 4px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    background: #fff;
+  }
+  .flag-text { font-size: 14px; line-height: 1.7; color: var(--text); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--dark);
+    padding: 32px 24px;
+    text-align: center;
+  }
+  .footer-brand {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 15px;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 6px;
+  }
+  .footer-handle {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+  }
+  .footer-divider {
+    width: 48px;
+    height: 2px;
+    background: var(--accent);
+    margin: 16px auto;
+    border-radius: 2px;
+    opacity: 0.5;
+  }
+  .footer-copy {
+    font-size: 12px;
+    color: rgba(255,255,255,0.3);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .hero { padding: 44px 20px 36px; }
+    .section { padding: 32px 16px; }
+    .section.alt { padding: 32px 16px; }
+    .sop-grid { grid-template-columns: 1fr; }
+    .miscon-row {
+      grid-template-columns: 1fr;
+    }
+    .col.wrong { border-right: none; border-bottom: 1px solid var(--border); }
+    .core-table thead th { font-size: 12px; padding: 10px 10px; }
+    .core-table tbody td { padding: 10px 10px; font-size: 13px; }
+  }
+
+  /* ── DIVIDER ── */
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+</style>
+</head>
+<body>
+
+<!-- ① HEADER -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="day-badge">
+      <span class="day-num">DAY 01</span>
+      <span class="day-tag">第一章｜使用區分</span>
+    </div>
+    <h1 class="hero-title">你家哪裡<span class="accent">是你的</span>？</h1>
+    <p class="hero-sub">搞懂專有部分 vs 共用部分，避開最常見的住戶地雷</p>
+  </div>
+</header>
+
+<!-- ② 核心知識表格 -->
+<div class="section">
+  <div class="section-label">
+    <div class="icon">📋</div>
+    <h2>核心知識｜四種空間類型一次看懂</h2>
+  </div>
+  <div style="overflow-x:auto;">
+    <table class="core-table">
+      <thead>
+        <tr>
+          <th>類型</th>
+          <th>是什麼</th>
+          <th>誰說了算</th>
+          <th>修繕費誰出</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>專有部分</td>
+          <td>你自己登記的那戶<br>（含室內空間、陽台登記部分）</td>
+          <td>你自己</td>
+          <td>你自己負擔</td>
+        </tr>
+        <tr>
+          <td>共用部分</td>
+          <td>走廊、樓梯、電梯、<br>外牆、屋頂、地面層</td>
+          <td>全體住戶共同決定</td>
+          <td>公共基金或按持分比例分攤</td>
+        </tr>
+        <tr>
+          <td>約定專用部分</td>
+          <td>原是共用，約定給特定人用<br>（如停車位）</td>
+          <td>依規約或區分所有權人會議決議</td>
+          <td>使用人自行負擔</td>
+        </tr>
+        <tr>
+          <td>約定共用部分</td>
+          <td>原是專有，約定給大家共用</td>
+          <td>依規約約定</td>
+          <td>依規約或決議</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ③ 常見誤解對照表 -->
+<div class="section alt">
+  <div class="inner">
+    <div class="section-label">
+      <div class="icon">💬</div>
+      <h2>常見誤解對照表</h2>
+    </div>
+    <div style="border: 1px solid var(--border); border-radius: 10px; overflow: hidden;">
+      <div class="miscon-row header">
+        <div class="col" style="color:#fff;">❌ 很多人以為</div>
+        <div class="col" style="color:#fff; border-left:1px solid rgba(255,255,255,0.2);">✅ 實際上是</div>
+      </div>
+      <div class="miscon-row">
+        <div class="col wrong">門口走廊是我家的延伸，我可以放東西</div>
+        <div class="col right">走廊是共用部分，不能堆雜物，也不能做約定專用</div>
+      </div>
+      <div class="miscon-row">
+        <div class="col wrong">頂樓住戶可以「自己用」屋頂平台</div>
+        <div class="col right">屋頂是共用部分，沒有規約授權就不能獨占</div>
+      </div>
+      <div class="miscon-row">
+        <div class="col wrong">外牆我想漆什麼顏色就漆什麼</div>
+        <div class="col right">外牆是共用部分，不能擅自變更構造或顏色</div>
+      </div>
+      <div class="miscon-row">
+        <div class="col wrong">停車位我買了就是我的，我說了算</div>
+        <div class="col right">停車位通常為約定專用，使用方式仍受規約限制</div>
+      </div>
+      <div class="miscon-row">
+        <div class="col wrong">隔壁漏水打穿牆，修繕費他全出</div>
+        <div class="col right">共同壁維修費由兩側區分所有權人共同負擔<br>（除非可歸責單方）</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ④ 法規依據 -->
+<div class="section">
+  <div class="section-label">
+    <div class="icon">⚖️</div>
+    <h2>相關法規依據｜《公寓大廈管理條例》</h2>
+  </div>
+  <div class="law-list">
+    <div class="law-item">
+      <div class="law-num">第 3 條</div>
+      <div class="law-desc">定義專有部分、共用部分、約定專用部分、約定共用部分四種類型</div>
+    </div>
+    <div class="law-item">
+      <div class="law-num">第 4 條</div>
+      <div class="law-desc">區分所有權人對專有部分，得自由使用、收益、處分，並排除他人干涉</div>
+    </div>
+    <div class="law-item">
+      <div class="law-num">第 5 條</div>
+      <div class="law-desc">專有部分之使用，不得妨害建築物正常使用及違反區分所有權人共同利益</div>
+    </div>
+    <div class="law-item">
+      <div class="law-num">第 7 條</div>
+      <div class="law-desc">共用部分不得獨立做專有部分；走廊、樓梯、主要構造等，連約定專用都不行</div>
+    </div>
+    <div class="law-item">
+      <div class="law-num">第 8 條</div>
+      <div class="law-desc">外牆面、樓頂平台等，未依規約或區分所有權人會議決議完成報備，不得擅自變更構造、顏色</div>
+    </div>
+    <div class="law-item">
+      <div class="law-num">第 9 條</div>
+      <div class="law-desc">住戶對共用部分，應依設置目的及通常使用方法使用；違反者管委會可制止並請求主管機關處理</div>
+    </div>
+    <div class="law-item">
+      <div class="law-num">第 10 條</div>
+      <div class="law-desc">專有部分修繕費由該區分所有權人自負；共用部分修繕由管理委員會負責，費用由公共基金或按持分比例分攤</div>
+    </div>
+    <div class="law-item">
+      <div class="law-num">第 12 條</div>
+      <div class="law-desc">共同壁及樓地板維修費，由雙方區分所有權人共同負擔（可歸責單方者由該方負擔）</div>
+    </div>
+    <div class="law-item">
+      <div class="law-num">第 49 條</div>
+      <div class="law-desc">違反第 5、8、9 條等規定者，可處新臺幣 4 萬元以上 20 萬元以下罰鍰</div>
+    </div>
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ⑤ 處理 SOP -->
+<div class="section alt">
+  <div class="inner">
+    <div class="section-label">
+      <div class="icon">🗺️</div>
+      <h2>處理 SOP</h2>
+    </div>
+    <div class="sop-grid">
+      <div class="sop-card">
+        <div class="sop-card-header">🏠 住戶版｜我家哪裡是我的？</div>
+        <div class="sop-card-body">
+          <div class="sop-step">
+            <div class="step-num">1</div>
+            <div class="step-text">查使用執照竣工圖<br><span class="arrow">→</span> 登記在你名下的範圍 ＝ 專有部分</div>
+          </div>
+          <div class="sop-step">
+            <div class="step-num">2</div>
+            <div class="step-text">看規約第一章「使用區分」<br><span class="arrow">→</span> 是否有約定專用或約定共用的說明</div>
+          </div>
+          <div class="sop-step">
+            <div class="step-num">3</div>
+            <div class="step-text">發生爭議時<br><span class="arrow">→</span> 先看條文 → 再看規約 → 再找管委會協調</div>
+          </div>
+        </div>
+      </div>
+      <div class="sop-card">
+        <div class="sop-card-header">🏢 委員版｜共用部分被占用怎麼辦？</div>
+        <div class="sop-card-body">
+          <div class="sop-step">
+            <div class="step-num">1</div>
+            <div class="step-text">確認該空間屬性（共用 / 約定專用）</div>
+          </div>
+          <div class="sop-step">
+            <div class="step-num">2</div>
+            <div class="step-text">口頭通知 + 公告，說明法規依據<br><span class="arrow">（第 7 條、第 9 條）</span></div>
+          </div>
+          <div class="sop-step">
+            <div class="step-num">3</div>
+            <div class="step-text">書面催告，要求限期改善</div>
+          </div>
+          <div class="sop-step">
+            <div class="step-num">4</div>
+            <div class="step-text">逾期未改善<br><span class="arrow">→</span> 報請主管機關或訴請法院（第 9 條第 4 項）</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ⑥ 紅旗確認清單 -->
+<div class="section">
+  <div class="section-label">
+    <div class="icon">🚩</div>
+    <h2>紅旗確認清單｜這些行為要注意！</h2>
+  </div>
+  <div class="flag-list">
+    <div class="flag-item">
+      <div class="flag-check"></div>
+      <div class="flag-text">在走廊、樓梯間堆放雜物或私設柵欄</div>
+    </div>
+    <div class="flag-item">
+      <div class="flag-check"></div>
+      <div class="flag-text">擅自使用屋頂平台、外牆裝設鐵窗或廣告物</div>
+    </div>
+    <div class="flag-item">
+      <div class="flag-check"></div>
+      <div class="flag-text">主張停車位是「我的」但拿不出規約依據</div>
+    </div>
+    <div class="flag-item">
+      <div class="flag-check"></div>
+      <div class="flag-text">改裝室內隔間時打穿承重牆（涉及主要構造）</div>
+    </div>
+    <div class="flag-item">
+      <div class="flag-check"></div>
+      <div class="flag-text">拒絕管委會進入專有部分維修共用管線</div>
+    </div>
+    <div class="flag-item">
+      <div class="flag-check"></div>
+      <div class="flag-text">逾期未清除共用部分占用物</div>
+    </div>
+  </div>
+</div>
+
+<!-- ⑦ FOOTER -->
+<footer>
+  <div class="footer-brand">寶哥說物業管理小常識</div>
+  <div class="footer-handle">@bensonhsu0205</div>
+  <div class="footer-divider"></div>
+  <div class="footer-copy">《公寓大廈管理條例》民國 111 年 05 月 11 日修正版</div>
+</footer>
+
+</body>
+</html>
