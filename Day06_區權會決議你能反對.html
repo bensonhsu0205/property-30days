@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 06｜區權會決議你能反對？ — 寶哥說物業管理小常識</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #1A6E8E;
+    --accent: #5BC8E8;
+    --dark: #0a1628;
+    --text: #0D1F2D;
+    --bg: #FFFFFF;
+    --bg-alt: #F0F8FC;
+    --border: #C8E6F0;
+    --red-flag: #E84855;
+    --success: #2ECC71;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.75;
+    font-size: 15px;
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    background: linear-gradient(135deg, var(--dark) 0%, #0e2840 40%, var(--primary) 100%);
+    color: #fff;
+    padding: 48px 24px 52px;
+    position: relative;
+    overflow: hidden;
+  }
+  .site-header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 320px; height: 320px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(91,200,232,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .site-header::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: 20%;
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(26,110,142,0.3) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .header-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .day-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+  .day-num {
+    background: var(--accent);
+    color: var(--dark);
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 900;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    padding: 4px 12px;
+    border-radius: 4px;
+  }
+  .chapter-tag {
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    border: 1px solid rgba(91,200,232,0.45);
+    padding: 3px 10px;
+    border-radius: 4px;
+  }
+
+  .header-title {
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 900;
+    font-size: clamp(26px, 5vw, 42px);
+    line-height: 1.3;
+    letter-spacing: 0.03em;
+    color: #fff;
+    margin-bottom: 14px;
+  }
+  .header-title .highlight {
+    color: var(--accent);
+  }
+
+  .header-sub {
+    font-size: 14px;
+    color: rgba(255,255,255,0.72);
+    font-weight: 300;
+    letter-spacing: 0.04em;
+    line-height: 1.6;
+  }
+
+  /* ── MAIN ── */
+  main {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+  }
+
+  /* ── SECTION ── */
+  .section {
+    padding: 44px 0 0;
+  }
+  .section-alt {
+    background: var(--bg-alt);
+    margin: 44px -20px 0;
+    padding: 40px 20px;
+  }
+
+  .section-title {
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--primary);
+    margin-bottom: 22px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-title::before {
+    content: '';
+    display: block;
+    width: 4px;
+    height: 22px;
+    background: linear-gradient(180deg, var(--accent), var(--primary));
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  /* ── TABLE ── */
+  .table-wrap {
+    overflow-x: auto;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 12px rgba(26,110,142,0.07);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  thead th {
+    background: var(--primary);
+    color: #fff;
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 600;
+    font-size: 13px;
+    padding: 13px 16px;
+    text-align: left;
+    letter-spacing: 0.05em;
+  }
+  thead th:first-child { border-radius: 9px 0 0 0; }
+  thead th:last-child  { border-radius: 0 9px 0 0; }
+  tbody tr:nth-child(even) { background: var(--bg-alt); }
+  tbody tr:nth-child(odd)  { background: #fff; }
+  tbody td {
+    padding: 13px 16px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    line-height: 1.65;
+    color: var(--text);
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  .td-label {
+    font-weight: 700;
+    color: var(--primary);
+    white-space: nowrap;
+    font-size: 13px;
+  }
+  .td-note {
+    font-size: 12.5px;
+    color: #5a7a88;
+  }
+
+  /* ── MISUNDERSTANDING TABLE ── */
+  .myth-table tbody tr td:first-child {
+    color: var(--red-flag);
+    font-weight: 600;
+  }
+  .myth-table tbody tr td:last-child {
+    color: #1a6e3b;
+    font-weight: 500;
+  }
+
+  /* ── LAW TABLE ── */
+  .law-article {
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 700;
+    color: var(--primary);
+    white-space: nowrap;
+    font-size: 14px;
+  }
+  .law-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-bottom: 4px;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── SOP ── */
+  .sop-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  @media (max-width: 640px) {
+    .sop-grid { grid-template-columns: 1fr; }
+  }
+  .sop-card {
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(26,110,142,0.06);
+  }
+  .sop-header {
+    background: linear-gradient(135deg, var(--primary), #1a8aae);
+    color: #fff;
+    padding: 14px 18px;
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 700;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .sop-header .icon {
+    font-size: 18px;
+  }
+  .sop-body {
+    padding: 16px 18px;
+    background: #fff;
+  }
+  .sop-step {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px;
+    align-items: flex-start;
+  }
+  .sop-step:last-child { margin-bottom: 0; }
+  .step-num {
+    background: var(--accent);
+    color: var(--dark);
+    font-weight: 900;
+    font-size: 11px;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .step-text {
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--text);
+  }
+  .step-text strong {
+    color: var(--primary);
+  }
+
+  /* ── RED FLAGS ── */
+  .checklist {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 13px 16px;
+    font-size: 14px;
+    line-height: 1.6;
+    transition: box-shadow 0.2s;
+  }
+  .checklist li:hover {
+    box-shadow: 0 3px 12px rgba(26,110,142,0.1);
+  }
+  .check-box {
+    width: 20px; height: 20px;
+    border: 2px solid var(--red-flag);
+    border-radius: 5px;
+    flex-shrink: 0;
+    margin-top: 1px;
+    cursor: pointer;
+    position: relative;
+    transition: background 0.2s, border-color 0.2s;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .check-box.checked {
+    background: var(--success);
+    border-color: var(--success);
+  }
+  .check-box.checked::after {
+    content: '✓';
+    color: #fff;
+    font-size: 13px;
+    font-weight: 900;
+  }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    background: var(--dark);
+    padding: 36px 24px;
+    text-align: center;
+    margin-top: 60px;
+  }
+  .footer-brand {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 6px;
+    letter-spacing: 0.05em;
+  }
+  .footer-handle {
+    color: var(--accent);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+  }
+  .footer-line {
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    margin: 16px auto;
+    border-radius: 2px;
+  }
+  .footer-copy {
+    font-size: 11.5px;
+    color: rgba(255,255,255,0.38);
+    letter-spacing: 0.04em;
+  }
+
+  /* ── KEY HIGHLIGHT ── */
+  .key-callout {
+    background: linear-gradient(135deg, rgba(26,110,142,0.08), rgba(91,200,232,0.06));
+    border-left: 4px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    padding: 14px 18px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.7;
+  }
+  .key-callout strong {
+    color: var(--primary);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .site-header { padding: 36px 18px 42px; }
+    .section-alt { margin: 44px -20px 0; padding: 36px 18px; }
+    table { font-size: 13px; }
+    thead th, tbody td { padding: 10px 12px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="day-badge">
+      <span class="day-num">DAY 06</span>
+      <span class="chapter-tag">第二章 ｜ 區分所有權人會議</span>
+    </div>
+    <h1 class="header-title">
+      區權會決議你能<span class="highlight">反對</span>？<br>你真的有7天窗口
+    </h1>
+    <p class="header-sub">重新召集的決議不是通過就算數，收到紀錄那刻起你的時間才開始跑</p>
+  </div>
+</header>
+
+<!-- MAIN -->
+<main>
+
+  <!-- 核心知識表格 -->
+  <section class="section">
+    <h2 class="section-title">核心知識</h2>
+    <div class="key-callout">
+      很多人以為開完會就定了。但《公寓大廈管理條例》第32條有個機制只有一種情況才有效：<strong>「重新召集」的區權會決議</strong>，送達紀錄後，你還有 <strong>7天書面反對</strong> 的窗口。
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:26%">項目</th>
+            <th style="width:42%">說明</th>
+            <th style="width:32%">常見問題</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="td-label">什麼是重新召集會議？</td>
+            <td>第一次區權會因出席人數不足或未達決議門檻，針對同一議案再次召集的會議</td>
+            <td class="td-note">「這次是第幾次開這個議案？」要先確認</td>
+          </tr>
+          <tr>
+            <td class="td-label">重新召集的決議門檻</td>
+            <td>只需 1/5 以上區權人出席（至少3人），過半數同意即可通過</td>
+            <td class="td-note">比正式區權會低很多，容易通過，更要注意</td>
+          </tr>
+          <tr>
+            <td class="td-label">7天反對窗口</td>
+            <td>紀錄<strong>送達你手上起算7天</strong>，可書面向管委會表示反對意見</td>
+            <td class="td-note">只有重新召集的決議才有這個機制</td>
+          </tr>
+          <tr>
+            <td class="td-label">反對要達到幾人才有效？</td>
+            <td>書面反對需超過<strong>全體區權人半數以上</strong>（人數+比例），決議才算不成立</td>
+            <td class="td-note">是全體人數，不是只算出席的人</td>
+          </tr>
+          <tr>
+            <td class="td-label">正式區權會的決議呢？</td>
+            <td>正式區權會（第31條）通過的決議，<strong>沒有7天反對機制</strong></td>
+            <td class="td-note">對正式決議有異議，需從程序面主張</td>
+          </tr>
+          <tr>
+            <td class="td-label">某些決議通過了也不算數</td>
+            <td>涉及個人專有部分變更、屋頂廣告設置等，需另行取得當事人同意，否則決議不生效力</td>
+            <td class="td-note">見第33條，逐款確認是否有你的情況</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 常見誤解對照表 -->
+  <div class="section-alt">
+    <div style="max-width:860px;margin:0 auto;">
+      <h2 class="section-title">常見誤解對照</h2>
+      <div class="table-wrap">
+        <table class="myth-table">
+          <thead>
+            <tr>
+              <th style="width:48%">❌ 誤解</th>
+              <th style="width:52%">✅ 正確認知</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>「開完會我沒去，決議就是定了」</td>
+              <td>重新召集的決議，送達後你還有7天可以書面反對</td>
+            </tr>
+            <tr>
+              <td>「我一個人反對有什麼用」</td>
+              <td>反對要超過全體半數才有效，一個人不夠，但可以聯合鄰居</td>
+            </tr>
+            <tr>
+              <td>「只要多數人同意，什麼都能決議」</td>
+              <td>第33條規定，部分事項即使決議通過，未取得特定人同意仍不生效力</td>
+            </tr>
+            <tr>
+              <td>「7天從開會當天算」</td>
+              <td>從<strong>會議紀錄送達你手上</strong>的那天起算，不是開會日</td>
+            </tr>
+            <tr>
+              <td>「電話打給主委說反對就好了」</td>
+              <td>必須<strong>書面</strong>表示，口頭反對法律上不算</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- 相關法規依據 -->
+  <section class="section">
+    <h2 class="section-title">相關法規依據</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:18%">條號</th>
+            <th>內容摘要</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="law-badge">第31條</div><br>
+              <span class="law-article">正式區權會<br>決議門檻</span>
+            </td>
+            <td>須有區分所有權人<strong>3/2以上</strong>及其區分所有權比例<strong>合計3/2以上</strong>出席，以出席人數<strong>4/3以上</strong>及其區分所有權比例占出席人數4/3以上之同意行之</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="law-badge">第32條第1項</div><br>
+              <span class="law-article">重新召集<br>開議門檻</span>
+            </td>
+            <td>須區分所有權人<strong>3人並1/5以上</strong>出席，以出席人數<strong>過半數</strong>同意作成決議（門檻明顯較低）</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="law-badge">第32條第2項</div><br>
+              <span class="law-article">⭐ 7天反對<br>機制核心</span>
+            </td>
+            <td>重新召集決議之紀錄送達後，各區分所有權人得於<strong>7日內</strong>以書面表示反對意見；書面反對未超過全體區分所有權人及其區分所有權比例合計<strong>半數</strong>時，該決議視為成立</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="law-badge">第32條第3項</div><br>
+              <span class="law-article">決議成立後<br>通知義務</span>
+            </td>
+            <td>會議主席應於決議成立後<strong>10日內</strong>以書面送達全體區分所有權人並公告</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="law-badge">第33條</div><br>
+              <span class="law-article">決議不生<br>效力情形</span>
+            </td>
+            <td>以下情形即使決議通過仍不生效力：①專有部分轉為約定共用，需該區權人同意；②屋頂或各樓層設置廣告物、強波設備，需頂層或該樓層區權人同意；③約定專用部分變更，需使用者同意</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="law-badge">第34條第1項</div><br>
+              <span class="law-article">會議紀錄<br>送達期限</span>
+            </td>
+            <td>區權會會議紀錄應於<strong>會後15日內</strong>送達各區分所有權人並公告；7天反對期從收到日起算</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 處理 SOP -->
+  <div class="section-alt">
+    <div style="max-width:860px;margin:0 auto;">
+      <h2 class="section-title">處理 SOP</h2>
+      <div class="sop-grid">
+
+        <div class="sop-card">
+          <div class="sop-header">
+            <span class="icon">🏠</span>
+            住戶版｜我想在7天內反對
+          </div>
+          <div class="sop-body">
+            <div class="sop-step">
+              <div class="step-num">1</div>
+              <div class="step-text">確認這次是「<strong>重新召集</strong>」的會議，不是第一次正式區權會</div>
+            </div>
+            <div class="sop-step">
+              <div class="step-num">2</div>
+              <div class="step-text">看清楚紀錄的<strong>送達日期</strong>，從那天開始算7天（含假日）</div>
+            </div>
+            <div class="sop-step">
+              <div class="step-num">3</div>
+              <div class="step-text">準備書面反對意見：白紙寫明<strong>姓名、戶號、反對議案、反對理由</strong>，簽名</div>
+            </div>
+            <div class="sop-step">
+              <div class="step-num">4</div>
+              <div class="step-text">在7天內<strong>親送或掛號寄至管委會</strong>，索取收件回執存底</div>
+            </div>
+            <div class="sop-step">
+              <div class="step-num">5</div>
+              <div class="step-text">聯絡其他住戶，確認反對人數是否<strong>超過全體半數</strong></div>
+            </div>
+            <div class="sop-step">
+              <div class="step-num">6</div>
+              <div class="step-text">超過半數後，該決議<strong>不成立</strong>，管委會不得執行</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sop-card">
+          <div class="sop-header">
+            <span class="icon">📋</span>
+            委員版｜收到反對書後怎麼處理
+          </div>
+          <div class="sop-body">
+            <div class="sop-step">
+              <div class="step-num">1</div>
+              <div class="step-text">統計反對人數及其<strong>區分所有權比例合計</strong>是否超過全體半數</div>
+            </div>
+            <div class="sop-step">
+              <div class="step-num">2</div>
+              <div class="step-text"><strong>若未超過半數</strong>：決議視為成立，依第32條第3項於10日內書面通知全體並公告</div>
+            </div>
+            <div class="sop-step">
+              <div class="step-num">3</div>
+              <div class="step-text"><strong>若超過半數</strong>：決議不成立，通知所有區權人，視需要重新提案</div>
+            </div>
+            <div class="sop-step">
+              <div class="step-num">4</div>
+              <div class="step-text">保留所有<strong>書面反對文件</strong>，與會議紀錄、簽名簿一併存檔備查</div>
+            </div>
+            <div class="sop-step">
+              <div class="step-num">5</div>
+              <div class="step-text">如有爭議，以<strong>郵戳或簽收日期</strong>為送達日期之認定依據</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 紅旗確認清單 -->
+  <section class="section">
+    <h2 class="section-title">🚩 紅旗確認清單</h2>
+    <p style="font-size:14px;color:#5a7a88;margin-bottom:18px;">收到區權會紀錄後，先逐項確認這六點（可點選打勾）</p>
+    <ul class="checklist" id="checklist">
+      <li>
+        <div class="check-box" onclick="this.classList.toggle('checked')"></div>
+        <span>這次是「重新召集」的會議嗎？（只有這種才有7天反對機制）</span>
+      </li>
+      <li>
+        <div class="check-box" onclick="this.classList.toggle('checked')"></div>
+        <span>紀錄上有明確的「<strong>送達日期</strong>」嗎？（沒有的話要主動向管委會確認）</span>
+      </li>
+      <li>
+        <div class="check-box" onclick="this.classList.toggle('checked')"></div>
+        <span>決議內容有沒有涉及你的<strong>專有部分或所在樓層</strong>的設備變更？（確認第33條是否適用）</span>
+      </li>
+      <li>
+        <div class="check-box" onclick="this.classList.toggle('checked')"></div>
+        <span>你的反對意見是「<strong>書面</strong>」而非口頭？（口頭反對法律上不算）</span>
+      </li>
+      <li>
+        <div class="check-box" onclick="this.classList.toggle('checked')"></div>
+        <span>你送交反對書時有沒有<strong>取得管委會收件確認</strong>？（建議掛號或親送索取回執）</span>
+      </li>
+      <li>
+        <div class="check-box" onclick="this.classList.toggle('checked')"></div>
+        <span>你有沒有確認反對人數是否達到<strong>全體區分所有權人過半數</strong>（人數與比例兩者均須超過）？</span>
+      </li>
+    </ul>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-brand">寶哥說物業管理小常識</div>
+  <div class="footer-handle">@bensonhsu0205</div>
+  <div class="footer-line"></div>
+  <div class="footer-copy">本資料依《公寓大廈管理條例》民國111年05月11日修正版製作，僅供知識參考</div>
+</footer>
+
+</body>
+</html>
