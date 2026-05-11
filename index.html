@@ -542,12 +542,12 @@ const CONFIG = {
 <nav class="topnav">
   <div class="topnav-brand">寶哥說物業管理小常識</div>
   <div class="topnav-weeks" id="topnav-weeks">
-    <a href="#week-1" class="topnav-link">費用透明</a>
-    <a href="#week-2" class="topnav-link">法規權利</a>
-    <a href="#week-3" class="topnav-link">設備保養</a>
-    <a href="#week-4" class="topnav-link">物業管理</a>
-    <a href="#week-5" class="topnav-link">裝修施工</a>
-    <a href="#week-6" class="topnav-link">社區溝通</a>
+    <a href="#week-1" class="topnav-link">總則與權利</a>
+    <a href="#week-2" class="topnav-link">組織與決議</a>
+    <a href="#week-3" class="topnav-link">財務基金</a>
+    <a href="#week-4" class="topnav-link">管理實務</a>
+    <a href="#week-5" class="topnav-link">生活規約</a>
+    <a href="#week-6" class="topnav-link">經驗總結</a>
   </div>
   <a href="https://www.instagram.com/bensonhsu0205" target="_blank" class="topnav-ig">
     <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
@@ -616,12 +616,12 @@ const CONFIG = {
 <div class="week-nav">
   <div class="week-nav-inner">
     <div class="week-tabs" id="week-tabs">
-      <button class="week-tab active" onclick="scrollToWeek(1,this)">第一週｜費用透明</button>
-      <button class="week-tab" onclick="scrollToWeek(2,this)">第二週｜法規權利</button>
-      <button class="week-tab" onclick="scrollToWeek(3,this)">第三週｜設備保養</button>
-      <button class="week-tab" onclick="scrollToWeek(4,this)">第四週｜物業管理</button>
-      <button class="week-tab" onclick="scrollToWeek(5,this)">第五週｜裝修施工</button>
-      <button class="week-tab" onclick="scrollToWeek(6,this)">第六週｜社區溝通</button>
+      <button class="week-tab active" onclick="scrollToWeek(1,this)">第一週｜總則與權利</button>
+      <button class="week-tab" onclick="scrollToWeek(2,this)">第二週｜組織與決議</button>
+      <button class="week-tab" onclick="scrollToWeek(3,this)">第三週｜財務基金</button>
+      <button class="week-tab" onclick="scrollToWeek(4,this)">第四週｜管理實務</button>
+      <button class="week-tab" onclick="scrollToWeek(5,this)">第五週｜生活規約</button>
+      <button class="week-tab" onclick="scrollToWeek(6,this)">第六週｜經驗總結</button>
     </div>
   </div>
 </div>
@@ -650,74 +650,75 @@ const CONFIG = {
 const WEEKS = [
   {
     week: 1,
-    theme: '費用與財務透明',
-    desc: 'Day 1–5',
+    theme: '總則與權利義務',
+    desc: '釐清空間與資產邊界｜Day 1–5',
     days: [
-      { day: 1,  title: '你家哪裡是你的？',       file: 'Day01_你家哪裡是你的_3.html' },
-      { day: 2,  title: '管理費漲你敢說不？',    file: 'Day02_管理費漲你敢說不.html' },
-      { day: 3,  title: '收支報告你看過嗎？',    file: 'Day03_收支報告你看過嗎.html' },
-      { day: 4,  title: '特別公積金能不繳？',    file: 'Day04_特別公積金能不繳.html' },
-      { day: 5,  title: '管理費誰說了算？',      file: 'Day05_管理費誰說了算.html' },
+      { day: 1,  title: '你家哪裡真的是你的？',       file: 'Day01_xxx.html' },
+      { day: 2,  title: '停車位算公共空間嗎？',         file: 'Day02_xxx.html' },
+      { day: 3,  title: '公設比高就是被坑？',           file: 'Day03_xxx.html' },
+      { day: 4,  title: '頂樓可以私自架設基地台嗎？',   file: 'Day04_xxx.html' },
+      { day: 5,  title: '露台戶是特權嗎？',             file: 'Day05_xxx.html' },
     ]
   },
   {
     week: 2,
-    theme: '法規與住戶權利',
-    desc: 'Day 6–10',
+    theme: '管理組織與決議',
+    desc: '參與社區治理的權力｜Day 6–10',
     days: [
-      { day: 6,  title: '區權會可以不去嗎？',    file: 'Day06_區權會可以不去嗎.html' },
-      { day: 7,  title: '住戶能要求管委會嗎？',  file: 'Day07_住戶能要求管委會嗎.html' },
-      { day: 8,  title: '規約亂改你能反對？',    file: 'Day08_規約亂改你能反對.html' },
-      { day: 9,  title: '管委會可以罰你錢？',    file: 'Day09_管委會可以罰你錢.html' },
-      { day: 10, title: '檢舉鄰居有人管嗎？',    file: 'Day10_檢舉鄰居有人管嗎.html' },
+      { day: 6,  title: '區權會可以不去嗎？',           file: 'Day06_xxx.html' },
+      { day: 7,  title: '區權會決議你能反對？',         file: 'Day07_xxx.html' },
+      { day: 8,  title: '臨時動議合法嗎？',             file: 'Day08_xxx.html' },
+      { day: 9,  title: '開會人數不夠怎麼辦？',         file: 'Day09_xxx.html' },
+      { day: 10, title: '委員可以連任幾屆？',           file: 'Day10_xxx.html' },
     ]
   },
   {
     week: 3,
-    theme: '設備保養與維護',
-    desc: 'Day 11–15',
+    theme: '財務與公共基金',
+    desc: '錢的事最重要，透明才信任｜Day 11–15',
     days: [
-      { day: 11, title: '機電保養能省略嗎？',    file: 'Day11_機電保養能省略嗎.html' },
-      { day: 12, title: '電梯保養了還壞掉？',    file: 'Day12_電梯保養了還壞掉.html' },
-      { day: 13, title: '水塔多久沒洗過了？',    file: 'Day13_水塔多久沒洗過了.html' },
-      { day: 14, title: '消防設備要保養嗎？',    file: 'Day14_消防設備要保養嗎.html' },
-      { day: 15, title: '設備壞了誰來出錢？',    file: 'Day15_設備壞了誰來出錢.html' },
+      { day: 11, title: '管理費到底花去哪？',           file: 'Day11_xxx.html' },
+      { day: 12, title: '可以拒絕管理費調漲嗎？',       file: 'Day12_xxx.html' },
+      { day: 13, title: '公共基金跟管理費差在哪？',     file: 'Day13_xxx.html' },
+      { day: 14, title: '公基金不夠怎麼辦？',           file: 'Day14_xxx.html' },
+      { day: 15, title: '社區財務報表隱藏的警訊？',     file: 'Day15_xxx.html' },
     ]
   },
   {
     week: 4,
-    theme: '物業公司選擇與管理',
-    desc: 'Day 16–20',
+    theme: '管理服務人與實務',
+    desc: '管理人員的應對與品質｜Day 16–20',
     days: [
-      { day: 16, title: '物業費高低差在哪？',    file: 'Day16_物業費高低差在哪.html' },
-      { day: 17, title: '換了物業還是爛？',      file: 'Day17_換了物業還是爛.html' },
-      { day: 18, title: '簽約前你確認了嗎？',    file: 'Day18_簽約前你確認了嗎.html' },
-      { day: 19, title: '物業不做事怎麼辦？',    file: 'Day19_物業不做事怎麼辦.html' },
-      { day: 20, title: '自管委外哪個好？',      file: 'Day20_自管委外哪個好.html' },
+      { day: 16, title: '管理中心到底都在忙什麼？',     file: 'Day16_xxx.html' },
+      { day: 17, title: '管理員不配合該如何有效溝通',   file: 'Day17_xxx.html' },
+      { day: 18, title: '施工時間誰說了算？',           file: 'Day18_xxx.html' },
+      { day: 19, title: '裝修垃圾誰負責？',             file: 'Day19_xxx.html' },
+      { day: 20, title: '物業管理費越低越好？',         file: 'Day20_xxx.html' },
     ]
   },
   {
     week: 5,
-    theme: '裝修施工管理',
-    desc: 'Day 21–25',
+    theme: '生活規約與處置',
+    desc: '鄰里糾紛與居住品質｜Day 21–25',
     days: [
-      { day: 21, title: '裝潢保護共用省錢？',    file: 'Day21_裝潢保護共用省錢.html' },
-      { day: 22, title: '施工時間誰說了算？',    file: 'Day22_施工時間誰說了算.html' },
-      { day: 23, title: '裝修垃圾誰來負責？',    file: 'Day23_裝修垃圾誰來負責.html' },
-      { day: 24, title: '噪音投訴能停工嗎？',    file: 'Day24_噪音投訴能停工嗎.html' },
-      { day: 25, title: '裝修前要交哪些件？',    file: 'Day25_裝修前要交哪些件.html' },
+      { day: 21, title: '養寵物要經同意嗎？',           file: 'Day21_xxx.html' },
+      { day: 22, title: '公共區域能擺東西嗎？',         file: 'Day22_xxx.html' },
+      { day: 23, title: '鄰居太吵只能忍？',             file: 'Day23_xxx.html' },
+      { day: 24, title: '檢舉鄰居有人管嗎？',           file: 'Day24_xxx.html' },
+      { day: 25, title: '規約亂改你能反對？',           file: 'Day25_xxx.html' },
     ]
   },
   {
     week: 6,
-    theme: '社區溝通與衝突處理',
-    desc: 'Day 26–30',
+    theme: '附則與經驗總結',
+    desc: '從真實案例看未來｜Day 26–31',
     days: [
-      { day: 26, title: '鄰居太吵只能忍嗎？',    file: 'Day26_鄰居太吵只能忍嗎.html' },
-      { day: 27, title: '開會吵架怎麼解？',      file: 'Day27_開會吵架怎麼解.html' },
-      { day: 28, title: '群組爆炸怎麼辦？',      file: 'Day28_群組爆炸怎麼辦.html' },
-      { day: 29, title: '公告沒人看怎麼辦？',    file: 'Day29_公告沒人看怎麼辦.html' },
-      { day: 30, title: '30天你學到了什麼？',    file: 'Day30_30天你學到了什麼.html' },
+      { day: 26, title: '搬進來要簽什麼？',             file: 'Day26_xxx.html' },
+      { day: 27, title: '規約多久更新一次？',           file: 'Day27_xxx.html' },
+      { day: 28, title: '我遇過最誇張的糾紛',           file: 'Day28_xxx.html' },
+      { day: 29, title: '一個決議害慘整棟樓',           file: 'Day29_xxx.html' },
+      { day: 30, title: '30天你學到了什麼？',           file: 'Day30_xxx.html' },
+      { day: 31, title: '【福利】30天知識庫正式上線，你的問題我有解！', file: 'Day31_xxx.html' },
     ]
   }
 ];
@@ -785,7 +786,7 @@ function render(dayMap) {
           <div class="week-num">W${week.week}</div>
           <div class="week-info">
             <h2>${week.theme}</h2>
-            <p>${week.desc}</p>
+            <p>${week.sub || ''} ｜ ${week.desc}</p>
           </div>
         </div>
         <div class="days-grid">${daysHTML}</div>
