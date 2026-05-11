@@ -725,33 +725,41 @@ const WEEKS = [
 const BASE_URL = `https://${CONFIG.github_user}.github.io/${CONFIG.github_repo}/`;
 const API_URL = `https://api.github.com/repos/${CONFIG.github_user}/${CONFIG.github_repo}/contents/`;
 
-// ── 取得已上傳的檔案清單 ──
+// ── 取得已上傳的檔案清單，回傳 { dayNum: actualFilename } ──
 async function getUploadedFiles() {
   try {
     const res = await fetch(API_URL, {
       headers: { 'Accept': 'application/vnd.github.v3+json' }
     });
-    if (!res.ok) return new Set();
+    if (!res.ok) return {};
     const files = await res.json();
-    return new Set(files.map(f => f.name));
+    const dayMap = {};
+    files.forEach(f => {
+      const match = f.name.match(/^Day(\d+)_.*\.html$/i);
+      if (match) {
+        dayMap[parseInt(match[1])] = f.name;
+      }
+    });
+    return dayMap;
   } catch {
-    return new Set();
+    return {};
   }
 }
 
 // ── 渲染 ──
-function render(uploadedFiles) {
+function render(dayMap) {
   const content = document.getElementById('content');
   let unlockedCount = 0;
 
   content.innerHTML = WEEKS.map(week => {
     const daysHTML = week.days.map(d => {
-      const isUnlocked = uploadedFiles.has(d.file);
+      const actualFile = dayMap[d.day];
+      const isUnlocked = !!actualFile;
       if (isUnlocked) unlockedCount++;
 
       if (isUnlocked) {
         return `
-          <a class="day-card unlocked" href="${BASE_URL}${d.file}" target="_blank">
+          <a class="day-card unlocked" href="${BASE_URL}${actualFile}" target="_blank">
             <div class="day-card-top">
               <span class="day-num">DAY ${String(d.day).padStart(2,'0')}</span>
               <span class="day-status">已上線</span>
