@@ -409,6 +409,16 @@
     opacity: 1;
     transform: translateX(0);
   }
+  .day-click-count {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    color: var(--teal);
+    margin-top: 8px;
+    opacity: 0.75;
+  }
+  .day-click-count svg { opacity: 0.7; }
 
   /* ── PROGRESS BAR ── */
   .progress-bar-wrap {
@@ -566,9 +576,7 @@ const CONFIG = {
       <div class="hero-stat"><strong>30</strong><span>天完整內容</span></div>
       <div class="hero-stat"><strong>6</strong><span>大主題</span></div>
       <div class="hero-stat"><strong id="unlocked-count">0</strong><span>篇已上線</span></div>
-      <div class="hero-stat" style="margin-left:0.5rem;padding-left:1.5rem;border-left:1px solid rgba(91,200,232,0.25);">
-        <strong id="view-count">…</strong><span>累計瀏覽</span>
-      </div>
+
     </div>
     <p class="hero-tags-wrap" style="margin-top:0.25rem;">管理費・住戶權利・設備保養・社區衝突・規約・管委會運作</p>
   </div>
@@ -755,13 +763,19 @@ function render(dayMap) {
       if (isUnlocked) unlockedCount++;
 
       if (isUnlocked) {
+        const dayKey = `benson-p30-day${String(d.day).padStart(2,'0')}`;
         return `
-          <a class="day-card unlocked" href="${BASE_URL}${actualFile}" target="_blank">
+          <a class="day-card unlocked" href="${BASE_URL}${actualFile}" target="_blank"
+             onclick="trackDayClick(${d.day}, '${BASE_URL}${actualFile}', event)">
             <div class="day-card-top">
               <span class="day-num">DAY ${String(d.day).padStart(2,'0')}</span>
               <span class="day-status">已上線</span>
             </div>
             <div class="day-title">${d.title}</div>
+            <div class="day-click-count" id="count-day${d.day}">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              <span>載入中…</span>
+            </div>
             <div class="day-arrow">→</div>
           </a>`;
       } else {
@@ -797,6 +811,10 @@ function render(dayMap) {
 
   // 隱藏 loading
   document.getElementById('loading').classList.add('hidden');
+
+  // 載入各天點擊數
+  const unlockedDays = Object.keys(dayMap).map(Number);
+  if (unlockedDays.length > 0) loadDayCounts(unlockedDays);
 }
 
 function scrollToWeek(num, btn) {
@@ -809,19 +827,45 @@ function scrollToWeek(num, btn) {
 // ── 啟動 ──
 getUploadedFiles().then(render);
 
-// ── 瀏覽計數器（countapi.xyz）──
-async function updateViewCount() {
-  try {
-    const res = await fetch('https://countapi.mileshilliard.com/api/v1/hit/bensonhsu0205-property30days-views');
-    const data = await res.json();
-    const el = document.getElementById('view-count');
-    if (el && data.value !== undefined) el.textContent = Number(data.value).toLocaleString();
-  } catch {
-    const el = document.getElementById('view-count');
-    if (el) el.textContent = '—';
+// ── 每日點擊計數 ──
+const COUNT_BASE = 'https://countapi.mileshilliard.com/api/v1';
+
+async function loadDayCounts(unlockedDays) {
+  for (const day of unlockedDays) {
+    const key = `benson-p30-day${String(day).padStart(2,'0')}`;
+    try {
+      const res = await fetch(`${COUNT_BASE}/get/${key}`);
+      const data = await res.json();
+      const el = document.getElementById(`count-day${day}`);
+      if (el) {
+        const count = data.value || 0;
+        el.innerHTML = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg><span>${count} 次點擊</span>`;
+      }
+    } catch {
+      const el = document.getElementById(`count-day${day}`);
+      if (el) el.innerHTML = '';
+    }
   }
 }
-updateViewCount();
+
+function trackDayClick(dayNum, url, e) {
+  e.preventDefault();
+  const key = `benson-p30-day${String(dayNum).padStart(2,'0')}`;
+  const el = document.getElementById(`count-day${dayNum}`);
+  // increment
+  fetch(`${COUNT_BASE}/hit/${key}`)
+    .then(r => r.json())
+    .then(data => {
+      if (el) {
+        const count = data.value || 0;
+        el.innerHTML = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg><span>${count} 次點擊</span>`;
+      }
+    })
+    .catch(() => {});
+  // navigate regardless
+  window.open(url, '_blank');
+}
+
 </script>
 
 </body>
