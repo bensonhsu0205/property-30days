@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 04 頂樓裝基地台賺不賺？｜寶哥說物業管理小常識</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0a1628;
+    --teal: #1A6E8E;
+    --sky: #5BC8E8;
+    --bg: #FFFFFF;
+    --alt: #F0F8FC;
+    --text: #0D1F2D;
+    --muted: #4A6070;
+    --dae: #daeef6;
+    --max: 860px;
+  }
+
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.75;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: linear-gradient(135deg, var(--navy) 0%, #0d2a45 50%, var(--teal) 100%);
+    padding: 48px 0 44px;
+  }
+  header .container {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 24px;
+    text-align: left;
+  }
+  .day-label {
+    display: inline-block;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--sky);
+    background: rgba(91,200,232,0.12);
+    border: 1px solid rgba(91,200,232,0.3);
+    border-radius: 4px;
+    padding: 4px 12px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+  .chapter-label {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 12px;
+    font-weight: 400;
+  }
+  header h1 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: clamp(26px, 5vw, 38px);
+    font-weight: 900;
+    color: #ffffff;
+    line-height: 1.3;
+    margin-bottom: 14px;
+  }
+  header h1 span {
+    color: var(--sky);
+  }
+  .header-sub {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 15px;
+    color: rgba(255,255,255,0.65);
+    font-weight: 400;
+  }
+
+  /* ── SECTION WRAPPER ── */
+  .section {
+    padding: 40px 0;
+    background: var(--bg);
+  }
+  .section.alt {
+    background: var(--alt);
+  }
+  .container {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .section-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--teal);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--sky);
+    display: inline-block;
+  }
+
+  /* ── TABLES ── */
+  .table-wrap {
+    overflow-x: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(10,22,40,0.07);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    min-width: 560px;
+  }
+  thead tr {
+    background: var(--teal);
+    color: #fff;
+  }
+  thead th {
+    padding: 13px 16px;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 700;
+    text-align: left;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+  }
+  tbody tr:nth-child(odd) { background: #fff; }
+  tbody tr:nth-child(even) { background: var(--alt); }
+  tbody tr:hover { background: #e4f3f9; transition: background 0.2s; }
+  td {
+    padding: 13px 16px;
+    vertical-align: top;
+    line-height: 1.65;
+    color: var(--text);
+    border-bottom: 1px solid rgba(91,200,232,0.15);
+  }
+  td:first-child {
+    font-weight: 700;
+    color: var(--teal);
+    white-space: nowrap;
+  }
+
+  /* ── MISCONCEPTION TABLE ── */
+  .mis-table table { min-width: 480px; }
+  .mis-bad { color: #c0392b; font-weight: 700; }
+  .mis-good { color: #1A6E8E; font-weight: 700; }
+
+  /* ── LAW TABLE ── */
+  .law-table td:first-child {
+    white-space: nowrap;
+    font-family: 'Noto Serif TC', serif;
+    font-size: 13px;
+  }
+
+  /* ── CHECKLIST (10題) ── */
+  .checklist {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  @media (max-width: 600px) { .checklist { grid-template-columns: 1fr; } }
+  .checklist li {
+    background: #fff;
+    border: 1px solid rgba(91,200,232,0.3);
+    border-left: 4px solid var(--sky);
+    border-radius: 0 6px 6px 0;
+    padding: 12px 14px;
+    font-size: 14px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    line-height: 1.6;
+  }
+  .checklist li .num {
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 900;
+    color: var(--teal);
+    font-size: 15px;
+    min-width: 22px;
+    margin-top: 1px;
+  }
+
+  /* ── SOP ── */
+  .sop-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .sop-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    background: #fff;
+    border-radius: 8px;
+    padding: 16px 18px;
+    box-shadow: 0 1px 6px rgba(10,22,40,0.06);
+  }
+  .sop-num {
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 900;
+    font-size: 22px;
+    color: var(--sky);
+    min-width: 32px;
+    line-height: 1.2;
+  }
+  .sop-content strong {
+    display: block;
+    font-weight: 700;
+    color: var(--teal);
+    font-size: 15px;
+    margin-bottom: 4px;
+  }
+  .sop-content p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  /* ── RED FLAGS ── */
+  .redflag-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  @media (max-width: 600px) { .redflag-grid { grid-template-columns: 1fr; } }
+  .redflag-item {
+    background: #fff5f5;
+    border: 1px solid #f5c6c6;
+    border-left: 4px solid #e05555;
+    border-radius: 0 6px 6px 0;
+    padding: 12px 14px;
+    font-size: 14px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    line-height: 1.6;
+  }
+  .redflag-icon {
+    font-size: 16px;
+    min-width: 20px;
+    margin-top: 1px;
+  }
+
+  /* ── 寶哥說 ── */
+  .benson-section {
+    background: var(--bg);
+    padding: 36px 0 40px;
+  }
+  .benson-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .benson-label {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--teal);
+    background: var(--bg);
+    margin-bottom: 16px;
+    text-align: left;
+  }
+  .benson-box {
+    background: var(--dae);
+    border-left: 4px solid var(--sky);
+    border-radius: 0 6px 6px 0;
+    padding: 18px 20px;
+  }
+  .benson-box p {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.8;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy);
+    padding: 36px 24px 28px;
+    text-align: center;
+  }
+  .footer-brand {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+  .footer-handle {
+    font-size: 14px;
+    color: var(--sky);
+    margin-bottom: 16px;
+  }
+  .footer-divider {
+    border: none;
+    border-top: 1px solid rgba(91,200,232,0.3);
+    margin: 14px auto;
+    max-width: 560px;
+  }
+  .footer-meta {
+    font-size: 12px;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 4px;
+  }
+  .footer-divider2 {
+    border: none;
+    border-top: 1px solid rgba(91,200,232,0.15);
+    margin: 14px auto;
+    max-width: 560px;
+  }
+  .footer-chapter {
+    font-size: 12px;
+    color: var(--sky);
+    margin-bottom: 16px;
+  }
+  .disclaimer {
+    max-width: 560px;
+    margin: 0 auto;
+    text-align: left;
+  }
+  .disclaimer-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 6px;
+    font-size: 11px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.65;
+  }
+  .disclaimer-row .num {
+    width: 20px;
+    text-align: right;
+    flex-shrink: 0;
+    font-weight: 700;
+  }
+
+  /* ── BACK BUTTON ── */
+  .back-btn {
+    position: fixed;
+    bottom: 24px;
+    left: 20px;
+    background: var(--navy);
+    color: var(--sky);
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 10px 18px 10px 14px;
+    border-radius: 24px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    box-shadow: 0 4px 16px rgba(10,22,40,0.35);
+    transition: transform 0.2s, background 0.2s;
+    z-index: 999;
+  }
+  .back-btn:hover {
+    transform: translateY(-2px);
+    background: #0d2a45;
+  }
+  .back-btn svg {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+  }
+  @media (max-width: 480px) {
+    .back-btn { font-size: 12px; padding: 8px 14px 8px 11px; bottom: 16px; left: 14px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="container">
+    <div class="day-label">DAY 04</div>
+    <div class="chapter-label">第一章｜總則與權利義務篇｜釐清空間與資產邊界</div>
+    <h1>頂樓裝基地台<span>，賺不賺？</span></h1>
+    <p class="header-sub">租金是收入，風險是成本——兩個都算清楚，才叫管理。</p>
+  </div>
+</header>
+
+<!-- 核心知識表格 -->
+<section class="section">
+  <div class="container">
+    <div class="section-title">核心知識表格</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>項目</th>
+            <th>說明</th>
+            <th>常見問題</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>裝設位置</td>
+            <td>屋頂、外牆、其他樓層，同意對象不同</td>
+            <td>管委會直接答應，沒問頂樓住戶</td>
+          </tr>
+          <tr>
+            <td>同意主體</td>
+            <td>屋頂裝設須頂層區分所有權人書面同意</td>
+            <td>口頭同意、事後補簽，都是爭議來源</td>
+          </tr>
+          <tr>
+            <td>租金流向</td>
+            <td>租金須進社區帳戶，公開收支保管</td>
+            <td>租金直接匯給某委員或私帳，大紅旗</td>
+          </tr>
+          <tr>
+            <td>合約必要條款</td>
+            <td>防水、漏水責任、保險、維修、拆除復原、提前終止</td>
+            <td>只簽金額，其餘空白，後面全是吵架題</td>
+          </tr>
+          <tr>
+            <td>收益分配</td>
+            <td>依規約或區權會決議，不自動歸頂樓住戶</td>
+            <td>頂樓住戶以為給同意就能分錢，認知錯誤</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 常見誤解 -->
+<section class="section alt mis-table">
+  <div class="container">
+    <div class="section-title">常見誤解對照表</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>❌ 誤解</th>
+            <th>✅ 正確認知</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="mis-bad">管委會可以自己決定裝</span></td>
+            <td><span class="mis-good">屋頂裝設須頂層住戶書面同意，缺這步無效</span></td>
+          </tr>
+          <tr>
+            <td><span class="mis-bad">頂樓住戶同意就能分租金</span></td>
+            <td><span class="mis-good">同意權與收益分配是兩件事，收益歸社區公共基金</span></td>
+          </tr>
+          <tr>
+            <td><span class="mis-bad">租金進帳就是賺到</span></td>
+            <td><span class="mis-good">未估算風險成本（漏水、維修、保險），可能賠更多</span></td>
+          </tr>
+          <tr>
+            <td><span class="mis-bad">合約交給廠商寫就好</span></td>
+            <td><span class="mis-good">社區方應主動要求列入保護條款，不列就是吃虧</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 法規依據 -->
+<section class="section law-table">
+  <div class="container">
+    <div class="section-title">相關法規依據</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="white-space:nowrap">條號</th>
+            <th>內容摘要</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>第九條第一項</td>
+            <td>公寓大廈周圍上下、外牆面、樓頂平臺及不屬專有部分之防空避難設備，其變更構造、顏色、設置廣告物或其他類似之行為，除應依法令規定辦理外，該公寓大廈規約另有規定或區分所有權人會議已有決議者，應受該規約或決議之限制。</td>
+          </tr>
+          <tr>
+            <td>第九條第四項</td>
+            <td>公寓大廈外牆面、樓頂平臺設置無線電台基地台等類似強波發射設備，設置於屋頂者，應經頂層區分所有權人同意；設置其他樓層者，應經該樓層區分所有權人同意。</td>
+          </tr>
+          <tr>
+            <td>第三十六條第八款</td>
+            <td>管理委員會職務包含公共基金及其他經費之收支、保管及運用。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 合約必問10題 -->
+<section class="section alt">
+  <div class="container">
+    <div class="section-title">合約必問 10 題｜住戶版</div>
+    <ul class="checklist">
+      <li><span class="num">1</span><span>這個合約有沒有經過頂樓住戶書面同意？</span></li>
+      <li><span class="num">2</span><span>租金匯到哪個帳戶？是社區公帳嗎？</span></li>
+      <li><span class="num">3</span><span>租金收入有沒有在財報上公開？</span></li>
+      <li><span class="num">4</span><span>裝設後漏水，誰負責修？費用誰出？</span></li>
+      <li><span class="num">5</span><span>廠商有沒有投保公共意外責任險？</span></li>
+      <li><span class="num">6</span><span>合約期滿或提前終止，設備誰來拆？</span></li>
+      <li><span class="num">7</span><span>拆除後屋頂復原費用誰負擔？</span></li>
+      <li><span class="num">8</span><span>強波輻射有沒有相關說明或檢測報告？</span></li>
+      <li><span class="num">9</span><span>收益怎麼分配？有沒有經過區權會決議？</span></li>
+      <li><span class="num">10</span><span>這份合約社區有沒有留存一份正本？</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 委員審約 SOP -->
+<section class="section">
+  <div class="container">
+    <div class="section-title">委員審約 SOP</div>
+    <ul class="sop-list">
+      <li class="sop-item">
+        <div class="sop-num">01</div>
+        <div class="sop-content">
+          <strong>確認同意程序</strong>
+          <p>取得頂層區分所有權人書面同意文件，確認簽名完整。</p>
+        </div>
+      </li>
+      <li class="sop-item">
+        <div class="sop-num">02</div>
+        <div class="sop-content">
+          <strong>送區權會決議</strong>
+          <p>收益分配方式須經區分所有權人會議決議，不得管委會自行決定。</p>
+        </div>
+      </li>
+      <li class="sop-item">
+        <div class="sop-num">03</div>
+        <div class="sop-content">
+          <strong>審查合約條款</strong>
+          <p>對照合約必問 10 題逐條確認，缺項要求補充。</p>
+        </div>
+      </li>
+      <li class="sop-item">
+        <div class="sop-num">04</div>
+        <div class="sop-content">
+          <strong>設立專屬帳目</strong>
+          <p>租金收入單獨列帳，每期財報公開揭露。</p>
+        </div>
+      </li>
+      <li class="sop-item">
+        <div class="sop-num">05</div>
+        <div class="sop-content">
+          <strong>定期現場巡查</strong>
+          <p>每年至少一次確認設備狀況、防水層完整性。</p>
+        </div>
+      </li>
+      <li class="sop-item">
+        <div class="sop-num">06</div>
+        <div class="sop-content">
+          <strong>建立退場機制</strong>
+          <p>合約到期前三個月啟動續約或終止評估程序。</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- 紅旗確認清單 -->
+<section class="section alt">
+  <div class="container">
+    <div class="section-title">紅旗確認清單</div>
+    <div class="redflag-grid">
+      <div class="redflag-item"><span class="redflag-icon">🚩</span><span>管委會直接簽約，未取得頂樓住戶書面同意</span></div>
+      <div class="redflag-item"><span class="redflag-icon">🚩</span><span>租金匯入個人帳戶或現金收取</span></div>
+      <div class="redflag-item"><span class="redflag-icon">🚩</span><span>合約未載明漏水責任歸屬</span></div>
+      <div class="redflag-item"><span class="redflag-icon">🚩</span><span>合約未載明拆除復原條款</span></div>
+      <div class="redflag-item"><span class="redflag-icon">🚩</span><span>廠商未投保相關保險</span></div>
+      <div class="redflag-item"><span class="redflag-icon">🚩</span><span>收益分配未經區權會決議</span></div>
+      <div class="redflag-item"><span class="redflag-icon">🚩</span><span>社區未留存合約正本</span></div>
+      <div class="redflag-item"><span class="redflag-icon">🚩</span><span>財報未揭露租金收入</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 寶哥說 -->
+<div class="benson-section">
+  <div class="benson-inner">
+    <div class="benson-label">寶哥說</div>
+    <div class="benson-box">
+      <p>租金是收入，風險是成本，兩個都算才叫管理。</p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">寶哥說物業管理小常識</div>
+  <div class="footer-handle">@bensonhsu0205</div>
+  <hr class="footer-divider">
+  <div class="footer-meta">DAY 04 ／ 第一章：總則與權利義務 ／ 頂樓裝基地台賺不賺？</div>
+  <hr class="footer-divider2">
+  <div class="footer-chapter">DAY 04 · 第一章｜總則與權利義務篇</div>
+  <div class="disclaimer">
+    <div class="disclaimer-row">
+      <span class="num">①</span>
+      <span>本頁內容為一般社區管理知識整理，實際個案仍應依權狀、建物圖說、規約、交屋文件、移交資料與主管機關認定為準。</span>
+    </div>
+    <div class="disclaimer-row">
+      <span class="num">②</span>
+      <span>法規摘要依《公寓大廈管理條例》民國111年05月11日修正版整理，非法律意見或訴訟建議。</span>
+    </div>
+  </div>
+</footer>
+
+<!-- 返回按鈕 -->
+<a class="back-btn" href="https://bensonhsu0205.github.io/property-30days/">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="15 18 9 12 15 6"/>
+  </svg>
+  回主頁
+</a>
+
+</body>
+</html>
