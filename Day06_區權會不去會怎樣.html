@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 06｜區權會不去會怎樣？｜寶哥說物業管理小常識</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background: #FFFFFF;
+    color: #0D1F2D;
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, #0a1628 0%, #1A6E8E 100%);
+    padding: 48px 0 40px;
+  }
+  .header .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .header-eyebrow {
+    display: inline-block;
+    background: rgba(91,200,232,0.18);
+    border: 1px solid rgba(91,200,232,0.4);
+    color: #5BC8E8;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    padding: 4px 12px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+  }
+  .header-chapter {
+    color: rgba(255,255,255,0.55);
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 12px;
+    letter-spacing: 0.06em;
+  }
+  .header-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: clamp(26px, 5vw, 38px);
+    font-weight: 900;
+    color: #FFFFFF;
+    line-height: 1.3;
+    margin-bottom: 14px;
+  }
+  .header-title span {
+    color: #5BC8E8;
+  }
+  .header-subtitle {
+    color: rgba(255,255,255,0.65);
+    font-size: 14px;
+    font-weight: 400;
+    max-width: 520px;
+  }
+
+  /* MAIN */
+  .main {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* SECTION */
+  .section {
+    padding: 40px 0;
+    border-bottom: 1px solid #E8F4F8;
+  }
+  .section:last-of-type {
+    border-bottom: none;
+  }
+  .section-alt {
+    background: #F0F8FC;
+    margin: 0 -24px;
+    padding: 40px 24px;
+    border-bottom: 1px solid #E8F4F8;
+  }
+
+  .section-label {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: #1A6E8E;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .section-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #0D1F2D;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #5BC8E8;
+    display: inline-block;
+  }
+
+  /* TABLE */
+  .table-wrap {
+    overflow-x: auto;
+    margin-top: 8px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    min-width: 480px;
+  }
+  thead tr {
+    background: #1A6E8E;
+    color: #FFFFFF;
+  }
+  thead th {
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+  }
+  tbody tr:nth-child(odd) { background: #FFFFFF; }
+  tbody tr:nth-child(even) { background: #F0F8FC; }
+  tbody td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #E0EEF4;
+    vertical-align: top;
+    line-height: 1.6;
+  }
+  tbody td:first-child {
+    font-weight: 700;
+    color: #1A6E8E;
+    white-space: nowrap;
+  }
+
+  /* MISUNDERSTANDING TABLE */
+  .vs-table thead tr { background: #0a1628; }
+  .vs-table td.wrong {
+    color: #c0392b;
+    font-weight: 500;
+  }
+  .vs-table td.right {
+    color: #1A6E8E;
+    font-weight: 700;
+  }
+
+  /* LAW TABLE */
+  .law-table td:first-child {
+    font-weight: 700;
+    color: #FFFFFF;
+    background: #1A6E8E;
+    white-space: nowrap;
+    width: 100px;
+  }
+  .law-table tbody tr:nth-child(odd) td:first-child,
+  .law-table tbody tr:nth-child(even) td:first-child {
+    background: #1A6E8E;
+    color: #FFFFFF;
+  }
+
+  /* CHECKLIST */
+  .checklist-group {
+    margin-bottom: 28px;
+  }
+  .checklist-group:last-child { margin-bottom: 0; }
+  .checklist-group-title {
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .checklist-group-title .badge {
+    font-size: 13px;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-weight: 700;
+  }
+  .badge-red { background: #fde8e8; color: #c0392b; }
+  .badge-yellow { background: #fef6e0; color: #b7770d; }
+  .badge-gray { background: #eef2f5; color: #5a7080; }
+
+  .checklist-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid #E8F4F8;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .checklist-item:last-child { border-bottom: none; }
+  .check-box {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #1A6E8E;
+    border-radius: 3px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* BENSON SAYS */
+  .benson-section {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 36px 24px 40px;
+    background: #FFFFFF;
+  }
+  .benson-label {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #1A6E8E;
+    margin-bottom: 16px;
+    text-align: left;
+    background: #FFFFFF;
+  }
+  .benson-box {
+    background: #daeef6;
+    border-left: 4px solid #5BC8E8;
+    border-radius: 0 6px 6px 0;
+    padding: 18px 20px;
+  }
+  .benson-box p {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #0D1F2D;
+    line-height: 1.8;
+  }
+
+  /* FOOTER */
+  footer {
+    background: #0a1628;
+    padding: 36px 24px 32px;
+    text-align: center;
+  }
+  .footer-brand {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 4px;
+  }
+  .footer-handle {
+    font-size: 13px;
+    color: #5BC8E8;
+    margin-bottom: 16px;
+  }
+  .footer-divider {
+    border: none;
+    border-top: 1px solid rgba(91,200,232,0.3);
+    margin: 16px auto;
+    max-width: 400px;
+  }
+  .footer-meta {
+    font-size: 12px;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 12px;
+    letter-spacing: 0.04em;
+  }
+  .footer-divider-thin {
+    border: none;
+    border-top: 1px solid rgba(91,200,232,0.15);
+    margin: 12px auto;
+    max-width: 560px;
+  }
+  .footer-tag {
+    font-size: 11px;
+    color: #5BC8E8;
+    letter-spacing: 0.08em;
+    margin-bottom: 16px;
+  }
+  .footer-disclaimer {
+    max-width: 560px;
+    margin: 0 auto;
+    text-align: left;
+  }
+  .disclaimer-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 6px;
+    font-size: 11px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.6;
+  }
+  .num {
+    width: 20px;
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  /* BACK BUTTON */
+  .back-btn {
+    position: fixed;
+    bottom: 24px;
+    left: 20px;
+    background: #0a1628;
+    color: #5BC8E8;
+    text-decoration: none;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 10px 18px 10px 14px;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 4px 16px rgba(10,22,40,0.35);
+    transition: transform 0.2s, background 0.2s;
+    z-index: 999;
+  }
+  .back-btn:hover {
+    transform: translateY(-2px);
+    background: #0d1f38;
+  }
+  .back-btn svg {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 600px) {
+    .header-title { font-size: 24px; }
+    .section-alt { margin: 0 -24px; padding: 32px 24px; }
+    table { font-size: 13px; }
+    thead th, tbody td { padding: 10px 12px; }
+    .back-btn { font-size: 12px; padding: 8px 14px 8px 10px; bottom: 16px; left: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="container">
+    <div class="header-eyebrow">DAY 06</div>
+    <div class="header-chapter">第二章｜管理組織與決議篇　參與社區治理的權力</div>
+    <h1 class="header-title">區權會不去<span>會怎樣？</span></h1>
+    <p class="header-subtitle">你不去，不代表你棄權——代表你把票讓給了到場的人。</p>
+  </div>
+</header>
+
+<main class="main">
+
+  <!-- 核心知識表格 -->
+  <div class="section">
+    <div class="section-label">核心知識</div>
+    <h2 class="section-title">區分所有權人會議怎麼運作</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>項目</th>
+            <th>說明</th>
+            <th>常見誤解</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>區權會性質</td>
+            <td>社區最高決策機構，決議對全體住戶有拘束力</td>
+            <td>以為只是「開開會」，不去沒差</td>
+          </tr>
+          <tr>
+            <td>第一次開會門檻</td>
+            <td>需三分之二區分所有權人出席，四分之三同意</td>
+            <td>以為人少就開不成，其實還有下一步</td>
+          </tr>
+          <tr>
+            <td>重新召集門檻</td>
+            <td>僅需五分之一出席，過半數同意即通過</td>
+            <td>不知道門檻變低，少數人就能決定大事</td>
+          </tr>
+          <tr>
+            <td>你的表決權</td>
+            <td>每一專有部分一票，缺席等於棄票</td>
+            <td>以為「我一票沒差」</td>
+          </tr>
+          <tr>
+            <td>決議效力</td>
+            <td>缺席不影響決議效力，仍對你有約束</td>
+            <td>以為沒同意就不算數</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 常見誤解對照 -->
+  <div class="section-alt">
+    <div class="section-label">觀念釐清</div>
+    <h2 class="section-title">你以為 vs 實際上</h2>
+    <div class="table-wrap">
+      <table class="vs-table">
+        <thead>
+          <tr>
+            <th>你以為</th>
+            <th>實際上</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="wrong">不去沒差，反正我一個人說不算</td>
+            <td class="right">缺席就是把票讓給到場的人</td>
+          </tr>
+          <tr>
+            <td class="wrong">人不夠就開不成</td>
+            <td class="right">重新召集門檻更低，照樣能過</td>
+          </tr>
+          <tr>
+            <td class="wrong">我沒投票，這個決議跟我無關</td>
+            <td class="right">決議對全體住戶有拘束力</td>
+          </tr>
+          <tr>
+            <td class="wrong">委員選誰不重要</td>
+            <td class="right">主委有權執行所有管理決策</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 法規依據 -->
+  <div class="section">
+    <div class="section-label">法規依據</div>
+    <h2 class="section-title">相關條文對照</h2>
+    <div class="table-wrap">
+      <table class="law-table">
+        <thead>
+          <tr>
+            <th>條號</th>
+            <th>內容摘要</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>第 31 條</td>
+            <td>區權會決議：需三分之二以上區分所有權人及其區分所有權比例出席，出席人數四分之三以上同意</td>
+          </tr>
+          <tr>
+            <td>第 32 條</td>
+            <td>重新召集：需三人並五分之一以上出席，過半數同意即成立；決議送達後七日內可書面反對</td>
+          </tr>
+          <tr>
+            <td>第 29 條</td>
+            <td>管理委員由區分所有權人會議選任</td>
+          </tr>
+          <tr>
+            <td>第 23 條</td>
+            <td>規約之訂定或變更須經區分所有權人會議決議</td>
+          </tr>
+          <tr>
+            <td>第 18 條</td>
+            <td>公共基金之運用應依區分所有權人會議之決議為之</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 出席判斷清單 -->
+  <div class="section-alt">
+    <div class="section-label">出席判斷清單</div>
+    <h2 class="section-title">哪幾場你不能缺席</h2>
+
+    <div class="checklist-group">
+      <div class="checklist-group-title">
+        <span class="badge badge-red">🔴 一定要去</span>
+        <span style="font-size:13px; color:#5a7080; font-weight:400;">影響你的錢與空間</span>
+      </div>
+      <div class="checklist-item">
+        <div class="check-box"></div>
+        <span>議程含「調漲管理費」或「動用公共基金」</span>
+      </div>
+      <div class="checklist-item">
+        <div class="check-box"></div>
+        <span>議程含「修改規約」任何條文</span>
+      </div>
+      <div class="checklist-item">
+        <div class="check-box"></div>
+        <span>議程含「重大修繕或改良」工程發包</span>
+      </div>
+      <div class="checklist-item">
+        <div class="check-box"></div>
+        <span>議程含「委員選任」或「主委改選」</span>
+      </div>
+    </div>
+
+    <div class="checklist-group">
+      <div class="checklist-group-title">
+        <span class="badge badge-yellow">🟡 建議出席</span>
+        <span style="font-size:13px; color:#5a7080; font-weight:400;">影響社區運作品質</span>
+      </div>
+      <div class="checklist-item">
+        <div class="check-box"></div>
+        <span>議程含「約定專用部分」變更</span>
+      </div>
+      <div class="checklist-item">
+        <div class="check-box"></div>
+        <span>議程含「停車空間管理辦法」調整</span>
+      </div>
+      <div class="checklist-item">
+        <div class="check-box"></div>
+        <span>上次會議有爭議未解決的議案</span>
+      </div>
+    </div>
+
+    <div class="checklist-group">
+      <div class="checklist-group-title">
+        <span class="badge badge-gray">⚪ 可評估</span>
+        <span style="font-size:13px; color:#5a7080; font-weight:400;">例行性報告為主</span>
+      </div>
+      <div class="checklist-item">
+        <div class="check-box"></div>
+        <span>純財務報告說明，無表決議案</span>
+      </div>
+      <div class="checklist-item">
+        <div class="check-box"></div>
+        <span>設施保養進度報告，無追加預算</span>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- 寶哥說 -->
+<div class="benson-section">
+  <div class="benson-label">寶哥說</div>
+  <div class="benson-box">
+    <p>你不去，不是沒意見。是把意見送給別人用。</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">寶哥說物業管理小常識</div>
+  <div class="footer-handle">@bensonhsu0205</div>
+  <hr class="footer-divider">
+  <div class="footer-meta">DAY 06 ／ 第二章：管理組織與決議 ／ 區權會不去會怎樣？</div>
+  <hr class="footer-divider-thin">
+  <div class="footer-tag">DAY 06 · 第二章｜管理組織與決議篇</div>
+  <div class="footer-disclaimer">
+    <div class="disclaimer-row">
+      <span class="num">①</span>
+      <span>本頁內容為一般社區管理知識整理，實際個案仍應依權狀、建物圖說、規約、交屋文件、移交資料與主管機關認定為準。</span>
+    </div>
+    <div class="disclaimer-row">
+      <span class="num">②</span>
+      <span>法規摘要依《公寓大廈管理條例》民國111年05月11日修正版整理，非法律意見或訴訟建議。</span>
+    </div>
+  </div>
+</footer>
+
+<!-- 返回按鈕 -->
+<a href="https://bensonhsu0205.github.io/property-30days/" class="back-btn">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="15 18 9 12 15 6"></polyline>
+  </svg>
+  回主頁
+</a>
+
+</body>
+</html>
