@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 10｜爛主委能一直當嗎？— 寶哥說物業管理小常識</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0a1628;
+    --teal: #1A6E8E;
+    --cyan: #5BC8E8;
+    --bg: #FFFFFF;
+    --alt-bg: #F0F8FC;
+    --text: #0D1F2D;
+    --text-light: #4A6070;
+    --border: #D0E8F2;
+    --red-flag: #C0392B;
+    --green-ok: #1A7A4A;
+  }
+
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    background: linear-gradient(135deg, var(--navy) 0%, #1A6E8E 100%);
+    padding: 48px 0 52px;
+    text-align: left;
+  }
+  .site-header .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .header-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .day-badge {
+    background: var(--cyan);
+    color: var(--navy);
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 2px;
+    padding: 4px 12px;
+    border-radius: 2px;
+  }
+  .chapter-label {
+    color: rgba(91,200,232,0.8);
+    font-size: 13px;
+    letter-spacing: 1px;
+  }
+  .header-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: clamp(28px, 5vw, 42px);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 14px;
+  }
+  .header-subtitle {
+    font-size: 15px;
+    color: rgba(255,255,255,0.65);
+    letter-spacing: 0.5px;
+  }
+
+  /* ── CONTAINER ── */
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ── SECTIONS ── */
+  .section {
+    padding: 48px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .section:last-of-type { border-bottom: none; }
+  .section.alt { background: var(--alt-bg); }
+  .section.alt .container { padding: 0 24px; }
+
+  .section-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--teal);
+    margin-bottom: 24px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--cyan);
+    display: inline-block;
+  }
+
+  /* ── TABLE ── */
+  .knowledge-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+    margin-top: 8px;
+  }
+  .knowledge-table th {
+    background: var(--navy);
+    color: #fff;
+    font-weight: 700;
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+  }
+  .knowledge-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  .knowledge-table tr:nth-child(even) td { background: var(--alt-bg); }
+  .knowledge-table tr:last-child td { border-bottom: none; }
+  .tag-once {
+    display: inline-block;
+    background: #FFF3CD;
+    color: #856404;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+  .tag-unlimited {
+    display: inline-block;
+    background: #D4EDDA;
+    color: #155724;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+  .law-ref {
+    font-size: 12px;
+    color: var(--teal);
+    font-weight: 500;
+  }
+
+  /* ── MISCONCEPTION TABLE ── */
+  .misconception-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+    margin-top: 8px;
+  }
+  .misconception-table th {
+    padding: 12px 16px;
+    font-weight: 700;
+    font-size: 13px;
+    text-align: left;
+  }
+  .misconception-table th.wrong-col {
+    background: #FDECEA;
+    color: var(--red-flag);
+  }
+  .misconception-table th.right-col {
+    background: #E8F5E9;
+    color: var(--green-ok);
+  }
+  .misconception-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    font-size: 14px;
+  }
+  .misconception-table tr:last-child td { border-bottom: none; }
+  .misconception-table td.wrong { background: #FFF8F8; }
+  .misconception-table td.right { background: #F8FFF8; }
+
+  /* ── LAW BLOCK ── */
+  .law-block {
+    background: var(--alt-bg);
+    border-left: 4px solid var(--teal);
+    border-radius: 0 6px 6px 0;
+    padding: 20px 24px;
+    margin-bottom: 20px;
+  }
+  .law-block-title {
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--teal);
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+  }
+  .law-block-text {
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.8;
+  }
+  .law-highlight {
+    background: rgba(91,200,232,0.2);
+    padding: 1px 4px;
+    border-radius: 2px;
+    font-weight: 700;
+  }
+
+  /* ── SOP ── */
+  .sop-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 8px;
+  }
+  @media (max-width: 640px) { .sop-wrapper { grid-template-columns: 1fr; } }
+  .sop-card {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .sop-card-header {
+    background: var(--navy);
+    color: #fff;
+    padding: 12px 18px;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+  }
+  .sop-card-header.teal { background: var(--teal); }
+  .sop-steps { padding: 18px; }
+  .sop-step {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 18px;
+  }
+  .sop-step:last-child { margin-bottom: 0; }
+  .step-num {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--cyan);
+    color: var(--navy);
+    font-weight: 700;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+  .step-content { flex: 1; }
+  .step-title {
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  .step-desc {
+    font-size: 13px;
+    color: var(--text-light);
+    line-height: 1.7;
+  }
+
+  /* ── CHECKLIST ── */
+  .checklist {
+    list-style: none;
+    margin-top: 8px;
+  }
+  .checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 15px;
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .check-box {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--cyan);
+    border-radius: 3px;
+    margin-top: 2px;
+    background: #fff;
+  }
+
+  /* ── BENSON SAYS ── */
+  .benson-section {
+    background: #FFFFFF;
+    padding: 36px 0 40px;
+  }
+  .benson-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .benson-label {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--teal);
+    margin-bottom: 16px;
+    text-align: left;
+  }
+  .benson-quote {
+    background: #daeef6;
+    border-left: 4px solid var(--cyan);
+    border-radius: 0 6px 6px 0;
+    padding: 18px 20px;
+  }
+  .benson-quote p {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.8;
+  }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    background: var(--navy);
+    padding: 36px 24px 32px;
+    text-align: center;
+  }
+  .footer-brand {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+  .footer-handle {
+    font-size: 14px;
+    color: var(--cyan);
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+  }
+  .footer-divider {
+    border: none;
+    border-top: 1px solid rgba(91,200,232,0.3);
+    margin: 0 auto 16px;
+    max-width: 400px;
+  }
+  .footer-meta {
+    font-size: 12px;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+  }
+  .footer-divider-thin {
+    border: none;
+    border-top: 1px solid rgba(91,200,232,0.15);
+    margin: 0 auto 16px;
+    max-width: 560px;
+  }
+  .footer-chapter-tag {
+    font-size: 12px;
+    color: var(--cyan);
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+  }
+  .footer-disclaimer {
+    max-width: 560px;
+    margin: 0 auto;
+    text-align: left;
+  }
+  .disclaimer-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .disclaimer-row:last-child { margin-bottom: 0; }
+  .num {
+    width: 20px;
+    text-align: right;
+    flex-shrink: 0;
+    font-size: 12px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.7;
+  }
+  .disclaimer-text {
+    font-size: 12px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.7;
+  }
+
+  /* ── BACK BUTTON ── */
+  .back-btn {
+    position: fixed;
+    bottom: 24px;
+    left: 20px;
+    background: var(--navy);
+    color: var(--cyan);
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 10px 18px 10px 14px;
+    border-radius: 24px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+    transition: transform 0.2s ease, background 0.2s ease;
+    z-index: 100;
+  }
+  .back-btn:hover { transform: translateY(-2px); background: #0f2040; }
+  .back-btn svg { flex-shrink: 0; }
+
+  @media (max-width: 600px) {
+    .back-btn { font-size: 12px; padding: 8px 14px 8px 11px; bottom: 16px; left: 14px; }
+    .knowledge-table, .misconception-table { font-size: 13px; }
+    .knowledge-table th, .knowledge-table td,
+    .misconception-table th, .misconception-table td { padding: 10px 10px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="container">
+    <div class="header-eyebrow">
+      <span class="day-badge">DAY 10</span>
+      <span class="chapter-label">第二章｜管理組織與決議篇</span>
+    </div>
+    <h1 class="header-title">爛主委能一直當嗎？</h1>
+    <p class="header-subtitle">主委任期合法性查核指南｜任期法規對照 ＋ 超任期處理 SOP</p>
+  </div>
+</header>
+
+<!-- SECTION 1: 核心知識表格 -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">各職位任期與連任規定</h2>
+    <table class="knowledge-table">
+      <thead>
+        <tr>
+          <th>職位</th>
+          <th>任期上限</th>
+          <th>連任限制</th>
+          <th>法規依據</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>主任委員</strong></td>
+          <td>1～2年（依規約）</td>
+          <td><span class="tag-once">連任僅限一次</span></td>
+          <td class="law-ref">第29條第3項</td>
+        </tr>
+        <tr>
+          <td><strong>管理負責人</strong></td>
+          <td>1～2年（依規約）</td>
+          <td><span class="tag-once">連任僅限一次</span></td>
+          <td class="law-ref">第29條第3項</td>
+        </tr>
+        <tr>
+          <td><strong>財務委員</strong></td>
+          <td>1～2年（依規約）</td>
+          <td><span class="tag-once">連任僅限一次</span></td>
+          <td class="law-ref">第29條第3項</td>
+        </tr>
+        <tr>
+          <td><strong>監察委員</strong></td>
+          <td>1～2年（依規約）</td>
+          <td><span class="tag-once">連任僅限一次</span></td>
+          <td class="law-ref">第29條第3項</td>
+        </tr>
+        <tr>
+          <td><strong>一般管理委員</strong></td>
+          <td>1～2年（依規約）</td>
+          <td><span class="tag-unlimited">連選得連任（無次數限制）</span></td>
+          <td class="law-ref">第29條第3項</td>
+        </tr>
+        <tr>
+          <td><strong>召集人</strong></td>
+          <td>1～2年（依規約）</td>
+          <td><span class="tag-once">連任僅限一次</span></td>
+          <td class="law-ref">第25條第3項</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="margin-top:14px; font-size:13px; color:var(--text-light);">⚠️ 規約若未載明任期，預設依條例為 <strong>1年</strong>，連任限制仍適用。</p>
+  </div>
+</section>
+
+<!-- SECTION 2: 常見誤解 -->
+<section class="section alt">
+  <div class="container">
+    <h2 class="section-title">常見誤解對照</h2>
+    <table class="misconception-table">
+      <thead>
+        <tr>
+          <th class="wrong-col">❌ 常見誤解</th>
+          <th class="right-col">✅ 正確認知</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="wrong">主委做越久越穩定，換人反而麻煩</td>
+          <td class="right">連任超過一次即違反條例第29條，穩定≠合法</td>
+        </tr>
+        <tr>
+          <td class="wrong">沒人反對，就可以繼續當</td>
+          <td class="right">沉默不等於合法，程序違法仍然無效</td>
+        </tr>
+        <tr>
+          <td class="wrong">規約沒寫，就沒有連任限制</td>
+          <td class="right">規約未規定者，依條例預設1年、連任1次</td>
+        </tr>
+        <tr>
+          <td class="wrong">只有罷免才能換掉主委</td>
+          <td class="right">任期屆滿自動解任，無須罷免程序</td>
+        </tr>
+        <tr>
+          <td class="wrong">所有委員都只能連任一次</td>
+          <td class="right">一般管理委員可連任，限制只針對主委、財委、監委</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- SECTION 3: 法規依據 -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">相關法規依據</h2>
+
+    <div class="law-block">
+      <div class="law-block-title">《公寓大廈管理條例》第二十九條第三項｜管理委員任期</div>
+      <p class="law-block-text">
+        管理委員、主任委員及管理負責人之任期，依區分所有權人會議或規約之規定，任期一至二年，<span class="law-highlight">主任委員、管理負責人、負責財務管理及監察業務之管理委員，連選得連任一次</span>，其餘管理委員，連選得連任。但區分所有權人會議或規約未規定者，任期一年，主任委員、管理負責人、負責財務管理及監察業務之管理委員，連選得連任一次，其餘管理委員，連選得連任。
+      </p>
+    </div>
+
+    <div class="law-block">
+      <div class="law-block-title">《公寓大廈管理條例》第二十五條第三項｜召集人任期</div>
+      <p class="law-block-text">
+        召集人任期依區分所有權人會議或依規約規定，任期一至二年，<span class="law-highlight">連選得連任一次</span>。但區分所有權人會議或規約未規定者，任期一年，連選得連任一次。
+      </p>
+    </div>
+
+    <div class="law-block">
+      <div class="law-block-title">《公寓大廈管理條例》第二十七條｜文件閱覽權</div>
+      <p class="law-block-text">
+        利害關係人得提出書面理由請求閱覽或影印規約、會議紀錄等文件，<span class="law-highlight">管理負責人或管理委員會不得拒絕</span>。（住戶有權查閱歷年選任紀錄）
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4: SOP -->
+<section class="section alt">
+  <div class="container">
+    <h2 class="section-title">超任期主委處理 SOP</h2>
+    <div class="sop-wrapper">
+
+      <div class="sop-card">
+        <div class="sop-card-header">住戶版｜發現問題怎麼辦</div>
+        <div class="sop-steps">
+          <div class="sop-step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <div class="step-title">確認現況</div>
+              <div class="step-desc">查公告欄選任公告上的日期，比對規約中載明的任期起訖</div>
+            </div>
+          </div>
+          <div class="sop-step">
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <div class="step-title">調閱歷年會議紀錄</div>
+              <div class="step-desc">書面申請閱覽區分所有權人會議紀錄，確認歷次選任紀錄，計算已任幾任（第27條保障閱覽權）</div>
+            </div>
+          </div>
+          <div class="sop-step">
+            <div class="step-num">3</div>
+            <div class="step-content">
+              <div class="step-title">確認違規事實</div>
+              <div class="step-desc">連任2次以上 = 違反第29條第3項；任期屆滿未重新選任 = 應視為當然解任</div>
+            </div>
+          </div>
+          <div class="sop-step">
+            <div class="step-num">4</div>
+            <div class="step-content">
+              <div class="step-title">採取行動</div>
+              <div class="step-desc">連署1/5以上區分所有權人，書面請求召開臨時區分所有權人會議；情節嚴重可向直轄市、縣（市）主管機關檢舉</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sop-card">
+        <div class="sop-card-header teal">委員版｜任期管理正確流程</div>
+        <div class="sop-steps">
+          <div class="sop-step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <div class="step-title">任期屆滿前2個月</div>
+              <div class="step-desc">管理委員會應主動辦理新任選任程序，不可等到屆滿才動作</div>
+            </div>
+          </div>
+          <div class="sop-step">
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <div class="step-title">公告選任結果</div>
+              <div class="step-desc">選任結果應公告，解任亦同，讓所有住戶知情</div>
+            </div>
+          </div>
+          <div class="sop-step">
+            <div class="step-num">3</div>
+            <div class="step-content">
+              <div class="step-title">執行移交作業</div>
+              <div class="step-desc">印鑑、帳冊、公共基金、全部文件依第35條規定完整移交新任</div>
+            </div>
+          </div>
+          <div class="sop-step">
+            <div class="step-num">4</div>
+            <div class="step-content">
+              <div class="step-title">若主委拒絕卸任</div>
+              <div class="step-desc">管理委員書面連署2/3以上，罷免主委職務；或召開區分所有權人會議決議處理</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5: 紅旗清單 -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">紅旗確認清單</h2>
+    <ul class="checklist">
+      <li><span class="check-box"></span>你知道社區現任主委是第幾任了嗎？</li>
+      <li><span class="check-box"></span>規約有載明任期起訖日期嗎？</li>
+      <li><span class="check-box"></span>歷年選任公告保存完整嗎？</li>
+      <li><span class="check-box"></span>有沒有看過超過兩屆的選任紀錄？</li>
+      <li><span class="check-box"></span>財委、監委是否也超過一次連任？</li>
+      <li><span class="check-box"></span>主委換人時，有正式移交程序嗎？</li>
+    </ul>
+  </div>
+</section>
+
+<!-- BENSON SAYS -->
+<div class="benson-section">
+  <div class="benson-inner">
+    <div class="benson-label">寶哥說</div>
+    <div class="benson-quote">
+      <p>法律規定主委只能連任一次。<br>你不說，他就當第三任。</p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-brand">寶哥說物業管理小常識</div>
+  <div class="footer-handle">@bensonhsu0205</div>
+  <hr class="footer-divider">
+  <div class="footer-meta">DAY 10 ／ 第二章：管理組織與決議 ／ 爛主委能一直當嗎？</div>
+  <hr class="footer-divider-thin">
+  <div class="footer-chapter-tag">DAY 10 · 第二章｜管理組織與決議篇</div>
+  <div class="footer-disclaimer">
+    <div class="disclaimer-row">
+      <span class="num">①</span>
+      <span class="disclaimer-text">本頁內容為一般社區管理知識整理，實際個案仍應依權狀、建物圖說、規約、交屋文件、移交資料與主管機關認定為準。</span>
+    </div>
+    <div class="disclaimer-row">
+      <span class="num">②</span>
+      <span class="disclaimer-text">法規摘要依《公寓大廈管理條例》民國111年05月11日修正版整理，非法律意見或訴訟建議。</span>
+    </div>
+  </div>
+</footer>
+
+<!-- BACK BUTTON -->
+<a href="https://bensonhsu0205.github.io/property-30days/" class="back-btn" aria-label="回主頁">
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M10 12L6 8L10 4" stroke="#5BC8E8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  回主頁
+</a>
+
+</body>
+</html>
