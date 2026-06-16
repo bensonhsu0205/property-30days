@@ -784,7 +784,7 @@ function render(dayMap) {
         const dayKey = `benson-p30-day${String(d.day).padStart(2,'0')}`;
         return `
           <a class="day-card unlocked" href="${BASE_URL}${actualFile}"
-             onclick="trackDayClick(${d.day}, '${BASE_URL}${actualFile}', event)">
+             onclick="trackDayClick(${d.day})">
             <div class="day-card-top">
               <span class="day-num">DAY ${String(d.day).padStart(2,'0')}</span>
               <span class="day-status">已上線</span>
@@ -866,22 +866,22 @@ async function loadDayCounts(unlockedDays) {
   }
 }
 
-function trackDayClick(dayNum, url, e) {
-  e.preventDefault();
+function trackDayClick(dayNum) {
   const key = `benson-p30-day${String(dayNum).padStart(2,'0')}`;
   const el = document.getElementById(`count-day${dayNum}`);
-  // increment
-  fetch(`${COUNT_BASE}/hit/${key}`)
-    .then(r => r.json())
-    .then(data => {
-      if (el) {
-        const count = data.value || 0;
-        el.innerHTML = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg><span>${count} 次點擊</span>`;
-      }
-    })
-    .catch(() => {});
-  // navigate regardless
-  window.location.href = url;
+  // 用 sendBeacon 傳送計數（不阻擋導頁）
+  try {
+    fetch(`${COUNT_BASE}/hit/${key}`)
+      .then(r => r.json())
+      .then(data => {
+        if (el) {
+          const count = data.value || 0;
+          el.innerHTML = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg><span>${count} 次點擊</span>`;
+        }
+      }).catch(() => {});
+  } catch(e) {}
+  // 讓連結自己導頁（同視窗）
+  return true;
 }
 
 </script>
