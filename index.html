@@ -783,7 +783,7 @@ function render(dayMap) {
       if (isUnlocked) {
         const dayKey = `benson-p30-day${String(d.day).padStart(2,'0')}`;
         return `
-          <a class="day-card unlocked" href="${BASE_URL}${actualFile}" target="_blank"
+          <a class="day-card unlocked" href="${BASE_URL}${actualFile}"
              onclick="trackDayClick(${d.day}, '${BASE_URL}${actualFile}', event)">
             <div class="day-card-top">
               <span class="day-num">DAY ${String(d.day).padStart(2,'0')}</span>
