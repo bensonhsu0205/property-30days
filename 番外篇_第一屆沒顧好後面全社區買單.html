@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第一屆沒顧好,後面全社區買單｜寶哥說物業管理小常識</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;600;700;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    color: #0D1F2D;
+    background: #FFFFFF;
+    line-height: 1.8;
+  }
+  h1, h2, h3, .serif { font-family: 'Noto Serif TC', serif; }
+  .container { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+
+  /* Header */
+  header {
+    background: linear-gradient(135deg, #0a1628 0%, #1A6E8E 100%);
+    padding: 48px 0 40px;
+    color: #FFFFFF;
+  }
+  .day-tag {
+    display: inline-block;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: #5BC8E8;
+    background: rgba(91,200,232,0.12);
+    border: 1px solid rgba(91,200,232,0.35);
+    border-radius: 20px;
+    padding: 6px 16px;
+    margin-bottom: 18px;
+  }
+  header .big-title {
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 900;
+    font-size: 34px;
+    line-height: 1.5;
+    margin-bottom: 14px;
+    text-align: left;
+  }
+  header .sub-title {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: rgba(255,255,255,0.8);
+    text-align: left;
+  }
+
+  /* Sections */
+  section { padding: 40px 0; text-align: left; }
+  section.alt { background: #F0F8FC; }
+  h2.section-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1A6E8E;
+    margin-bottom: 20px;
+    padding-left: 14px;
+    border-left: 4px solid #5BC8E8;
+  }
+  p { margin-bottom: 14px; font-size: 16px; }
+  .note-box {
+    background: #FFF7E6;
+    border-left: 4px solid #E8A93F;
+    border-radius: 0 6px 6px 0;
+    padding: 16px 18px;
+    font-size: 15px;
+    color: #4A3B1A;
+    margin-bottom: 24px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #FFFFFF;
+    font-size: 15px;
+    margin-bottom: 8px;
+  }
+  th, td {
+    text-align: left;
+    padding: 12px 14px;
+    border-bottom: 1px solid #DCEAF0;
+    vertical-align: top;
+  }
+  th {
+    background: #1A6E8E;
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 14px;
+  }
+  tr:nth-child(even) td { background: #F7FBFD; }
+
+  ul.checklist, ul.flaglist { list-style:none; }
+  ul.checklist li {
+    position: relative;
+    padding: 10px 0 10px 32px;
+    border-bottom: 1px dashed #DCEAF0;
+    font-size: 16px;
+  }
+  ul.checklist li:before {
+    content: "☐";
+    position: absolute;
+    left: 0;
+    top: 10px;
+    color: #1A6E8E;
+    font-size: 18px;
+  }
+  ul.flaglist li {
+    padding: 10px 0 10px 32px;
+    position: relative;
+    font-size: 16px;
+    border-bottom: 1px dashed #DCEAF0;
+  }
+  ul.flaglist li:before {
+    content: "🚩";
+    position: absolute;
+    left: 0;
+    top: 9px;
+  }
+
+  /* 寶哥說 */
+  .baoge-wrap {
+    background: #FFFFFF;
+    padding: 36px 0 40px;
+  }
+  .baoge-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #1A6E8E;
+    margin-bottom: 16px;
+    text-align: left;
+  }
+  .baoge-box {
+    background: #daeef6;
+    border-left: 4px solid #5BC8E8;
+    border-radius: 0 6px 6px 0;
+    padding: 18px 20px;
+  }
+  .baoge-box p {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #0D1F2D;
+    margin: 0;
+  }
+
+  /* Footer */
+  footer {
+    background: #0a1628;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 40px 24px 32px;
+  }
+  footer .brand {
+    font-weight: 700;
+    font-size: 18px;
+    color: #FFFFFF;
+  }
+  footer .handle {
+    color: #5BC8E8;
+    font-size: 15px;
+    margin-top: 6px;
+  }
+  footer hr {
+    border: none;
+    border-top: 1px solid rgba(91,200,232,0.3);
+    max-width: 480px;
+    margin: 24px auto;
+  }
+  footer .meta {
+    font-size: 13px;
+    color: rgba(255,255,255,0.35);
+    line-height: 1.9;
+  }
+  footer .meta-tag {
+    color: #5BC8E8;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+  footer .divider2 {
+    border-top: 1px solid rgba(91,200,232,0.15);
+    max-width: 560px;
+    margin: 24px auto;
+  }
+  .disclaimer {
+    max-width: 560px;
+    margin: 0 auto;
+    text-align: left;
+    font-size: 12px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.9;
+  }
+  .disclaimer div { display: flex; gap: 6px; margin-bottom: 6px; }
+  .disclaimer .num { width: 20px; text-align: right; flex-shrink: 0; }
+
+  /* Back button */
+  .back-btn {
+    position: fixed;
+    left: 20px;
+    bottom: 24px;
+    background: #0a1628;
+    color: #5BC8E8;
+    border-radius: 24px;
+    padding: 10px 18px 10px 14px;
+    font-size: 14px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+    transition: all 0.2s ease;
+    z-index: 999;
+  }
+  .back-btn:hover {
+    transform: translateY(-2px);
+    background: #06101d;
+  }
+
+  @media (max-width: 600px) {
+    header .big-title { font-size: 26px; }
+    h2.section-title { font-size: 19px; }
+    .back-btn { font-size: 12px; padding: 8px 14px 8px 10px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <span class="day-tag">番外篇 · 社區成立大會</span>
+    <div class="big-title">第一屆沒顧好,後面全社區買單</div>
+    <div class="sub-title">第一次區權會的規約確認與委員選舉,現場最容易忽略的地方</div>
+  </div>
+</header>
+
+<section>
+  <div class="container">
+    <h2 class="section-title">核心知識整理</h2>
+    <div class="note-box">
+      ⚠️ 本資料依《公寓大廈管理條例》及內政部《公寓大廈規約範本》整理,呈現全國通用的架構與規定;個別社區之規約內容,仍依建商規約草約及區權會議決議通過之正式規約為準。
+    </div>
+    <table>
+      <tr><th style="width:22%">項目</th><th style="width:38%">說明</th><th>常見誤解</th></tr>
+      <tr>
+        <td>規約是什麼</td>
+        <td>區權人會議決議通過的共同遵守事項;規約範本僅為參考性質,由中央主管機關訂定</td>
+        <td>以為拿到建商給的「規約草約」就等於正式規約,其實要經會議決議才算數</td>
+      </tr>
+      <tr>
+        <td>規約範本架構(七章)</td>
+        <td>使用區分及管理／區分所有權人會議／管理委員會／財務管理／住戶共同遵守協定事項／爭議事件及違反義務之處理／附則</td>
+        <td>以為每個社區規約長得都一樣,其實各章底下的細節條文,依建商契約可能有出入</td>
+      </tr>
+      <tr>
+        <td>開會通知與臨時會</td>
+        <td>應於會前10日書面通知;急迫召開臨時會,公告不得少於2日</td>
+        <td>以為臨時會想開就開,公告期間還是有下限</td>
+      </tr>
+      <tr>
+        <td>委員選任限制</td>
+        <td>委員選任事項必須在開會通知中載明並公告,不得臨時動議提出</td>
+        <td>現場覺得誰適合就臨時提名選,選出來效力有爭議——這條全國社區都適用,不因規約而異</td>
+      </tr>
+      <tr>
+        <td>決議門檻(兩種)</td>
+        <td>一般決議:出席過半、同意過半;重大決議(規約訂定變更/重大修繕/強制遷離出讓/約定專用共用):出席2/3以上、同意3/4以上</td>
+        <td>把規約修改當一般案,用過半數就通過</td>
+      </tr>
+      <tr>
+        <td>會議開不成怎麼辦</td>
+        <td>可重新召集,出席1/5以上、同意過半即可決議,決議後7日內可書面反對</td>
+        <td>以為人數不足會議就直接流會、沒有補救機制</td>
+      </tr>
+      <tr>
+        <td>會議紀錄</td>
+        <td>主席簽名後15日內送達全體區權人並公告</td>
+        <td>開完會沒下文,住戶等不到紀錄</td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="container">
+    <h2 class="section-title">相關法規依據(《公寓大廈管理條例》111年版)</h2>
+    <table>
+      <tr><th style="width:20%">條號</th><th>內容摘要</th></tr>
+      <tr><td>第3條第12款</td><td>規約之定義:區權人為增進共同利益經會議決議之共同遵守事項</td></tr>
+      <tr><td>第30條</td><td>開會通知10日前書面通知、臨時會公告不少於2日、委員選任不得臨時動議提出</td></tr>
+      <tr><td>第31條</td><td>一般決議與重大決議(規約訂定變更等)之出席比例及同意比例門檻</td></tr>
+      <tr><td>第32條</td><td>未獲決議時重新召集會議之開議與決議額數、書面反對機制</td></tr>
+      <tr><td>第34條</td><td>會議紀錄應由主席簽名,15日內送達並公告</td></tr>
+      <tr><td><strong>第56條第2項</strong></td><td><strong>規約草約經承受人簽署同意後,於區權會訂定規約前,視為規約</strong></td></tr>
+      <tr><td>第60條第1項</td><td>規約範本為參考性質,由中央主管機關訂定</td></tr>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2 class="section-title">閱讀檢查表</h2>
+    <p>拿到規約草約,先確認這六件事,不用急著判斷對錯:</p>
+    <ul class="checklist">
+      <li>有勾選選項的地方,勾的是哪一項?跟自己認知的社區運作方式一致嗎?</li>
+      <li>條文裡的空格、金額,有沒有填?還是留白?</li>
+      <li>哪些事項寫的是「授權管理委員會訂定」?代表以後不用開會、委員會自己就能決定</li>
+      <li>哪些事項寫的是「應經區權會決議」?代表以後要開會才能改</li>
+      <li>條文內容跟社區實際狀況(車位、公設、坪數分擔)對得起來嗎?</li>
+      <li>有沒有附件、圖說,或另訂的管理辦法(如財務管理規定、停車空間使用規定)要一併調出來看?</li>
+    </ul>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="container">
+    <h2 class="section-title">紅旗警示清單</h2>
+    <ul class="flaglist">
+      <li>開會通知沒寫「選舉委員」,現場卻臨時提案要選 → 效力有爭議</li>
+      <li>規約重大修改,現場只用「過半數」通過 → 門檻不足,應2/3出席、3/4同意</li>
+      <li>會議紀錄遲遲沒送達或公告 → 已超過法定15天</li>
+    </ul>
+  </div>
+</section>
+
+<div class="baoge-wrap">
+  <div class="container">
+    <div class="baoge-title">寶哥說</div>
+    <div class="baoge-box">
+      <p>不評論特定社區規約好不好,而是教住戶看懂自己正在表決什麼。</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="brand">寶哥說物業管理小常識</div>
+  <div class="handle">@bensonhsu0205</div>
+  <hr>
+  <div class="divider2"></div>
+  <div class="meta-tag">番外篇 · 社區成立大會篇</div>
+  <div class="disclaimer">
+    <div><span class="num">①</span><span>本頁內容為一般社區管理知識整理,實際個案仍應依權狀、建物圖說、規約、交屋文件、移交資料與主管機關認定為準。</span></div>
+    <div><span class="num">②</span><span>法規摘要依《公寓大廈管理條例》民國111年05月11日修正版整理,非法律意見或訴訟建議。</span></div>
+  </div>
+</footer>
+
+<a class="back-btn" href="https://bensonhsu0205.github.io/property-30days/">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5BC8E8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+  回主頁
+</a>
+
+</body>
+</html>
