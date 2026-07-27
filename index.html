@@ -795,21 +795,66 @@ async function getUploadedFiles() {
   }
 }
 
+function bonusKey(file) {
+  return 'benson-p30-bonus-' + file.replace(/\.html$/i, '').replace(/[^a-zA-Z0-9]/g, '').slice(0, 60);
+}
+
 function renderBonus(bonusList) {
   const el = document.getElementById('bonus-content');
   if (!bonusList.length) {
     el.innerHTML = `<div class="day-card locked"><div class="day-title">目前還沒有番外篇，敬請期待</div></div>`;
     return;
   }
-  el.innerHTML = bonusList.map(b => `
-    <a class="day-card unlocked" href="${BASE_URL}${encodeURIComponent(b.file)}">
+  el.innerHTML = bonusList.map(b => {
+    const key = bonusKey(b.file);
+    return `
+    <a class="day-card unlocked" href="${BASE_URL}${encodeURIComponent(b.file)}"
+       onclick="trackBonusClick('${key}')">
       <div class="day-card-top">
         <span class="day-num">番外篇</span>
         <span class="day-status">已上線</span>
       </div>
       <div class="day-title">${b.title}</div>
+      <div class="day-click-count" id="count-${key}">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        <span>載入中…</span>
+      </div>
       <div class="day-arrow">→</div>
-    </a>`).join('');
+    </a>`;
+  }).join('');
+  loadBonusCounts(bonusList.map(b => bonusKey(b.file)));
+}
+
+async function loadBonusCounts(keys) {
+  for (const key of keys) {
+    try {
+      const res = await fetch(`${COUNT_BASE}/get/${key}`);
+      const data = await res.json();
+      const el = document.getElementById(`count-${key}`);
+      if (el) {
+        const count = data.value || 0;
+        el.innerHTML = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg><span>${count} 次點擊</span>`;
+      }
+    } catch {
+      const el = document.getElementById(`count-${key}`);
+      if (el) el.innerHTML = '';
+    }
+  }
+}
+
+function trackBonusClick(key) {
+  const el = document.getElementById(`count-${key}`);
+  try {
+    fetch(`${COUNT_BASE}/hit/${key}`)
+      .then(r => r.json())
+      .then(data => {
+        if (el) {
+          const count = data.value || 0;
+          el.innerHTML = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg><span>${count} 次點擊</span>`;
+        }
+      }).catch(() => {});
+  } catch(e) {}
+  return true;
 }
 
 // ── 渲染 ──
