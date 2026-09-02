@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 11｜管理費到底花去哪？｜寶哥說物業管理小常識</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --theme:#1A6E8E;
+    --accent:#5BC8E8;
+    --text:#0D1F2D;
+    --bg-alt:#F0F8FC;
+    --bg-white:#FFFFFF;
+    --header-start:#0a1628;
+    --header-end:#1A6E8E;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:"Noto Sans TC",sans-serif;
+    color:var(--text);
+    background:var(--bg-white);
+    line-height:1.8;
+    text-align:left;
+  }
+  .container{
+    max-width:860px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+  h1,h2,h3,.serif{font-family:"Noto Serif TC",serif;}
+
+  /* ---------- Header ---------- */
+  header{
+    background:linear-gradient(135deg,var(--header-start) 0%,var(--header-end) 100%);
+    padding:56px 0 48px;
+    color:#fff;
+  }
+  header .day-tag{
+    display:inline-block;
+    font-size:14px;
+    letter-spacing:1px;
+    color:var(--accent);
+    font-weight:700;
+    margin-bottom:14px;
+  }
+  header .chapter-line{
+    font-size:14px;
+    color:rgba(255,255,255,0.7);
+    margin-bottom:18px;
+  }
+  header h1{
+    font-size:32px;
+    font-weight:900;
+    line-height:1.5;
+    margin-bottom:14px;
+  }
+  header .sub{
+    font-size:16px;
+    color:rgba(255,255,255,0.85);
+    font-weight:500;
+  }
+
+  /* ---------- Sections ---------- */
+  section{
+    padding:44px 0;
+  }
+  section.alt{background:var(--bg-alt);}
+  section.white{background:var(--bg-white);}
+  section h2{
+    font-size:22px;
+    color:var(--theme);
+    font-weight:700;
+    margin-bottom:20px;
+  }
+
+  table{
+    width:100%;
+    border-collapse:collapse;
+    background:#fff;
+    font-size:15px;
+  }
+  section.alt table{background:#fff;}
+  th,td{
+    text-align:left;
+    padding:14px 16px;
+    border-bottom:1px solid rgba(26,110,142,0.15);
+    vertical-align:top;
+  }
+  th{
+    background:var(--theme);
+    color:#fff;
+    font-weight:700;
+    font-size:14px;
+  }
+  tr:last-child td{border-bottom:none;}
+
+  ul.checklist{list-style:none;}
+  ul.checklist li{
+    padding:10px 0 10px 30px;
+    position:relative;
+    font-size:15px;
+    border-bottom:1px dashed rgba(26,110,142,0.2);
+  }
+  ul.checklist li:last-child{border-bottom:none;}
+  ul.checklist li::before{
+    content:"☐";
+    position:absolute;
+    left:0;
+    color:var(--theme);
+    font-size:18px;
+  }
+
+  ul.redflag{list-style:none;}
+  ul.redflag li{
+    padding:10px 0 10px 30px;
+    position:relative;
+    font-size:15px;
+    border-bottom:1px dashed rgba(26,110,142,0.2);
+  }
+  ul.redflag li:last-child{border-bottom:none;}
+  ul.redflag li::before{
+    content:"🚩";
+    position:absolute;
+    left:0;
+    font-size:15px;
+  }
+
+  /* ---------- 寶哥說 ---------- */
+  .baoge-wrap{
+    background:#FFFFFF;
+    padding:36px 0 40px;
+  }
+  .baoge-inner{
+    max-width:860px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+  .baoge-title{
+    font-family:"Noto Serif TC",serif;
+    font-size:22px;
+    font-weight:700;
+    color:var(--theme);
+    text-align:left;
+    margin-bottom:16px;
+  }
+  .baoge-box{
+    background:#daeef6;
+    border-left:4px solid var(--accent);
+    border-radius:0 6px 6px 0;
+    padding:18px 20px;
+  }
+  .baoge-box p{
+    font-family:"Noto Sans TC",sans-serif;
+    font-size:16px;
+    font-weight:700;
+    color:var(--text);
+  }
+
+  /* ---------- Footer ---------- */
+  footer{
+    background:var(--header-start);
+    text-align:center;
+    padding:44px 24px 100px;
+    color:#fff;
+  }
+  footer .brand{
+    font-size:18px;
+    font-weight:700;
+    color:#fff;
+  }
+  footer .handle{
+    font-size:15px;
+    color:var(--accent);
+    margin-top:6px;
+  }
+  footer .divider{
+    width:100%;
+    max-width:400px;
+    height:1px;
+    background:rgba(91,200,232,0.3);
+    margin:24px auto;
+  }
+  footer .divider.light{
+    background:rgba(91,200,232,0.15);
+  }
+  footer .meta{
+    font-size:13px;
+    color:rgba(255,255,255,0.35);
+    line-height:1.9;
+  }
+  footer .label{
+    font-size:13px;
+    color:var(--accent);
+    font-weight:700;
+    letter-spacing:0.5px;
+    margin-top:6px;
+  }
+  .disclaimer{
+    max-width:560px;
+    margin:24px auto 0;
+    text-align:left;
+    font-size:12px;
+    color:rgba(255,255,255,0.45);
+    line-height:1.8;
+  }
+  .disclaimer p{
+    display:flex;
+    gap:6px;
+    margin-bottom:6px;
+  }
+  .disclaimer .num{
+    width:20px;
+    flex-shrink:0;
+    text-align:right;
+  }
+
+  /* ---------- Back button ---------- */
+  .back-btn{
+    position:fixed;
+    bottom:24px;
+    left:20px;
+    display:flex;
+    align-items:center;
+    gap:6px;
+    background:#0a1628;
+    color:var(--accent);
+    text-decoration:none;
+    font-size:14px;
+    font-weight:700;
+    padding:10px 18px;
+    border-radius:24px;
+    box-shadow:0 4px 14px rgba(0,0,0,0.25);
+    transition:all 0.2s ease;
+    z-index:100;
+  }
+  .back-btn:hover{
+    transform:translateY(-3px);
+    background:#122038;
+  }
+  .back-btn svg{width:14px;height:14px;}
+
+  /* ---------- RWD ---------- */
+  @media (max-width:600px){
+    header{padding:44px 0 36px;}
+    header h1{font-size:26px;}
+    section{padding:32px 0;}
+    section h2{font-size:19px;}
+    table{font-size:13px;}
+    th,td{padding:10px 10px;}
+    .back-btn{
+      font-size:12px;
+      padding:8px 14px;
+      bottom:16px;
+      left:14px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="day-tag">DAY 11</div>
+    <div class="chapter-line">第三章｜財務與公共基金｜錢的事最重要，透明才信任</div>
+    <h1>管理費到底花去哪？</h1>
+    <div class="sub">把你每個月繳的錢，攤開來一項一項看清楚。</div>
+  </div>
+</header>
+
+<main>
+
+  <section class="alt">
+    <div class="container">
+      <h2>管理費支出拆解</h2>
+      <table>
+        <tr><th>項目</th><th>說明</th><th>常見疑問</th></tr>
+        <tr>
+          <td>管理費 vs 公共基金</td>
+          <td>管理費是日常固定支出；公共基金是專款專用，留給大型修繕與設備更新</td>
+          <td>「這兩筆是不是同一筆錢？」→ 不是，用途完全不同</td>
+        </tr>
+        <tr>
+          <td>管理費常見支出結構</td>
+          <td>人力（保全、清潔）、設備保養（電梯、消防、水塔）、公共水電、保險、行政雜支</td>
+          <td>「保全費是不是佔最多？」→ 通常不到一半，設備與檢修常被低估</td>
+        </tr>
+        <tr>
+          <td>公共基金用途</td>
+          <td>共用部分拆除、重大修繕、改良之工程費用</td>
+          <td>「公共基金可以拿來付日常管理費嗎？」→ 應專款專用，避免混用</td>
+        </tr>
+        <tr>
+          <td>費用揭露義務</td>
+          <td>住戶／利害關係人可請求閱覽會計憑證、帳簿、財務報表</td>
+          <td>「管委會可以不給我看帳嗎？」→ 不行，依法不得拒絕</td>
+        </tr>
+        <tr>
+          <td>積欠處理機制</td>
+          <td>欠繳逾兩期或達相當金額，經催告仍不繳，才能訴請法院</td>
+          <td>「欠一期就會被告？」→ 不會，未達門檻不能起訴求償</td>
+        </tr>
+      </table>
+    </div>
+  </section>
+
+  <section class="white">
+    <div class="container">
+      <h2>常見誤解 vs 實際情況</h2>
+      <table>
+        <tr><th>常見誤解</th><th>實際情況</th></tr>
+        <tr><td>管理費什麼都該包，跑腿代收都算</td><td>管理費是全社區共同事務的錢，不是個人服務費</td></tr>
+        <tr><td>管理費跟公共基金是同一筆</td><td>兩者性質不同，日常開支 vs 專款儲備</td></tr>
+        <tr><td>欠一期管理費馬上會被告</td><td>需逾兩期或達相當金額，經催告仍不履行才能提告</td></tr>
+        <tr><td>財務資料管委會想給不給隨意</td><td>利害關係人依法可請求閱覽，管委會不得拒絕</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="container">
+      <h2>相關法規依據</h2>
+      <table>
+        <tr><th>條號</th><th>內容摘要</th></tr>
+        <tr><td>第10條第2項</td><td>共用部分修繕、管理、維護費用，由公共基金支付或依區分所有權比例分擔；因可歸責於個別住戶者，由該住戶負擔</td></tr>
+        <tr><td>第18條</td><td>公寓大廈應設置公共基金，來源包含起造人提列、區分所有權人繳納、基金孳息、其他收入；公共基金應設專戶儲存，運用應依區權會決議為之</td></tr>
+        <tr><td>第19條</td><td>區分所有權人對公共基金之權利隨區分所有權移轉而移轉，不得因個人事由請求讓與、扣押或返還</td></tr>
+        <tr><td>第21條</td><td>積欠應繳費用逾二期或達相當金額，經定期催告仍不給付者，管理負責人或管委會得訴請法院命其給付及遲延利息</td></tr>
+        <tr><td>第35條</td><td>利害關係人得請求閱覽或影印規約、公共基金餘額、會計憑證、會計帳簿、財務報表等文件，管理負責人或管委會不得拒絕</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <section class="white">
+    <div class="container">
+      <h2>住戶實務檢查清單</h2>
+      <ul class="checklist">
+        <li>每期公告的財務報表，有沒有準時看到</li>
+        <li>管理費帳戶與公共基金帳戶是否分開</li>
+        <li>大型修繕前，有沒有經過區權會決議紀錄</li>
+        <li>對帳目有疑問，可依法申請閱覽會計憑證、帳簿</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="container">
+      <h2>紅旗警示清單</h2>
+      <ul class="redflag">
+        <li>管理費、公共基金混用同一帳戶</li>
+        <li>財務報表長期不公告，或帳目含糊帶過</li>
+        <li>大筆支出查無任何決議紀錄</li>
+        <li>住戶申請閱覽帳目被拒絕（違反第35條）</li>
+        <li>積欠未滿兩期就直接提告（超出法定門檻）</li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<div class="baoge-wrap">
+  <div class="baoge-inner">
+    <div class="baoge-title">寶哥說</div>
+    <div class="baoge-box">
+      <p>管理費買的不是服務，是沒事發生。</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="brand">寶哥說物業管理小常識</div>
+  <div class="handle">@bensonhsu0205</div>
+
+  <div class="divider"></div>
+
+  <div class="meta">
+    DAY 11 ／ 第三章：財務與公共基金 ／ 管理費到底花去哪？
+  </div>
+  <div class="label">DAY 11 · 第三章｜財務與公共基金篇</div>
+
+  <div class="divider light"></div>
+
+  <div class="disclaimer">
+    <p><span class="num">①</span><span>本頁內容為一般社區管理知識整理，實際個案仍應依權狀、建物圖說、規約、交屋文件、移交資料與主管機關認定為準。</span></p>
+    <p><span class="num">②</span><span>法規摘要依《公寓大廈管理條例》民國111年05月11日修正版整理，非法律意見或訴訟建議。</span></p>
+  </div>
+</footer>
+
+<a class="back-btn" href="https://bensonhsu0205.github.io/property-30days/">
+  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M15 18L9 12L15 6" stroke="#5BC8E8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  回主頁
+</a>
+
+</body>
+</html>
