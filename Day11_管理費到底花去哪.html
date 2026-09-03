@@ -78,6 +78,7 @@
 
   table{
     width:100%;
+    table-layout:fixed;
     border-collapse:collapse;
     background:#fff;
     font-size:15px;
@@ -85,9 +86,11 @@
   section.alt table{background:#fff;}
   th,td{
     text-align:left;
-    padding:14px 16px;
+    padding:16px 18px;
     border-bottom:1px solid rgba(26,110,142,0.15);
     vertical-align:top;
+    line-height:1.75;
+    overflow-wrap:break-word;
   }
   th{
     background:var(--theme);
@@ -96,6 +99,19 @@
     font-size:14px;
   }
   tr:last-child td{border-bottom:none;}
+
+  /* 三欄表格：項目／說明／常見疑問，固定欄寬避免關鍵詞被硬切 */
+  table.expense-table col.col-item{width:24%;}
+  table.expense-table col.col-desc{width:40%;}
+  table.expense-table col.col-qa{width:36%;}
+
+  /* 一般二欄表格 */
+  table.two-col col.col-a{width:42%;}
+  table.two-col col.col-b{width:58%;}
+
+  /* 法規對照表：條號欄較窄 */
+  table.law-table col.col-no{width:18%;}
+  table.law-table col.col-text{width:82%;}
 
   ul.checklist{list-style:none;}
   ul.checklist li{
@@ -275,30 +291,31 @@
   <section class="alt">
     <div class="container">
       <h2>管理費支出拆解</h2>
-      <table>
+      <table class="expense-table">
+        <colgroup><col class="col-item"><col class="col-desc"><col class="col-qa"></colgroup>
         <tr><th>項目</th><th>說明</th><th>常見疑問</th></tr>
         <tr>
-          <td>管理費 vs 公共基金</td>
+          <td>管理費<br>vs 公共基金</td>
           <td>管理費是日常固定支出；公共基金是專款專用，留給大型修繕與設備更新</td>
           <td>「這兩筆是不是同一筆錢？」→ 不是，用途完全不同</td>
         </tr>
         <tr>
-          <td>管理費常見支出結構</td>
+          <td>管理費<br>常見支出結構</td>
           <td>人力（保全、清潔）、設備保養（電梯、消防、水塔）、公共水電、保險、行政雜支</td>
           <td>「保全費是不是佔最多？」→ 通常不到一半，設備與檢修常被低估</td>
         </tr>
         <tr>
-          <td>公共基金用途</td>
+          <td>公共基金<br>用途</td>
           <td>共用部分拆除、重大修繕、改良之工程費用</td>
           <td>「公共基金可以拿來付日常管理費嗎？」→ 應專款專用，避免混用</td>
         </tr>
         <tr>
-          <td>費用揭露義務</td>
+          <td>費用<br>揭露義務</td>
           <td>住戶／利害關係人可請求閱覽會計憑證、帳簿、財務報表</td>
           <td>「管委會可以不給我看帳嗎？」→ 不行，依法不得拒絕</td>
         </tr>
         <tr>
-          <td>積欠處理機制</td>
+          <td>積欠<br>處理機制</td>
           <td>欠繳逾兩期或達相當金額，經催告仍不繳，才能訴請法院</td>
           <td>「欠一期就會被告？」→ 不會，未達門檻不能起訴求償</td>
         </tr>
@@ -308,8 +325,25 @@
 
   <section class="white">
     <div class="container">
+      <h2>管理費：固定支出 vs 非固定支出</h2>
+      <p style="font-size:15px;margin-bottom:18px;">同一筆管理費，其實包含兩種完全不同性質的支出。看懂這個分類，才知道這筆錢平常都花在哪個環節。</p>
+      <table class="two-col">
+        <colgroup><col class="col-a"><col class="col-b"></colgroup>
+        <tr><th>固定支出（每月穩定發生）</th><th>非固定支出（不定期、零星發生）</th></tr>
+        <tr>
+          <td>管理服務費、保全服務費、清潔服務費、垃圾清運、電梯／機電／弱電定期保養、園藝養護、公共水電、辦公事務費（電話網路、影印租賃）</td>
+          <td>電梯／機電臨時修繕、消防安檢與相關檢測、突發設備故障維修、設備汰換或增設、年節獎金、社區活動費用</td>
+        </tr>
+      </table>
+      <p style="font-size:14px;color:rgba(13,31,45,0.7);margin-top:18px;">從實際社區收支報表試算，固定支出普遍就佔了九成以上——非固定支出雖然佔比不高，但項目零散、時間不固定，最容易被住戶忽略，也是社區「錢突然不夠用」時最先被檢討的一塊。</p>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="container">
       <h2>常見誤解 vs 實際情況</h2>
-      <table>
+      <table class="two-col">
+        <colgroup><col class="col-a"><col class="col-b"></colgroup>
         <tr><th>常見誤解</th><th>實際情況</th></tr>
         <tr><td>管理費什麼都該包，跑腿代收都算</td><td>管理費是全社區共同事務的錢，不是個人服務費</td></tr>
         <tr><td>管理費跟公共基金是同一筆</td><td>兩者性質不同，日常開支 vs 專款儲備</td></tr>
@@ -319,10 +353,11 @@
     </div>
   </section>
 
-  <section class="alt">
+  <section class="white">
     <div class="container">
       <h2>相關法規依據</h2>
-      <table>
+      <table class="law-table">
+        <colgroup><col class="col-no"><col class="col-text"></colgroup>
         <tr><th>條號</th><th>內容摘要</th></tr>
         <tr><td>第10條第2項</td><td>共用部分修繕、管理、維護費用，由公共基金支付或依區分所有權比例分擔；因可歸責於個別住戶者，由該住戶負擔</td></tr>
         <tr><td>第18條</td><td>公寓大廈應設置公共基金，來源包含起造人提列、區分所有權人繳納、基金孳息、其他收入；公共基金應設專戶儲存，運用應依區權會決議為之</td></tr>
@@ -333,7 +368,7 @@
     </div>
   </section>
 
-  <section class="white">
+  <section class="alt">
     <div class="container">
       <h2>住戶實務檢查清單</h2>
       <ul class="checklist">
@@ -345,7 +380,7 @@
     </div>
   </section>
 
-  <section class="alt">
+  <section class="white">
     <div class="container">
       <h2>紅旗警示清單</h2>
       <ul class="redflag">
