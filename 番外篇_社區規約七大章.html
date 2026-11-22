@@ -3,18 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>番外篇｜社區規約七大章一次看懂｜導讀地圖</title>
+<title>番外篇｜社區規約七大章一次看懂｜導讀手冊</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700;900&display=swap" rel="stylesheet">
 <style>
-:root{--main:#1A6E8E;--acc:#5BC8E8;--ink:#0D1F2D;--navy:#0a1628;--soft:#F0F8FC;--line:#cfe5ee;--muted:#4a6272}
+:root{--main:#1A6E8E;--acc:#5BC8E8;--ink:#0D1F2D;--navy:#0a1628;--soft:#F0F8FC;--line:#d6e3ea;--muted:#4a6272}
+[data-c="ch1"]{--c:#355c7d;--t:#edf2f6}[data-c="ch2"]{--c:#2a7f78;--t:#e8f3f1}[data-c="ch3"]{--c:#6c5b7b;--t:#f1edf3}[data-c="ch4"]{--c:#b5813a;--t:#f9f1e4}[data-c="ch5"]{--c:#bd6a58;--t:#f8ece8}[data-c="ch6"]{--c:#a2473e;--t:#f7e9e6}[data-c="ch7"]{--c:#5c6b73;--t:#eef1f2}
+:root{--gold:#d9a84e;--paper:#fbf8f2}
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-padding-top:70px}
 body{font-family:'Noto Sans TC',sans-serif;color:var(--ink);background:#fff;line-height:1.75;text-align:left}
 .container{max-width:860px;margin:0 auto;padding:0 24px}
-.serif{font-family:'Noto Serif TC',serif}
 
-/* header */
 header{background:linear-gradient(135deg,#0a1628 0%,#1A6E8E 100%);color:#fff;padding:48px 0 44px}
 .tag{display:inline-block;color:var(--acc);border:1px solid rgba(91,200,232,.5);border-radius:20px;padding:2px 14px;font-size:13px;letter-spacing:1px;margin-bottom:14px}
 .chap{font-size:14px;color:rgba(255,255,255,.75);margin-bottom:10px}
@@ -22,254 +21,155 @@ h1{font-family:'Noto Serif TC',serif;font-size:32px;line-height:1.4;margin-botto
 .res{font-family:'Noto Serif TC',serif;font-size:20px;color:var(--acc);margin-bottom:8px}
 .sub{font-size:15px;color:rgba(255,255,255,.85)}
 
-/* sticky nav */
-.snav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
-.snav .container{display:flex;gap:8px;overflow-x:auto;padding-top:10px;padding-bottom:10px;scrollbar-width:none}
-.snav .container::-webkit-scrollbar{display:none}
-.snav a{flex-shrink:0;text-decoration:none;font-size:14px;color:var(--main);border:1px solid var(--line);border-radius:18px;padding:4px 14px;background:#fff;transition:.2s;white-space:nowrap}
-.snav a.on{background:var(--main);color:#fff;border-color:var(--main)}
-.snav a.map{background:var(--navy);color:var(--acc);border-color:var(--navy)}
-
-section{padding:48px 0}
+section{padding:44px 0}
 section.alt{background:var(--soft)}
-h2{font-family:'Noto Serif TC',serif;font-size:24px;color:var(--main);margin-bottom:8px;padding-left:12px;border-left:4px solid var(--acc);line-height:1.45}
-.lead{color:var(--muted);margin-bottom:22px;font-size:15px}
-h3{font-family:'Noto Serif TC',serif;font-size:18px;color:var(--ink);margin:26px 0 12px}
+h2{font-family:'Noto Serif TC',serif;font-size:24px;color:var(--main);margin-bottom:6px;padding-left:12px;border-left:4px solid var(--acc);line-height:1.45}
+.lead{color:var(--muted);margin-bottom:20px;font-size:15px}
 
-/* map */
-.mapwrap{background:linear-gradient(180deg,#0a1628 0%,#123a52 100%);border-radius:14px;padding:26px 22px 22px;color:#fff;position:relative;overflow:hidden}
-.mapwrap::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(91,200,232,.18) 1px,transparent 1px);background-size:18px 18px;pointer-events:none}
-.maptop{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;margin-bottom:18px;position:relative;flex-wrap:wrap}
-.maptop .t{font-family:'Noto Serif TC',serif;font-size:20px}
-.maptop .t small{display:block;font-family:'Noto Sans TC';font-size:13px;color:rgba(255,255,255,.6)}
-.prog{font-size:13px;color:var(--acc)}
-.bar{height:6px;width:160px;background:rgba(255,255,255,.15);border-radius:4px;margin-top:4px;overflow:hidden}
-.bar i{display:block;height:100%;width:0;background:var(--acc);transition:width .4s}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;position:relative}
-.node{display:block;text-decoration:none;color:#fff;background:rgba(255,255,255,.06);border:1px solid rgba(91,200,232,.35);border-radius:10px;padding:14px 12px 12px;transition:.2s;position:relative;min-height:128px}
-.node:hover{background:rgba(91,200,232,.16);transform:translateY(-3px);border-color:var(--acc)}
-.node .no{display:inline-flex;width:28px;height:28px;border-radius:50%;background:var(--acc);color:var(--navy);font-weight:700;align-items:center;justify-content:center;font-size:14px}
-.node .nm{font-family:'Noto Serif TC',serif;font-weight:700;font-size:16px;margin:8px 0 2px;line-height:1.35}
-.node .q{font-size:12.5px;color:rgba(255,255,255,.68);line-height:1.5}
-.node .ck{position:absolute;top:10px;right:10px;font-size:14px;color:var(--acc);opacity:0;transition:.3s}
-.node.seen .ck{opacity:1}
-.node.hot{border-color:#f2c14e}
-.node.hot .badge{position:absolute;top:10px;right:30px;font-size:11px;background:#f2c14e;color:var(--navy);border-radius:4px;padding:0 6px;font-weight:700}
-.node.core{grid-column:span 1;background:rgba(91,200,232,.1)}
-.legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:16px;font-size:12.5px;color:rgba(255,255,255,.65);position:relative}
-.hw{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;margin-top:22px}
-.hw .box{border-radius:10px;padding:16px;text-align:center}
-.hw .h{background:#fff;border:1px solid var(--line)}
-.hw .s{background:var(--main);color:#fff}
-.hw .box b{display:block;font-family:'Noto Serif TC',serif;font-size:18px}
-.hw .box span{font-size:13px;opacity:.85}
-.hw .plus{font-size:22px;color:var(--main);font-weight:700}
+/* bento */
+.prog{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--main);font-weight:700;margin-bottom:12px}
+.prog .bar{width:160px;height:6px;background:var(--line);border-radius:4px;overflow:hidden}
+.prog .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#2f5d9e,#23806c,#6a4fb3,#b07a1c,#c0583d,#4d8a2f,#4b5966);transition:width .4s}
+.bento{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:minmax(112px,auto);gap:10px}
+.tile{position:relative;border:none;text-align:left;font-family:inherit;cursor:pointer;border-radius:16px;padding:14px 16px 40px;color:#fff;background:var(--c);transition:transform .2s,box-shadow .2s;overflow:hidden}
+.tile:hover{transform:translateY(-3px);box-shadow:0 10px 22px rgba(10,22,40,.18)}
+.tile.on{box-shadow:0 0 0 3px #fff,0 0 0 6px var(--navy)}
+.tile small{font-size:12px;opacity:.85}
+.tile b{display:block;font-size:17px;line-height:1.4;margin-top:2px}
+.tile .q{display:block;font-size:13px;opacity:.88;margin-top:4px}
+.tile .tg{display:inline-block;background:rgba(255,255,255,.22);border-radius:8px;font-size:11.5px;padding:0 7px;margin:8px 4px 0 0}
+.tile .k{position:absolute;right:14px;bottom:8px;font-family:'Noto Serif TC',serif;font-weight:900;font-size:32px;opacity:.95;line-height:1}
+.tile .ck{position:absolute;left:16px;bottom:12px;font-size:12px;background:rgba(255,255,255,.25);border-radius:8px;padding:0 7px;display:none}
+.tile.seen .ck{display:inline-block}
+.t6{grid-column:span 4}.t1,.t2{grid-column:span 2;min-height:150px}.t3,.t4,.t5,.t7{grid-column:span 1}
 
-/* chapter */
-.chead{display:flex;gap:14px;align-items:center;margin-bottom:6px}
-.cno{flex-shrink:0;width:54px;height:54px;border-radius:12px;background:var(--navy);color:var(--acc);display:flex;align-items:center;justify-content:center;font-family:'Noto Serif TC',serif;font-weight:700;font-size:22px}
-.chead h2{border:none;padding:0;margin:0}
-.chead .art{font-size:13px;color:var(--muted)}
-.hotline{display:inline-block;background:#fff3d6;color:#8a5a00;border:1px solid #f2c14e;border-radius:4px;font-size:12px;padding:0 8px;margin-left:6px;vertical-align:middle;font-family:'Noto Sans TC'}
-.one{background:#fff;border:1px solid var(--line);border-left:4px solid var(--acc);border-radius:0 8px 8px 0;padding:12px 16px;margin:14px 0 6px;font-weight:500}
-section.alt .one{background:#fff}
 
-details{background:#fff;border:1px solid var(--line);border-radius:8px;margin-bottom:10px;overflow:hidden}
-summary{cursor:pointer;list-style:none;padding:12px 44px 12px 16px;font-weight:700;position:relative}
-summary::-webkit-details-marker{display:none}
-summary::after{content:"+";position:absolute;right:16px;top:9px;font-size:20px;color:var(--main);transition:.2s}
-details[open] summary::after{content:"−"}
-details[open] summary{background:var(--soft);color:var(--main)}
-.dbody{padding:12px 16px 14px;font-size:15px}
-.dbody p+p{margin-top:8px}
-.law{display:inline-block;font-size:12px;color:var(--main);background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:0 9px;margin:6px 6px 0 0}
-
-.look{background:var(--navy);color:#fff;border-radius:10px;padding:16px 18px;margin-top:18px}
+/* chapter book */
+#book{scroll-margin-top:0}
+.tabs{position:sticky;top:0;z-index:40;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 2px 8px rgba(10,22,40,.04)}
+.tabs .container{display:flex;overflow-x:auto;scrollbar-width:none;padding:0 12px}
+.tabs .container::-webkit-scrollbar{display:none}
+.tab{flex:1;min-width:64px;border:none;background:none;font-family:inherit;font-size:14px;font-weight:700;color:#7d929c;padding:12px 6px 10px;cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap}
+.tab.on{color:var(--c);border-bottom-color:var(--c);background:var(--t)}
+.page{padding:28px 0 44px}
+.pill{display:inline-block;background:var(--c);color:#fff;font-size:12.5px;border-radius:12px;padding:1px 12px}
+.ptitle{font-family:'Noto Serif TC',serif;font-size:28px;font-weight:900;margin:6px 0 2px;color:var(--ink);line-height:1.4}
+.pone{color:var(--muted);font-size:15px;margin-bottom:18px}
+.hot{display:inline-block;background:#fff3d6;color:#8a5a00;border:1px solid #f2c14e;border-radius:4px;font-size:12px;padding:0 8px;margin-left:8px;vertical-align:middle;font-family:'Noto Sans TC'}
+.nums{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:22px}
+.num{background:var(--t);border-radius:12px;padding:12px 14px}
+.num b{display:block;font-family:'Noto Serif TC',serif;font-size:26px;color:var(--c);line-height:1.2}
+.num span{font-size:13px;color:var(--muted)}
+h3{font-family:'Noto Serif TC',serif;font-size:18px;color:var(--c);margin:22px 0 10px}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:10px;border:1px solid var(--line)}
+table{width:100%;border-collapse:collapse;font-size:15px;background:#fff;min-width:560px}
+th{background:var(--c,var(--main));color:#fff;text-align:left;padding:10px 12px;white-space:nowrap}
+td{padding:10px 12px;border-bottom:1px solid #e6eef2;vertical-align:top}
+tr:nth-child(even) td{background:#fafcfd}
+td:first-child{font-weight:700;color:var(--c,var(--main));white-space:nowrap}
+.warn{display:inline-block;background:#fff4e5;color:#8a5a00;font-weight:700;border-radius:4px;padding:0 6px;font-size:13px}
+.law{display:inline-block;font-size:12px;color:var(--c);background:var(--t);border-radius:12px;padding:0 9px;margin:0 6px 6px 0}
+.opt{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
+.opt .oh{background:var(--t);padding:10px 14px;font-weight:700;color:var(--c);font-size:14.5px}
+.opt .oh small{font-weight:400;color:var(--muted);margin-left:6px}
+.opt .or{display:flex;gap:10px;padding:10px 14px;border-top:1px solid #eef3f5;font-size:14.5px}
+.opt .r{width:18px;height:18px;border:2px solid var(--c);border-radius:50%;flex-shrink:0;margin-top:3px}
+.opt .r.on{background:var(--c);box-shadow:inset 0 0 0 3px #fff}
+.opt .or em{font-style:normal;font-size:12px;color:var(--c);background:var(--t);border-radius:8px;padding:0 6px;margin-left:6px}
+.flow{display:flex;gap:0;flex-wrap:wrap;margin-top:4px}
+.fs{flex:1;min-width:120px;background:var(--t);padding:12px;position:relative;margin:0 14px 10px 0;border-radius:10px}
+.fs b{display:block;color:var(--c)}
+.fs span{font-size:13px;color:var(--muted)}
+.fs:not(:last-child)::after{content:"→";position:absolute;right:-13px;top:50%;transform:translateY(-50%);color:var(--c);font-weight:700}
+.fs.end{background:#fbe5e1}.fs.end b{color:#c0392b}
+.look{background:var(--navy);color:#fff;border-radius:12px;padding:16px 18px;margin-top:22px}
 .look b{color:var(--acc);display:block;margin-bottom:6px;font-size:14px;letter-spacing:1px}
 .look ul{padding-left:20px;font-size:15px}
+.pn{display:flex;justify-content:space-between;gap:10px;margin-top:22px}
+.pn button{font-family:inherit;font-size:14px;border:1px solid var(--line);background:#fff;border-radius:20px;padding:8px 16px;cursor:pointer;color:var(--ink)}
+.pn button:hover{border-color:var(--c);color:var(--c)}
+.pn button.nx{background:var(--c);color:#fff;border-color:var(--c)}
+.pn button:disabled{visibility:hidden}
 
-/* diagrams */
-.quad{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.qd{border-radius:10px;padding:14px;border:1px solid var(--line);background:#fff}
-.qd .k{font-family:'Noto Serif TC',serif;font-weight:700;font-size:16px}
-.qd .w{font-size:12.5px;color:var(--muted);margin:2px 0 6px}
-.qd .e{font-size:14px}
-.qd.a{border-top:4px solid #1A6E8E}.qd.b{border-top:4px solid #5BC8E8}.qd.c{border-top:4px solid #7a9cc6}.qd.d{border-top:4px solid #9bb8c4}
-.axis{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin:6px 2px 0}
-
-.timeline{display:flex;gap:0;margin:6px 0 4px;position:relative}
-.tl{flex:1;text-align:center;position:relative;padding-top:34px;font-size:13.5px}
-.tl::before{content:"";position:absolute;top:13px;left:0;right:0;height:3px;background:var(--line)}
-.tl:first-child::before{left:50%}.tl:last-child::before{right:50%}
-.tl .dot{position:absolute;top:4px;left:50%;transform:translateX(-50%);width:22px;height:22px;border-radius:50%;background:var(--main);color:#fff;font-size:12px;display:flex;align-items:center;justify-content:center;z-index:1}
-.tl b{display:block;color:var(--main);font-size:14px}
-
-.vote{display:grid;gap:12px}
-.vrow{background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 14px}
-.vrow .vt{font-weight:700;margin-bottom:6px}
-.vrow .vt small{font-weight:400;color:var(--muted);margin-left:6px}
-.meter{display:grid;grid-template-columns:62px 1fr 64px;align-items:center;gap:8px;font-size:13px;margin-top:4px}
-.meter .tr{height:12px;background:var(--soft);border-radius:6px;overflow:hidden;border:1px solid var(--line)}
-.meter .tr i{display:block;height:100%;background:var(--main);border-radius:6px}
-.meter .tr i.l{background:var(--acc)}
-.meter span:last-child{text-align:right;color:var(--main);font-weight:700}
-
-.org{display:flex;flex-direction:column;align-items:center;gap:0}
-.org .lv{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;position:relative;padding:14px 0}
-.org .lv+.lv::before{content:"";position:absolute;top:0;left:50%;width:2px;height:14px;background:var(--line)}
-.ob{background:#fff;border:1px solid var(--line);border-radius:8px;padding:8px 14px;text-align:center;min-width:110px}
-.ob b{display:block;font-size:15px}
-.ob span{font-size:12px;color:var(--muted)}
-.ob.top{background:var(--navy);color:#fff;border-color:var(--navy)}
-.ob.top span{color:var(--acc)}
-.ob.mid{border-color:var(--main);border-width:2px}
-
-.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.col{background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px 16px}
-.col .ct{font-family:'Noto Serif TC',serif;font-weight:700;font-size:17px;margin-bottom:2px}
-.col .cs{font-size:13px;color:var(--muted);margin-bottom:8px}
-.col ul{padding-left:18px;font-size:14.5px}
-.col.f{border-top:4px solid var(--acc)}.col.g{border-top:4px solid var(--main)}
-
-.flow{display:flex;flex-direction:column;gap:0}
-.st{display:grid;grid-template-columns:40px 1fr;gap:12px;position:relative;padding-bottom:16px}
-.st:not(:last-child)::before{content:"";position:absolute;left:19px;top:38px;bottom:0;width:2px;background:var(--line)}
-.st .sn{width:38px;height:38px;border-radius:50%;background:var(--main);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700}
-.st.end .sn{background:#c0392b}
-.st .sc{background:#fff;border:1px solid var(--line);border-radius:8px;padding:9px 14px}
-.st .sc b{display:block}
-.st .sc span{font-size:13.5px;color:var(--muted)}
-
-.icons{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.ic{background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px;text-align:center;cursor:pointer;transition:.2s}
-.ic:hover,.ic.on{border-color:var(--main);box-shadow:0 4px 14px rgba(26,110,142,.12)}
-.ic .em{font-size:26px;line-height:1}
-.ic b{display:block;margin-top:6px;font-size:15px}
-.icpanel{background:var(--navy);color:#fff;border-radius:10px;padding:14px 16px;margin-top:10px;font-size:14.5px;min-height:58px}
-.icpanel b{color:var(--acc)}
-
-.cards4{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.c4{background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px}
-.c4 b{display:block;font-family:'Noto Serif TC',serif;font-size:16px}
-.c4 p{font-size:14px;color:var(--muted);margin-top:4px}
-
-/* tables */
-.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
-table{width:100%;border-collapse:collapse;font-size:15px;background:#fff;min-width:540px}
-th{background:var(--main);color:#fff;text-align:left;padding:10px 12px;white-space:nowrap}
-td{padding:10px 12px;border-bottom:1px solid #d6e9f1;vertical-align:top}
-td:first-child{font-weight:700;color:var(--main);white-space:nowrap}
-td a{color:var(--main)}
-.note{font-size:13px;color:var(--muted);margin-top:10px}
-
-/* checklist */
+.mtable td:first-child{color:var(--main)}
+.mtable th{background:var(--main)}
 .chk{display:grid;gap:8px}
-.chk label{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:8px;padding:11px 14px;cursor:pointer;transition:.2s}
+.chk label{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:8px;padding:11px 14px;cursor:pointer}
 .chk input{width:20px;height:20px;accent-color:var(--main);margin-top:3px;flex-shrink:0}
 .chk label.done{background:#eaf6fa;border-color:var(--acc);color:var(--muted);text-decoration:line-through}
-.chk .go{margin-left:auto;font-size:12px;color:var(--main);text-decoration:none;white-space:nowrap;border:1px solid var(--line);border-radius:12px;padding:0 8px;align-self:center}
+.chk .go{margin-left:auto;font-size:12px;color:#fff;background:var(--c);border:none;border-radius:12px;padding:1px 10px;align-self:center;cursor:pointer;font-family:inherit;white-space:nowrap}
 .chkbar{display:flex;align-items:center;gap:10px;margin-bottom:12px;font-size:14px;color:var(--main);font-weight:700}
-.chkbar .bar{width:200px;background:var(--line)}
+.chkbar .bar{width:200px;height:6px;background:var(--line);border-radius:4px;overflow:hidden}
+.chkbar .bar i{display:block;height:100%;width:0;background:var(--main);transition:width .3s}
+.note{font-size:13px;color:var(--muted);margin-top:10px}
+.lawt td:last-child button{font-family:inherit;font-size:12px;border:none;border-radius:10px;padding:0 9px;color:#fff;background:var(--c);cursor:pointer}
 
-[data-c="ch1"]{--c:#2f5d9e;--t:#e8eff9}
-[data-c="ch2"]{--c:#23806c;--t:#e3f3ee}
-[data-c="ch3"]{--c:#6a4fb3;--t:#efeaf9}
-[data-c="ch4"]{--c:#b07a1c;--t:#fbf2df}
-[data-c="ch5"]{--c:#c0583d;--t:#fbebe6}
-[data-c="ch6"]{--c:#4d8a2f;--t:#ebf4e4}
-[data-c="ch7"]{--c:#4b5966;--t:#eceff2}
-/* chapter colour system */
-section[data-c] .cno{background:var(--c);color:#fff}
-section[data-c] .chead h2{color:var(--c)}
-section[data-c] .one{border-left-color:var(--c);background:var(--t)}
-section[data-c] details[open] summary{background:var(--t);color:var(--c)}
-section[data-c] summary::after{color:var(--c)}
-section[data-c] .law{color:var(--c);background:var(--t);border-color:transparent}
-section[data-c] .look{background:var(--t);color:var(--ink);border-left:4px solid var(--c)}
-section[data-c] .look b{color:var(--c)}
-section[data-c] h3{color:var(--c)}
-section[data-c] .ob.mid{border-color:var(--c)}
-section[data-c] .ob.top{background:var(--c);border-color:var(--c)}
-section[data-c] .ob.top span{color:#fff;opacity:.85}
-section[data-c] .st .sn{background:var(--c)}
-section[data-c] .st.end .sn{background:#c0392b}
-section[data-c] .tl .dot{background:var(--c)}
-section[data-c] .tl b{color:var(--c)}
-section[data-c] .meter .tr i{background:var(--c)}
-section[data-c] .meter span:last-child{color:var(--c)}
-section[data-c] .c4 b,.icx b{color:var(--c)}
-.snav a[data-s]{border-color:var(--t,var(--line))}
-.snav a[data-s].on{background:var(--c,var(--main));border-color:var(--c,var(--main));color:#fff}
-.snav a svg,.tomap svg{vertical-align:-3px;margin-right:3px}
-.c4 .ib{display:inline-flex;width:34px;height:34px;border-radius:9px;background:var(--t);color:var(--c);align-items:center;justify-content:center;margin-bottom:6px}
-.ic{color:var(--c)}
-.ic .em{display:inline-flex;width:44px;height:44px;border-radius:12px;background:var(--t);align-items:center;justify-content:center}
-.ic b{color:var(--ink)}
-.ic.on{border-color:var(--c);box-shadow:0 4px 14px rgba(192,88,61,.16)}
-.icpanel{background:var(--t);color:var(--ink);border-left:4px solid var(--c)}
-.icpanel b{color:var(--c)}
-.icpanel .law{background:#fff!important;color:var(--c)!important;border-color:transparent!important}
+/* ===== refined skin ===== */
+.bento{gap:12px}
+.tile{background:#fff;color:var(--ink);border:1px solid #e4e9ec;border-radius:8px;padding:16px 18px 44px;box-shadow:none}
+.tile::before{content:"";position:absolute;left:0;top:0;right:0;height:4px;background:var(--c)}
+.tile:hover{transform:translateY(-2px);background:var(--t);box-shadow:0 8px 20px rgba(20,33,61,.08)}
+.tile.on{box-shadow:0 0 0 2px var(--c);background:var(--t)}
+.tile small{color:var(--c);opacity:1;font-weight:700;letter-spacing:.5px}
+.tile b{font-family:'Noto Serif TC',serif;font-weight:900;font-size:18px}
+.tile .q{color:var(--muted);opacity:1}
+.tile .tg{background:transparent;border:1px solid var(--c);color:var(--c);border-radius:3px;padding:0 6px}
+.tile .k{color:var(--c);font-size:44px;opacity:.9;bottom:6px}
+.tile .ck{background:var(--c);color:#fff;border-radius:3px}
+.tile.t6{background:linear-gradient(120deg,#0a1628 0%,#16324a 100%);color:#fff;border:none;min-height:150px;
+ background-image:linear-gradient(120deg,rgba(10,22,40,.96),rgba(22,50,74,.96)),repeating-linear-gradient(45deg,rgba(217,168,78,.08) 0 2px,transparent 2px 14px)}
+.tile.t6::before{background:var(--gold)}
+.tile.t6 small{color:var(--gold)}
+.tile.t6 .q{color:rgba(255,255,255,.72)}
+.tile.t6 .tg{border-color:var(--gold);color:var(--gold)}
+.tile.t6 .k{color:var(--gold);font-size:64px}
+.tile.t6:hover,.tile.t6.on{background:linear-gradient(120deg,#0a1628,#1b3b57)}
+.tile.t6.on{box-shadow:0 0 0 2px var(--gold)}
+.tile.t6 .ck{background:var(--gold);color:#0a1628}
+.prog .bar i{background:linear-gradient(90deg,#355c7d,#2a7f78,#6c5b7b,#b5813a,#bd6a58,#a2473e,#5c6b73)}
 
-/* house */
-.duo{display:grid;grid-template-columns:1.25fr 1fr;gap:20px;align-items:start}
-.bld{width:100%;height:auto;display:block;background:linear-gradient(180deg,#dff1f8 0%,#f7fbfd 55%);border:1px solid var(--line);border-radius:14px}
-.z{cursor:pointer}
-.z .f{fill:var(--t);stroke:var(--c);stroke-width:1.6;transition:fill .2s}
-.z:hover .f{fill:#fff}
-.z.on .f,.z[data-c="ch5"].on .f{fill:var(--c)}
-.z text{font-family:'Noto Sans TC';font-size:12.5px;fill:#0D1F2D;pointer-events:none;font-weight:500}
-.z.on text{fill:#fff;font-weight:700}
-.z .b{fill:var(--c)}.z.on .b{fill:#fff}
-.z .bt{fill:#fff;font-size:11px;font-weight:700}.z.on .bt{fill:var(--c)}
-.z .dec{fill:#fff;stroke:var(--c);stroke-opacity:.45;stroke-width:1.2;pointer-events:none}
-.z[data-c="ch5"] .f{fill:#f7ddd5}
-.z.on .dec{fill:#fff;fill-opacity:.35;stroke-opacity:0}
-.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
-.chips button{font-family:inherit;font-size:13px;border:1px solid var(--c);background:var(--t);border-radius:16px;padding:3px 12px;color:var(--c);cursor:pointer}
-.chips button.on{background:var(--c);color:#fff}
-.chips button.seen::after{content:" ✓"}
-.panel{position:sticky;top:70px;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 8px 24px rgba(10,22,40,.08)}
-.pcard{border-top:6px solid var(--c);padding:18px 20px}
-.ph{display:flex;gap:12px;align-items:center}
-.pi{width:48px;height:48px;border-radius:12px;background:var(--t);color:var(--c);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.pn{font-size:12px;color:var(--muted)}.pt{font-family:'Noto Serif TC',serif;font-weight:700;font-size:19px;line-height:1.35;color:var(--c)}
-.pq{margin:12px 0 8px;font-weight:700}
-.pcard ul{padding-left:18px;font-size:14.5px}.pcard li{margin-bottom:4px}
-.pa{display:inline-block;margin-top:10px;font-size:12px;color:var(--c);background:var(--t);border-radius:12px;padding:0 10px}
-.pgo{display:block;margin-top:14px;text-align:center;background:var(--c);color:#fff;text-decoration:none;border-radius:20px;padding:8px;font-size:14px;font-weight:700}
-.prog2{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--main);font-weight:700;margin-bottom:10px}
-.prog2 .bar{width:150px;background:var(--line);height:6px;border-radius:4px;overflow:hidden}
-.prog2 .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#2f5d9e,#23806c,#6a4fb3,#b07a1c,#c0583d,#4d8a2f,#4b5966);transition:width .4s}
+.tabs{background:#fff}
+.tab{font-size:13.5px;color:#8a99a1;padding:12px 10px 10px;flex:1 0 auto;min-width:auto}
+.tab i{font-style:normal;font-family:'Noto Serif TC',serif;font-weight:900;margin-right:4px;color:#b9c4ca}
+.tab.on{background:transparent;color:var(--ink)}
+.tab.on i{color:var(--c)}
+.page{padding-top:32px}
+.pill{background:transparent;color:var(--c);border:1px solid var(--c);border-radius:3px;letter-spacing:.5px}
+.ptitle{font-size:30px}
+.ptitle .big{font-family:'Noto Serif TC',serif;color:var(--c);margin-right:10px}
+.pone{border-left:3px solid var(--gold);padding-left:12px;color:#3d4f58}
+.num{background:#fff;border:1px solid #e4e9ec;border-top:3px solid var(--c);border-radius:6px}
+.num b{font-size:28px}
+h3{color:var(--ink);display:flex;align-items:center;gap:8px}
+h3::before{content:"";width:18px;height:3px;background:var(--c);display:inline-block}
+.tw{border-radius:6px;border-color:#e4e9ec}
+table.rt th{background:#14213d}
+table.rt tr:nth-child(even) td{background:var(--paper)}
+.warn{background:#fdf1d8;color:#8a5a00}
+.opt{border-radius:6px;border-color:#e4e9ec}
+.opt .oh{background:var(--paper);color:var(--ink);border-bottom:1px solid #eee5d3}
+.opt .oh::before{content:"◆ ";color:var(--gold)}
+.fs{background:#fff;border:1px solid #e4e9ec;border-top:3px solid var(--c);border-radius:6px}
+.fs.end{background:#14213d;border-color:#14213d;border-top-color:var(--gold)}
+.fs.end b{color:var(--gold)}.fs.end span{color:rgba(255,255,255,.75)}
+.look{background:#14213d;border-radius:6px;border-left:4px solid var(--gold)}
+.look b{color:var(--gold)}
+.law{background:transparent;border:1px solid #d9e1e5;color:#3d4f58;border-radius:3px}
+.pn button{border-radius:4px}
+.pn button.nx{background:#14213d;border-color:#14213d}
+.pn button.nx:hover{color:var(--gold)}
+.hot{background:#14213d;color:var(--gold);border-color:#14213d;border-radius:3px}
+.mtable th,.lawt th{background:#14213d}
+.mtable tr:nth-child(even) td{background:var(--paper)}
+.lawt td:last-child button{border-radius:3px}
+.chk label{border-radius:6px}
+.chk .go{border-radius:3px}
+.chkbar .bar i{background:var(--gold)}
+@media(max-width:640px){.tile .k{font-size:34px}.tile.t6 .k{font-size:46px}.ptitle{font-size:24px}}
 
-/* metro */
-.mapm{width:100%;height:auto;display:block;background:#fbfdfe;border:1px solid var(--line);border-radius:14px}
-.ln{fill:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;transition:opacity .3s}
-.stn{cursor:pointer}
-.stn circle.o{fill:#fff;stroke:var(--c);stroke-width:4;transition:.2s}
-.stn circle.i{fill:var(--c)}
-.stn:hover circle.o{fill:var(--t)}
-.stn.on circle.o{fill:var(--c)}.stn.on circle.i{fill:#fff}
-.stn text{font-family:'Noto Sans TC';font-size:13.5px;font-weight:700;fill:var(--c);pointer-events:none}
-.stn text.n{font-size:11px;font-weight:400;fill:#4a6272}
-.route{fill:none;stroke:#f2a81d;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:10 8;animation:mv 1s linear infinite}
-@keyframes mv{to{stroke-dashoffset:-18}}
-.dim .ln{opacity:.22}
-.keys{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;margin:0 0 8px}
-.keys span{display:flex;align-items:center;gap:6px}.keys i{display:inline-block;width:22px;height:6px;border-radius:3px}
-.sc{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
-.sc button{font-family:inherit;font-size:14px;border:1px solid #f2c14e;background:#fff8e6;color:#7a5200;border-radius:18px;padding:5px 14px;cursor:pointer;font-weight:700}
-.sc button.on{background:#f2a81d;color:#fff;border-color:#f2a81d}
-.rt{margin-top:10px;background:#0a1628;color:#fff;border-radius:10px;padding:12px 14px;font-size:14.5px;display:none}
-.rt b{color:#f2c14e}
-.why{margin-top:34px}
-section[data-c] .one{margin-bottom:14px}
-@media(max-width:760px){.duo{grid-template-columns:1fr}.panel{position:static}}
-
-/* 寶哥說 */
 .bao{background:#fff;padding:36px 0 40px}
 .bao h3{font-family:'Noto Serif TC',serif;font-size:22px;font-weight:700;color:#1A6E8E;margin:0 0 16px;background:#fff}
 .bao .box{background:#daeef6;border-left:4px solid #5BC8E8;border-radius:0 6px 6px 0;padding:18px 20px;font-size:16px;font-weight:700;color:#0D1F2D}
-
 footer{background:#0a1628;color:#fff;text-align:center;padding:36px 24px 90px}
 .fb{font-weight:700;font-size:17px}.fh{color:#5BC8E8;margin-top:4px}
 .hr{height:1px;max-width:560px;margin:18px auto}
@@ -277,25 +177,30 @@ footer{background:#0a1628;color:#fff;text-align:center;padding:36px 24px 90px}
 .fc{color:#5BC8E8;font-size:13px;margin-bottom:12px}
 .disc{max-width:560px;margin:0 auto;text-align:left;font-size:12px;color:rgba(255,255,255,.45)}
 .disc p{display:flex;gap:6px;margin-bottom:6px}
-.num{width:20px;text-align:right;flex-shrink:0}
-
+.disc .n{width:20px;text-align:right;flex-shrink:0}
 .back{position:fixed;left:20px;bottom:24px;background:#0a1628;color:#5BC8E8;text-decoration:none;border-radius:24px;padding:10px 18px;display:flex;align-items:center;gap:6px;font-size:15px;box-shadow:0 4px 14px rgba(0,0,0,.25);transition:all .2s;z-index:99}
 .back:hover{transform:translateY(-2px);background:#050d18}
-.tomap{position:fixed;right:20px;bottom:24px;background:#fff;color:var(--main);border:1px solid var(--line);text-decoration:none;border-radius:24px;padding:10px 16px;font-size:14px;box-shadow:0 4px 14px rgba(0,0,0,.12);z-index:99;opacity:0;pointer-events:none;transition:.3s}
-.tomap.show{opacity:1;pointer-events:auto}
+.totop{position:fixed;right:20px;bottom:24px;background:#fff;color:var(--main);border:1px solid var(--line);border-radius:24px;padding:10px 16px;font-size:14px;box-shadow:0 4px 14px rgba(0,0,0,.12);z-index:99;opacity:0;pointer-events:none;transition:.3s;cursor:pointer;font-family:inherit}
+.totop.show{opacity:1;pointer-events:auto}
 
-@media(max-width:720px){
- .grid{grid-template-columns:1fr 1fr}
- .node{min-height:auto}
- .hw{grid-template-columns:1fr}.hw .plus{text-align:center}
- .two,.cards4{grid-template-columns:1fr}
- .icons{grid-template-columns:repeat(2,1fr)}
-}
 @media(max-width:640px){
- h1{font-size:25px}.res{font-size:17px}h2{font-size:20px}section{padding:34px 0}table{font-size:14px}
- .back{font-size:13px;padding:8px 14px}.tomap{font-size:13px;padding:8px 13px}
- .tl{font-size:12px}.tl b{font-size:12.5px}
- .quad{grid-template-columns:1fr 1fr}
+ h1{font-size:25px}.res{font-size:17px}h2{font-size:20px}section{padding:34px 0}
+ .bento{grid-template-columns:1fr 1fr}
+ .t6{grid-column:span 2}.t1,.t2,.t3,.t4,.t5,.t7{grid-column:span 1;min-height:130px}
+ .tile b{font-size:15.5px}.tile .q{display:none}.tile .k{font-size:26px}
+ .ptitle{font-size:23px}.num b{font-size:22px}
+ table{font-size:14px}
+ .back{font-size:13px;padding:8px 14px}.totop{font-size:13px;padding:8px 13px}
+ table.rt{min-width:0}
+ table.rt thead{display:none}
+ table.rt,table.rt tbody,table.rt tr,table.rt td{display:block;width:100%}
+ table.rt tr{padding:12px 14px;border-bottom:1px solid #e6eef2}
+ table.rt td{border:none;padding:0;background:none!important}
+ table.rt td:first-child{font-size:15.5px;margin-bottom:2px}
+ table.rt td:nth-child(3){font-size:13.5px;color:var(--muted);margin-top:4px}
+ table.rt td:nth-child(3)::before{content:'注意｜';color:var(--c);font-weight:700}
+ .fs{min-width:100%;margin-right:0;margin-bottom:22px}
+ .fs:not(:last-child)::after{content:"↓";right:auto;left:50%;top:auto;bottom:-20px;transform:translateX(-50%)}
 }
 </style>
 </head>
@@ -305,82 +210,26 @@ footer{background:#0a1628;color:#fff;text-align:center;padding:36px 24px 90px}
 <span class="tag">番外篇</span>
 <div class="chap">規約導讀｜第一屆區分所有權人會議</div>
 <h1>社區規約七大章一次看懂</h1>
-<div class="res">《社區規約七大章導讀地圖》</div>
-<div class="sub">點地圖上任何一章，直接跳到那一章的重點</div>
+<div class="res">《社區規約七大章導讀手冊》</div>
+<div class="sub">點任何一格，看那一章在管什麼、你要注意什麼</div>
 </div></header>
 
-<nav class="snav"><div class="container">
-<a href="#map" class="map" data-icon="map" data-size="15">地圖</a>
-<a href="#route" class="map" style="background:#f2a81d;border-color:#f2a81d;color:#fff">遇到問題</a>
-<a href="#ch1" data-s="ch1" data-c="ch1">一 使用區分</a>
-<a href="#ch2" data-s="ch2" data-c="ch2">二 區權會</a>
-<a href="#ch3" data-s="ch3" data-c="ch3">三 管委會</a>
-<a href="#ch4" data-s="ch4" data-c="ch4">四 財務</a>
-<a href="#ch5" data-s="ch5" data-c="ch5">五 住戶遵守</a>
-<a href="#ch6" data-s="ch6" data-c="ch6">六 爭議處理</a>
-<a href="#ch7" data-s="ch7" data-c="ch7">七 附則</a>
-<a href="#check" data-s="check">✓ 開會清單</a>
-</div></nav>
-
-<section id="map"><div class="container">
-<h2>導讀地圖：規約藏在這棟房子裡</h2>
-<p class="lead">房子是硬體，規約是軟體。點房子任何一個地方，看它歸哪一章管。</p>
-<div class="prog2">已看 <span id="seenN">0</span> / 7 章<div class="bar"><i id="seenBar"></i></div></div>
-<div class="duo">
-<div>
-<svg class="bld" viewBox="0 0 420 540" xmlns="http://www.w3.org/2000/svg">
- <rect x="0" y="392" width="420" height="148" fill="#e3e9ec"/>
- <line x1="0" y1="392" x2="420" y2="392" stroke="#9bb8c4" stroke-width="2"/>
- <g class="z" data-c="ch1"><rect class="f" x="60" y="64" width="300" height="20" rx="2"/><rect class="f" x="270" y="30" width="56" height="34" rx="3"/><text x="96" y="78">樓頂平臺</text><text x="286" y="52">水塔</text><circle class="b" cx="76" cy="74" r="9"/><text class="bt" x="72.5" y="78">1</text></g>
- <g class="z" data-c="ch5"><rect class="f" x="76" y="84" width="284" height="210"/>
-  <g class="dec"><rect x="96" y="100" width="40" height="30" rx="2"/><rect x="156" y="100" width="40" height="30" rx="2"/><rect x="216" y="100" width="40" height="30" rx="2"/><rect x="290" y="100" width="40" height="30" rx="2"/><rect x="96" y="170" width="40" height="30" rx="2"/><rect x="156" y="170" width="40" height="30" rx="2"/><rect x="216" y="170" width="40" height="30" rx="2"/><rect x="290" y="170" width="40" height="30" rx="2"/><rect x="96" y="240" width="40" height="30" rx="2"/><rect x="156" y="240" width="40" height="30" rx="2"/><rect x="216" y="240" width="40" height="30" rx="2"/><rect x="290" y="240" width="40" height="30" rx="2"/></g>
-  <rect x="140" y="140" width="164" height="24" rx="12" fill="#0a1628" opacity=".85"/><text x="152" y="157" style="fill:#fff">住家：寵物・裝修・噪音</text>
-  <circle class="b" cx="345" cy="98" r="9"/><text class="bt" x="341.5" y="102">5</text></g>
- <g class="z" data-c="ch1"><rect class="f" x="60" y="84" width="16" height="308"/></g>
- <g class="z" data-c="ch2"><rect class="f" x="76" y="294" width="118" height="98"/><g class="dec"><rect x="104" y="340" width="62" height="14" rx="3"/><circle cx="114" cy="332" r="5"/><circle cx="135" cy="332" r="5"/><circle cx="156" cy="332" r="5"/></g><text x="92" y="380">大廳・區權會</text><circle class="b" cx="182" cy="308" r="9"/><text class="bt" x="178.5" y="312">2</text></g>
- <g class="z" data-c="ch3"><rect class="f" x="194" y="294" width="78" height="98"/><g class="dec"><rect x="206" y="344" width="54" height="18" rx="2"/></g><text x="203" y="380">管理中心</text><circle class="b" cx="260" cy="308" r="9"/><text class="bt" x="256.5" y="312">3</text></g>
- <g class="z" data-c="ch7"><rect class="f" x="272" y="294" width="42" height="98"/><g class="dec"><rect x="280" y="316" width="11" height="9"/><rect x="295" y="316" width="11" height="9"/><rect x="280" y="329" width="11" height="9"/><rect x="295" y="329" width="11" height="9"/></g><text x="281" y="380">信箱</text><circle class="b" cx="293" cy="356" r="9"/><text class="bt" x="289.5" y="360">7</text></g>
- <g class="z" data-c="ch6"><rect class="f" x="314" y="294" width="46" height="98"/><g class="dec"><rect x="324" y="330" width="26" height="62" rx="2"/></g><text x="324" y="318">門禁</text><circle class="b" cx="337" cy="352" r="9"/><text class="bt" x="333.5" y="356">6</text></g>
- <g class="z" data-c="ch1"><rect class="f" x="60" y="404" width="210" height="110" rx="2"/><g class="dec"><rect x="110" y="432" width="30" height="24" rx="5"/><rect x="210" y="432" width="30" height="24" rx="5"/></g><g stroke="#2f5d9e" stroke-opacity=".35" stroke-width="1.5"><line x1="100" y1="420" x2="100" y2="470"/><line x1="150" y1="420" x2="150" y2="470"/><line x1="200" y1="420" x2="200" y2="470"/><line x1="250" y1="420" x2="250" y2="470"/></g><text x="84" y="500">地下室停車空間</text><circle class="b" cx="76" cy="420" r="9"/><text class="bt" x="72.5" y="424">1</text></g>
- <g class="z" data-c="ch4"><rect class="f" x="270" y="404" width="90" height="110" rx="2"/><g class="dec"><rect x="292" y="428" width="46" height="40" rx="4"/></g><circle cx="315" cy="448" r="9" fill="none" stroke="#b07a1c" stroke-width="2" pointer-events="none"/><text x="281" y="500">機房・基金</text><circle class="b" cx="348" cy="420" r="9"/><text class="bt" x="344.5" y="424">4</text></g>
- <text x="370" y="388" font-size="11" fill="#4a6272" font-family="Noto Sans TC">地面</text>
-</svg>
-<div class="chips" id="chips"></div>
-</div>
-<div class="panel" id="panelA"></div>
-</div>
+<section id="top"><div class="container">
+<h2>七大章總覽</h2>
+<p class="lead">規約通常分成七章。格子越大，越常吵起來。</p>
+<div class="prog">已看 <span id="seenN">0</span> / 7 章<div class="bar"><i id="seenBar"></i></div></div>
+<div class="bento" id="bento"></div>
 </div></section>
 
-<section id="route" class="alt"><div class="container">
-<h2>遇到問題，走哪條路？</h2>
-<p class="lead">規約七章像一張捷運圖。點下面的情境，看一個問題會經過哪幾章；點站名看那一章。</p>
-<div class="duo">
-<div>
-<div class="keys"><span><i style="background:#e07a5f"></i>生活線</span><span><i style="background:#1A6E8E"></i>組織線</span><span><i style="background:#8f7fd1"></i>權利線</span><span><i style="background:#5fa36a"></i>處理線</span><span>◎ 轉乘站</span></div>
-<svg class="mapm" id="mapm" viewBox="0 0 440 480" xmlns="http://www.w3.org/2000/svg">
- <path class="ln" stroke="#8f7fd1" d="M80 420 V110"/>
- <path class="ln" stroke="#e07a5f" d="M80 110 H360"/>
- <path class="ln" stroke="#1A6E8E" d="M80 270 H360"/>
- <path class="ln" stroke="#5fa36a" d="M360 270 V110"/>
- <polyline class="route" id="routeLine" points=""/>
- <g class="stn" data-c="ch1"><circle class="o" cx="80" cy="110" r="16"/><circle class="i" cx="80" cy="110" r="6"/><text x="58" y="76">使用區分</text><text class="n" x="62" y="60">第一章</text></g>
- <g class="stn" data-c="ch5"><circle class="o" cx="220" cy="110" r="13"/><text x="190" y="76">住戶遵守</text><text class="n" x="202" y="60">第五章</text></g>
- <g class="stn" data-c="ch6"><circle class="o" cx="360" cy="110" r="16"/><circle class="i" cx="360" cy="110" r="6"/><text x="330" y="76">爭議處理</text><text class="n" x="338" y="60">第六章★</text></g>
- <g class="stn" data-c="ch2"><circle class="o" cx="80" cy="270" r="16"/><circle class="i" cx="80" cy="270" r="6"/><text x="104" y="304">區權會</text><text class="n" x="104" y="320">第二章</text></g>
- <g class="stn" data-c="ch3"><circle class="o" cx="220" cy="270" r="13"/><text x="198" y="304">管委會</text><text class="n" x="202" y="320">第三章</text></g>
- <g class="stn" data-c="ch4"><circle class="o" cx="360" cy="270" r="16"/><circle class="i" cx="360" cy="270" r="6"/><text x="342" y="304">財務</text><text class="n" x="336" y="320">第四章</text></g>
- <g class="stn" data-c="ch7"><circle class="o" cx="80" cy="420" r="13"/><text x="104" y="418">附則</text><text class="n" x="104" y="434">第七章</text></g>
- <text x="232" y="196" font-size="11.5" fill="#4d8a2f" font-family="Noto Sans TC">欠費、違規</text><text x="232" y="212" font-size="11.5" fill="#4d8a2f" font-family="Noto Sans TC">最後都到第六章 →</text>
-</svg>
-<div style="margin-top:14px;font-weight:700">轉乘情境</div>
-<div class="sc" id="sc"></div>
-<div class="rt" id="rt"></div>
+<div id="book">
+<nav class="tabs"><div class="container" id="tabs"></div></nav>
+<div class="container"><div class="page" id="page"></div></div>
 </div>
-<div class="panel" id="panelB"></div>
-</div>
-</div></section>
-<section><div class="container"><h2>第一屆為什麼特別重要？</h2><p class="lead">交屋到第一屆區權會這段時間，最容易被忽略。</p>
-<div class="tw"><table>
+
+<section class="alt"><div class="container">
+<h2>第一屆為什麼特別重要？</h2>
+<p class="lead">交屋到第一屆區權會這段時間，最容易被忽略。</p>
+<div class="tw"><table class="mtable">
 <thead><tr><th>常見說法</th><th>實際上</th></tr></thead>
 <tbody>
 <tr><td>交屋簽的是建商版本，跟我無關</td><td>規約草約經承受人簽署同意後，在區權會訂定規約前就<b>視為規約</b>（條例第56條）</td></tr>
@@ -390,234 +239,18 @@ footer{background:#0a1628;color:#fff;text-align:center;padding:36px 24px 90px}
 </tbody></table></div>
 </div></section>
 
-<!-- CH1 -->
-<section id="ch1" class="alt" data-c="ch1"><div class="container">
-<div class="chead"><div class="cno">1</div><div><h2>第一章　使用區分及管理</h2><div class="art">範本第1～4條</div></div></div>
-<div class="one">先把空間分清楚：哪些是你的、哪些是大家的、哪些是大家的但給特定人用。</div>
-
-<h3>四種空間一張圖</h3>
-<div class="quad">
- <div class="qd a"><div class="k">專有部分</div><div class="w">你的，自己用</div><div class="e">你家室內空間</div></div>
- <div class="qd d"><div class="k">約定專用部分</div><div class="w">大家的，約定給特定人用</div><div class="e">例：一樓戶專用的法定空地、車位</div></div>
- <div class="qd c"><div class="k">約定共用部分</div><div class="w">你的，約定給大家用</div><div class="e">例：專有部分約定作為公共使用的空間</div></div>
- <div class="qd b"><div class="k">共用部分</div><div class="w">大家的，大家用</div><div class="e">梯廳、走廊、樓梯、大廳</div></div>
-</div>
-<div class="axis"><span>← 屬於個人</span><span>屬於全體 →</span></div>
-
-<h3>這章會寫什麼</h3>
-<details><summary>規約效力：誰要遵守？</summary><div class="dbody"><p>規約效力及於全體區分所有權人、無權占有人及住戶。承租人也算住戶，一樣要遵守。</p><span class="law">範本第1條</span><span class="law">條例第3條</span></div></details>
-<details><summary>名詞定義：四種空間怎麼分</summary><div class="dbody"><p>專有、共用、約定專用、約定共用的範圍，依使用執照竣工圖或附件圖說認定。</p><span class="law">範本第2條</span><span class="law">條例第3條</span></div></details>
-<details><summary>停車空間：你的車位是哪一種？</summary><div class="dbody"><p>有登記編號的依登記；沒有的依買賣契約或分管契約。停車空間的使用管理辦法，可以由區權會訂，也可以授權管委會訂。</p><span class="law">範本第2條第4款</span></div></details>
-<details><summary>外牆與防墜設施</summary><div class="dbody"><p>外牆、樓頂平臺變更構造、顏色、設置鐵鋁窗或廣告物，會受規約限制。家中有十二歲以下兒童，可以裝不妨礙逃生、不突出外牆面的防墜設施。</p><span class="law">範本第2條第6～7款</span><span class="law">條例第8條</span></div></details>
-<details><summary>共用部分與專有部分怎麼使用</summary><div class="dbody"><p>共用部分要依設置目的與通常使用方法使用；專有部分要照使用執照所載用途使用。</p><span class="law">範本第3～4條</span><span class="law">條例第9條、第15條</span></div></details>
-
-<div class="look"><b>開會前看這裡</b><ul><li>你的車位寫在哪一條，屬於哪一種權利</li><li>法定空地、樓頂平臺有沒有約定給特定人專用</li><li>外牆、鐵窗、防墜設施的限制寫得清不清楚</li></ul></div>
-</div></section>
-
-<!-- CH2 -->
-<section id="ch2" data-c="ch2"><div class="container">
-<div class="chead"><div class="cno">2</div><div><h2>第二章　區分所有權人會議</h2><div class="art">範本第5～10條</div></div></div>
-<div class="one">區權會是社區最高意思機關。規約怎麼訂、錢怎麼用、要不要大修，都在這裡決定。</div>
-
-<h3>一場區權會的時間軸</h3>
-<div class="timeline">
- <div class="tl"><span class="dot">1</span><b>開會前10日</b>書面通知</div>
- <div class="tl"><span class="dot">2</span><b>開會當天</b>簽到、計算出席</div>
- <div class="tl"><span class="dot">3</span><b>表決</b>看門檻是否達到</div>
- <div class="tl"><span class="dot">4</span><b>會後15日內</b>紀錄送達公告</div>
-</div>
-<p class="note">依條例第30條、第34條。</p>
-
-<h3>決議門檻怎麼看（範本預設選項）</h3>
-<div class="vote">
- <div class="vrow"><div class="vt">重大事項<small>訂定或變更規約、重大修繕、重建、強制遷離、約定專用或共用</small></div>
-  <div class="meter"><span>出席</span><div class="tr"><i style="width:66.7%"></i></div><span>2/3 以上</span></div>
-  <div class="meter"><span>同意</span><div class="tr"><i class="l" style="width:75%"></i></div><span>3/4 以上</span></div></div>
- <div class="vrow"><div class="vt">一般事項<small>其他決議</small></div>
-  <div class="meter"><span>出席</span><div class="tr"><i style="width:50%"></i></div><span>過半數</span></div>
-  <div class="meter"><span>同意</span><div class="tr"><i class="l" style="width:50%"></i></div><span>過半數</span></div></div>
- <div class="vrow"><div class="vt">流會後重新召集<small>出席不足時，同一議案再開</small></div>
-  <div class="meter"><span>出席</span><div class="tr"><i style="width:20%"></i></div><span>3人並1/5</span></div>
-  <div class="meter"><span>同意</span><div class="tr"><i class="l" style="width:50%"></i></div><span>過半數</span></div>
-  <p class="note">紀錄送達後7日內，書面反對未超過全體半數，決議才視為成立（條例第32條）。</p></div>
-</div>
-<p class="note">人數與區分所有權比例都要同時達到。條例第31條的法定門檻是三分之二出席、四分之三同意，規約可以另外訂。</p>
-
-<h3>這章會寫什麼</h3>
-<details><summary>什麼時候要開？</summary><div class="dbody"><p>定期會議每年至少一次。遇重大事故，或區分所有權人及比例各五分之一以上書面請求時，要開臨時會議。</p><span class="law">範本第6條</span><span class="law">條例第25條</span></div></details>
-<details><summary>委託出席有上限嗎？</summary><div class="dbody"><p>有。一位受託人代理的人數與區分所有權比例，不能超過全部的五分之一。</p><span class="law">範本第6條</span><span class="law">條例第27條</span></div></details>
-<details><summary>哪些事一定要區權會決議？</summary><div class="dbody"><p>規約的訂定或變更、重大修繕或改良、重建、強制遷離或出讓、約定專用或共用事項、管理委員執行費用的支付等。</p><span class="law">範本第7條</span></div></details>
-<details><summary>選委員可以用臨時動議嗎？</summary><div class="dbody"><p>不行。選任管理委員要在開會通知中載明並公告。</p><span class="law">範本第9條</span></div></details>
-
-<div class="look"><b>開會前看這裡</b><ul><li>你的社區用哪一種決議門檻</li><li>你的那一票，人數跟比例各算多少</li><li>不能出席，委託書要先給誰</li></ul></div>
-</div></section>
-
-<!-- CH3 -->
-<section id="ch3" class="alt" data-c="ch3"><div class="container">
-<div class="chead"><div class="cno">3</div><div><h2>第三章　管理委員會</h2><div class="art">範本第11～16條</div></div></div>
-<div class="one">管委會是區權會選出來執行事情的團隊，要向區權會負責、報告會務。</div>
-
-<h3>委員會的組成</h3>
-<div class="org">
- <div class="lv"><div class="ob top"><b>區分所有權人會議</b><span>選任委員</span></div></div>
- <div class="lv"><div class="ob mid"><b>主任委員</b><span>對外代表</span></div></div>
- <div class="lv">
-  <div class="ob"><b>副主委</b><span>代理主委</span></div>
-  <div class="ob"><b>財務委員</b><span>管錢</span></div>
-  <div class="ob"><b>監察委員</b><span>監督</span></div>
-  <div class="ob"><b>委員</b><span>分工執行</span></div>
- </div>
-</div>
-
-<div class="tw" style="margin-top:14px"><table>
-<thead><tr><th>項目</th><th>規則</th></tr></thead>
-<tbody>
-<tr><td>任期</td><td>一至二年，依區權會或規約規定（條例第29條）</td></tr>
-<tr><td>連任</td><td>主委、財委、監委連選得連任<b>一次</b>；其他委員連選得連任</td></tr>
-<tr><td>名額分配</td><td>可以不分配，也可以按樓層、棟別、區域分配（範本第11條）</td></tr>
-<tr><td>資格限制</td><td>主委、副主委、財委、監委有消極資格限制，例如受破產宣告尚未復權（範本第12條）</td></tr>
-</tbody></table></div>
-
-<h3>這章會寫什麼</h3>
-<details><summary>管委會要做哪些事？</summary><div class="dbody"><p>執行區權會決議、共用部分清潔維護修繕、住戶違規的制止、財務收支公告、文件保管等。</p><span class="law">條例第36條</span></div></details>
-<details><summary>保管、公告、移交</summary><div class="dbody"><p>規約、會議紀錄、圖說、印鑑、帳冊由管委會保管；選任、財務收支要公告；改組時要完整移交。</p><span class="law">範本第15條</span></div></details>
-<details><summary>常見加訂條款：利益迴避</summary><div class="dbody"><p>很多社區會在規約或組織章程加訂委員利益迴避，例如委員本人或親屬承攬社區工程時要迴避表決。範本沒有固定寫法，是社區自訂的重點。</p></div></details>
-<details><summary>第一屆委員怎麼產生？</summary><div class="dbody"><p>通常在第一屆區權會選出。選任事項要寫在開會通知裡，不能用臨時動議提出。</p><span class="law">範本第9條</span></div></details>
-
-<div class="look"><b>開會前看這裡</b><ul><li>委員幾席、怎麼分配，你那一區有沒有名額</li><li>任期一年還是兩年</li><li>有沒有利益迴避條款</li></ul></div>
-</div></section>
-
-<!-- CH4 -->
-<section id="ch4" data-c="ch4"><div class="container">
-<div class="chead"><div class="cno">4</div><div><h2>第四章　財務管理</h2><div class="art">範本第17～21條</div></div></div>
-<div class="one">兩個錢包分開管：管理費付日常開銷，公共基金存起來應付大修。</div>
-
-<h3>兩個錢包</h3>
-<div class="two">
- <div class="col f"><div class="ct">管理費</div><div class="cs">日常開銷，每月繳</div><ul><li>物業、保全服務報酬</li><li>共用部分的管理維護費</li><li>公共保險費</li><li>辦公、電話、事務費</li><li>律師、建築師諮詢費</li></ul></div>
- <div class="col g"><div class="ct">公共基金</div><div class="cs">存起來，專戶保管</div><ul><li>每經一定年度的計畫性修繕</li><li>意外或臨時急需的修繕</li><li>共用部分的拆除、重大修繕或改良</li><li>運用要依區權會決議</li></ul></div>
-</div>
-<p class="note">兩者應分別設專戶（範本第18條、條例第18條）。</p>
-
-<h3>重大修繕的金額門檻（規約四選一）</h3>
-<div class="cards4">
- <div class="c4"><b>新臺幣十萬元以上</b><p>範本預設選項</p></div>
- <div class="c4"><b>逾公共基金 5%</b><p>隨基金規模調整</p></div>
- <div class="c4"><b>逾一個月管理維護費</b><p>隨社區規模調整</p></div>
- <div class="c4"><b>其他標準</b><p>社區自訂</p></div>
-</div>
-<p class="note">超過門檻的工程，要經區權會決議（範本第19條、條例第11條）。</p>
-
-<h3>這章會寫什麼</h3>
-<details><summary>管理費怎麼算？</summary><div class="dbody"><p>可以按應有部分比例、依區權會決議、或按坪數每坪定額加車位定額。這個選項直接影響你每個月繳多少。</p><span class="law">範本第17條</span></div></details>
-<details><summary>欠繳怎麼辦？</summary><div class="dbody"><p>積欠逾二期或達一定金額，經催告仍不給付，管委會可以訴請法院命其給付，並加計遲延利息。</p><span class="law">範本第17條</span><span class="law">條例第21條</span></div></details>
-<details><summary>支付權限與收支預估</summary><div class="dbody"><p>很多社區會訂定多少金額以內主委可核准、超過要委員會決議，並在區權會提出年度收支預估。範本授權由管委會訂定財務監督辦法，經區權會決議。</p><span class="law">範本第21條</span></div></details>
-<details><summary>誰要簽章審核？</summary><div class="dbody"><p>帳冊與財務報表應經經辦人、財務委員、主任委員審核簽章；監察委員在區權會要提出監督報告。</p><span class="law">範本第21條</span></div></details>
-
-<div class="look"><b>開會前看這裡</b><ul><li>管理費用哪一種方式算</li><li>重大修繕門檻是多少錢</li><li>主委單獨可以核准多少錢</li></ul></div>
-</div></section>
-
-<!-- CH5 -->
-<section id="ch5" class="alt" data-c="ch5"><div class="container">
-<div class="chead"><div class="cno">5</div><div><h2>第五章　住戶共同遵守協定事項</h2><div class="art">範本第22～24條</div></div></div>
-<div class="one">住在一起的生活規矩。住戶最常吵的，幾乎都在這一章。</div>
-
-<h3>點一個主題看重點</h3>
-<div class="icons" id="icons">
- <div class="ic on" data-i="0"><div class="em" data-icon="pet" data-size="24"></div><b>寵物</b></div>
- <div class="ic" data-i="1"><div class="em" data-icon="tool" data-size="24"></div><b>裝修</b></div>
- <div class="ic" data-i="2"><div class="em" data-icon="sound" data-size="24"></div><b>噪音惡臭</b></div>
- <div class="ic" data-i="3"><div class="em" data-icon="box" data-size="24"></div><b>堆置與營業</b></div>
- <div class="ic" data-i="4"><div class="em" data-icon="key" data-size="24"></div><b>承租人</b></div>
- <div class="ic" data-i="5"><div class="em" data-icon="nosmoke" data-size="24"></div><b>自訂條款</b></div>
-</div>
-<div class="icpanel" id="icpanel"></div>
-
-<div class="look"><b>開會前看這裡</b><ul><li>寵物選的是哪一種寫法</li><li>裝修要交什麼文件、押金怎麼收</li><li>房子出租時，租約要怎麼寫</li></ul></div>
-</div></section>
-
-<!-- CH6 -->
-<section id="ch6" data-c="ch6"><div class="container">
-<div class="chead"><div class="cno">6</div><div><h2>第六章　爭議事件及違反義務之處理<span class="hotline">最重要</span></h2><div class="art">範本第25～26條</div></div></div>
-<div class="one">前面五章寫的是「應該怎樣」，這一章寫的是「不照做會怎樣」。沒有這章，前面都只是建議。</div>
-
-<h3>住戶違規，處理流程</h3>
-<div class="flow">
- <div class="st"><div class="sn">1</div><div class="sc"><b>協調</b><span>管委會邀集當事人協調</span></div></div>
- <div class="st"><div class="sn">2</div><div class="sc"><b>制止</b><span>管委會應予制止，並依規約處理</span></div></div>
- <div class="st"><div class="sn">3</div><div class="sc"><b>報主管機關</b><span>經制止不遵從，報請縣市政府處理，可處罰鍰</span></div></div>
- <div class="st"><div class="sn">4</div><div class="sc"><b>促請改善</b><span>情節重大者，促請改善，三個月內仍未改善</span></div></div>
- <div class="st end"><div class="sn">5</div><div class="sc"><b>訴請法院</b><span>依區權會決議，訴請強制遷離；區分所有權人可訴請強制出讓</span></div></div>
-</div>
-
-<h3>這章會寫什麼</h3>
-<details open><summary>強制遷離的三種情形</summary><div class="dbody"><p>① 積欠費用經強制執行後，再度積欠達區分所有權總價百分之一。<br>② 違規被處罰鍰後，仍不改善或續犯。<br>③ 其他違反法令或規約，情節重大。</p><span class="law">範本第26條</span><span class="law">條例第22條</span></div></details>
-<details><summary>住戶之間有爭議，找誰？</summary><div class="dbody"><p>管委會邀集協調；或向縣市政府公寓大廈爭議事件調處委員會申請調處，或向鄉鎮市區公所調解委員會申請調解。</p><span class="law">範本第25條</span></div></details>
-<details><summary>打官司去哪個法院？</summary><div class="dbody"><p>以社區所在地的地方法院為第一審法院。</p><span class="law">範本第25條</span></div></details>
-<details><summary>分管約定</summary><div class="dbody"><p>部分社區會在這章處理車位、空地的分管約定爭議。看你們規約怎麼放，重點是寫清楚由誰使用、爭議怎麼處理。</p></div></details>
-
-<div class="look"><b>開會前看這裡</b><ul><li>違規處理的流程寫得夠不夠具體</li><li>有沒有寫明管委會「應」制止，而不是「得」制止</li><li>罰則、催告方式是不是都寫清楚了</li></ul></div>
-</div></section>
-
-<!-- CH7 -->
-<section id="ch7" class="alt" data-c="ch7"><div class="container">
-<div class="chead"><div class="cno">7</div><div><h2>第七章　附則</h2><div class="art">範本第27～30條</div></div></div>
-<div class="one">看起來最不起眼，但跟你的知情權、買賣房子都有關。</div>
-<div class="cards4">
- <div class="c4"><span class="ib" data-icon="doc" data-size="20"></span><b>閱覽影印</b><p>利害關係人可以書面請求閱覽或影印規約、帳冊、會議紀錄，管委會不得拒絕。<br><span class="law">範本第27條</span><span class="law">條例第35條</span></p></div>
- <div class="c4"><span class="ib" data-icon="ch5" data-size="20"></span><b>繼受人</b><p>買房子的人，要遵守原屋主依條例或規約的一切權利義務，買之前可以先調閱文件。<br><span class="law">範本第28條</span><span class="law">條例第24條</span></p></div>
- <div class="c4"><span class="ib" data-icon="ch7" data-size="20"></span><b>催告送達</b><p>催告要用書面；送達投到住戶登記的地址，沒登記就投社區信箱或公告。<br><span class="law">範本第29條</span></p></div>
- <div class="c4"><span class="ib" data-icon="cal" data-size="20"></span><b>規約制定</b><p>規約訂立的日期寫在這裡，從這天起正式取代草約。<br><span class="law">範本第30條</span></p></div>
-</div>
-<div class="look"><b>開會前看這裡</b><ul><li>你的聯絡地址有沒有登記給管委會</li><li>想調閱文件，申請流程寫在哪</li></ul></div>
-</div></section>
-
-<!-- CHECK -->
 <section id="check"><div class="container">
 <h2>開會前住戶檢查清單</h2>
 <p class="lead">第一屆區權會前，每一項都打勾。點右邊的章節可以跳回去看。</p>
 <div class="chkbar">完成 <span id="ckN">0</span> / 8<div class="bar"><i id="ckBar"></i></div></div>
-<div class="chk" id="chk">
- <label><input type="checkbox">確認自己的車位寫在哪一條、屬於哪一種權利<a class="go" href="#ch1">第一章</a></label>
- <label><input type="checkbox">看懂決議門檻，知道自己這一票的份量<a class="go" href="#ch2">第二章</a></label>
- <label><input type="checkbox">不能出席的話，委託書已經準備好<a class="go" href="#ch2">第二章</a></label>
- <label><input type="checkbox">知道委員幾席、任期多久<a class="go" href="#ch3">第三章</a></label>
- <label><input type="checkbox">知道管理費怎麼算、重大修繕門檻多少<a class="go" href="#ch4">第四章</a></label>
- <label><input type="checkbox">寵物、裝修規定跟自己的生活合得來<a class="go" href="#ch5">第五章</a></label>
- <label><input type="checkbox">違規處理流程寫得夠具體<a class="go" href="#ch6">第六章</a></label>
- <label><input type="checkbox">聯絡地址已經登記給管委會<a class="go" href="#ch7">第七章</a></label>
-</div>
+<div class="chk" id="chk"></div>
 </div></section>
 
-<!-- LAW TABLE -->
 <section class="alt"><div class="container">
 <h2>法規依據總表</h2>
-<p class="lead">《公寓大廈管理條例》條文摘要，對應本頁各章。</p>
-<div class="tw"><table>
-<thead><tr><th>條號</th><th>內容摘要</th><th>章</th></tr></thead>
-<tbody>
-<tr><td>第3條</td><td>專有、共用、約定專用、約定共用、住戶等名詞定義</td><td><a href="#ch1">一</a></td></tr>
-<tr><td>第8條</td><td>外牆、樓頂平臺等變更構造、設置鐵鋁窗的限制</td><td><a href="#ch1">一</a></td></tr>
-<tr><td>第11條</td><td>共用部分拆除、重大修繕或改良應經區權會決議</td><td><a href="#ch4">四</a></td></tr>
-<tr><td>第16條</td><td>不得棄置垃圾、排放惡臭、喧囂；堆置雜物；飼養動物規範</td><td><a href="#ch5">五</a></td></tr>
-<tr><td>第18條</td><td>公共基金設專戶，運用依區權會決議</td><td><a href="#ch4">四</a></td></tr>
-<tr><td>第21條</td><td>積欠費用經催告仍不給付，得訴請法院</td><td><a href="#ch4">四</a></td></tr>
-<tr><td>第22條</td><td>強制遷離、強制出讓的條件</td><td><a href="#ch6">六</a></td></tr>
-<tr><td>第23條</td><td>禁止飼養動物等事項，非經載明於規約不生效力</td><td><a href="#ch5">五</a></td></tr>
-<tr><td>第24條</td><td>繼受人應遵守原區分所有權人的權利義務</td><td><a href="#ch7">七</a></td></tr>
-<tr><td>第25條</td><td>定期會議每年至少一次；臨時會議召開條件</td><td><a href="#ch2">二</a></td></tr>
-<tr><td>第27條</td><td>委託出席，受託人代理以全部五分之一為上限</td><td><a href="#ch2">二</a></td></tr>
-<tr><td>第29條</td><td>委員任期一至二年，主委、財委、監委連任一次</td><td><a href="#ch3">三</a></td></tr>
-<tr><td>第30條</td><td>開會前十日以書面通知</td><td><a href="#ch2">二</a></td></tr>
-<tr><td>第31條</td><td>決議門檻：三分之二出席、四分之三同意，規約可另定</td><td><a href="#ch2">二</a></td></tr>
-<tr><td>第32條</td><td>重新召集的開議與決議門檻、七日書面反對</td><td><a href="#ch2">二</a></td></tr>
-<tr><td>第34條</td><td>會議紀錄會後十五日內送達並公告</td><td><a href="#ch2">二</a></td></tr>
-<tr><td>第35條</td><td>利害關係人得請求閱覽或影印規約、帳冊、會議紀錄</td><td><a href="#ch7">七</a></td></tr>
-<tr><td>第36條</td><td>管理委員會的職務</td><td><a href="#ch3">三</a></td></tr>
-<tr><td>第56條</td><td>規約草約經承受人簽署同意，於訂定規約前視為規約</td><td><a href="#map">地圖</a></td></tr>
-<tr><td>第60條</td><td>規約範本由中央主管機關定之，為參考性質</td><td><a href="#map">地圖</a></td></tr>
-</tbody></table></div>
-<p class="note">範本條次依內政部《公寓大廈規約範本》；各社區實際條次可能不同，以自己社區的規約為準。</p>
+<p class="lead">《公寓大廈管理條例》條文摘要，點右邊可以跳到對應的章。</p>
+<div class="tw"><table class="mtable lawt"><thead><tr><th>條號</th><th>內容摘要</th><th>章</th></tr></thead><tbody id="lawt"></tbody></table></div>
+<p class="note">範本條次依內政部《公寓大廈規約範本》；各社區實際條次可能不同，以自己社區的規約為準。範本選項為列舉參考，未勾選時以第1選項準用。</p>
 </div></section>
 
 <div class="bao"><div class="container"><h3>寶哥說</h3><div class="box">房子是硬體，規約是軟體。</div></div></div>
@@ -630,123 +263,154 @@ footer{background:#0a1628;color:#fff;text-align:center;padding:36px 24px 90px}
 <div class="hr" style="background:rgba(91,200,232,0.15)"></div>
 <div class="fc">番外篇 · 規約導讀篇</div>
 <div class="disc">
-<p><span class="num">①</span><span>本頁內容為一般社區管理知識整理，實際個案仍應依權狀、建物圖說、規約、交屋文件、移交資料與主管機關認定為準。</span></p>
-<p><span class="num">②</span><span>法規摘要依《公寓大廈管理條例》民國111年05月11日修正版整理，非法律意見或訴訟建議。</span></p>
+<p><span class="n">①</span><span>本頁內容為一般社區管理知識整理，實際個案仍應依權狀、建物圖說、規約、交屋文件、移交資料與主管機關認定為準。</span></p>
+<p><span class="n">②</span><span>法規摘要依《公寓大廈管理條例》民國111年05月11日修正版整理，非法律意見或訴訟建議。</span></p>
 </div>
 </footer>
 
 <a class="back" href="https://bensonhsu0205.github.io/property-30days/"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>回主頁</a>
-<a class="tomap" id="tomap" href="#map" data-icon="map" data-size="15">回地圖</a>
+<button class="totop" id="totop">↑ 七大章總覽</button>
 
 <script>
-const ICON={
-ch1:'<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 12h9V3M12 12v9M16 12h5"/>',
-ch2:'<circle cx="8" cy="8" r="3"/><circle cx="16.5" cy="9" r="2.5"/><path d="M2.5 20c.6-3.6 2.9-5.5 5.5-5.5s4.9 1.9 5.5 5.5M14 15.2c.8-.5 1.6-.7 2.5-.7 2.2 0 4 1.6 4.5 5.5"/>',
-ch3:'<rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1M8.5 12.5l2.3 2.3 4.7-4.8"/>',
-ch4:'<ellipse cx="12" cy="6" rx="7" ry="2.6"/><path d="M5 6v4.5c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6V6M5 10.5V15c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6v-4.5M5 15v3c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6v-3"/>',
-ch5:'<path d="M3.5 11 12 4l8.5 7"/><path d="M5.5 9.5V20h13V9.5"/><path d="M10 20v-5h4v5"/>',
-ch6:'<path d="M10 6l2-2 8 8-2 2zM12.5 10.5 4 19"/><path d="M3 21h9"/>',
-ch7:'<rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="m3.5 7 8.5 6 8.5-6"/>',
-map:'<path d="M9 4 3 6.5V20l6-2.5 6 2.5 6-2.5V4l-6 2.5z"/><path d="M9 4v13.5M15 6.5V20"/>',
-pet:'<circle cx="6" cy="10" r="1.8"/><circle cx="10" cy="6.2" r="1.8"/><circle cx="14.5" cy="6.2" r="1.8"/><circle cx="18.3" cy="10" r="1.8"/><path d="M12.2 11.5c-2.6 0-5.2 3.7-5.2 6 0 1.6 1.2 2.5 2.7 2.5 1 0 1.7-.5 2.5-.5s1.5.5 2.5.5c1.5 0 2.7-.9 2.7-2.5 0-2.3-2.6-6-5.2-6z"/>',
-tool:'<path d="M14 6.5 17.5 3 21 6.5 17.5 10z"/><path d="M15.7 8.3 5 19l-1.5.5.5-1.5L14.7 7.3"/>',
-sound:'<path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/>',
-box:'<path d="M3.5 7.5 12 3.5l8.5 4v9L12 20.5l-8.5-4z"/><path d="M3.5 7.5 12 11.5l8.5-4M12 11.5v9"/>',
-key:'<circle cx="8" cy="15" r="4"/><path d="M11 12.2 19.5 3.7M16 7.2l2.5 2.5M18.3 5l2 2"/>',
-nosmoke:'<rect x="3" y="13" width="14" height="4" rx="1"/><path d="M19 13v4M21.5 13v4M17 9c0-2 2-2 2-4M3 3l18 18"/>',
-doc:'<path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 16h6"/>',
-cal:'<rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 9.5h17M8 3v4M16 3v4"/>'};
-const svgIcon=(k,s=22)=>`<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${ICON[k]}</svg>`;
-document.querySelectorAll('[data-icon]').forEach(e=>{e.innerHTML=svgIcon(e.dataset.icon,+e.dataset.size||22)+e.innerHTML});
-const CH={
-ch1:{n:"第一章",t:"使用區分及管理",q:"哪裡是你的、哪裡是大家的",p:["專有、共用、約定專用、約定共用四種空間","停車空間的權利與使用辦法","外牆、樓頂平臺、防墜設施的限制"],a:"範本第1～4條"},
-ch2:{n:"第二章",t:"區分所有權人會議",q:"社區最高權力怎麼開會",p:["每年至少開一次定期會議","重大事項：2/3出席、3/4同意","委託出席不得超過全部1/5"],a:"範本第5～10條"},
-ch3:{n:"第三章",t:"管理委員會",q:"誰幫大家做事、做多久",p:["委員名額怎麼分配","任期一至二年，主委、財委、監委連任一次","保管、公告、移交責任"],a:"範本第11～16條"},
-ch4:{n:"第四章",t:"財務管理",q:"錢怎麼收、怎麼花",p:["管理費付日常，公共基金存大修","重大修繕金額門檻","欠繳催告後可訴請法院"],a:"範本第17～21條"},
-ch5:{n:"第五章",t:"住戶共同遵守協定事項",q:"住在這裡的生活規矩",p:["寵物：三種寫法選一種","裝修要申請許可、交具結書","承租人一樣要遵守規約"],a:"範本第22～24條"},
-ch6:{n:"第六章",t:"爭議事件及違反義務之處理",q:"出事了，怎麼處理（最重要）",p:["協調 → 制止 → 報主管機關","三個月仍未改善可訴請法院","強制遷離的三種情形"],a:"範本第25～26條"},
-ch7:{n:"第七章",t:"附則",q:"文件、送達、繼受",p:["可以申請閱覽影印規約、帳冊","買房子的人要繼受原屋主義務","催告一律用書面"],a:"範本第27～30條"}};
-function card(id){const c=CH[id];return `<div class="pcard" data-c="${id}"><div class="ph"><span class="pi">${svgIcon(id,26)}</span><div><div class="pn">${c.n}</div><div class="pt">${c.t}</div></div></div><div class="pq">${c.q}</div><ul>${c.p.map(x=>`<li>${x}</li>`).join("")}</ul><div class="pa">${c.a}</div><a class="pgo" href="#${id}" onclick="event.preventDefault();goTo('${id}')">看完整內容 →</a></div>`}
-
-// 房子
-const zones=document.querySelectorAll('.z'),chips=document.getElementById('chips'),pA=document.getElementById('panelA');
-const nm={ch1:"一 空間",ch2:"二 區權會",ch3:"三 管委會",ch4:"四 財務",ch5:"五 生活",ch6:"六 爭議",ch7:"七 附則"};
-Object.keys(nm).forEach(k=>{const b=document.createElement('button');b.textContent=nm[k];b.dataset.c=k;b.onclick=()=>pickA(k);chips.appendChild(b)});
-function pickA(id){zones.forEach(z=>z.classList.toggle('on',z.dataset.c===id));chips.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.c===id));pA.innerHTML=card(id)}
-zones.forEach(z=>z.addEventListener('click',()=>pickA(z.dataset.c)));pickA('ch5');
-// 捷運
-const P={ch1:[80,110],ch5:[220,110],ch6:[360,110],ch2:[80,270],ch3:[220,270],ch4:[360,270],ch7:[80,420]};
-const SC=[
- {k:"寵物太臭",r:["ch5","ch6"],d:"<b>第五章</b>先看規約怎麼寫寵物 → <b>第六章</b>違規就照流程制止、報主管機關"},
- {k:"有人欠管理費",r:["ch4","ch6"],d:"<b>第四章</b>欠繳催告、訴請給付 → <b>第六章</b>再度積欠達總價1%，可走強制遷離"},
- {k:"我的車位",r:["ch1","ch2"],d:"<b>第一章</b>確認車位權利 → <b>第二章</b>約定專用事項要經區權會決議"},
- {k:"社區要大修",r:["ch4","ch2","ch3"],d:"<b>第四章</b>看金額門檻 → <b>第二章</b>區權會決議 → <b>第三章</b>管委會執行"},
- {k:"想看帳冊",r:["ch7","ch2","ch3","ch4"],d:"<b>第七章</b>有權書面申請閱覽影印 → 管委會提供 → <b>第四章</b>帳冊與財務報表"}];
-const sts=document.querySelectorAll('.stn'),rl=document.getElementById('routeLine'),mm=document.getElementById('mapm'),rt=document.getElementById('rt'),sc=document.getElementById('sc'),pB=document.getElementById('panelB');
-function pickB(id){sts.forEach(x=>x.classList.toggle('on',x.dataset.c===id));pB.innerHTML=card(id)}
-sts.forEach(x=>x.addEventListener('click',()=>pickB(x.dataset.c)));
-function pth(r){let pts=[],pv=null;r.forEach(id=>{const p=P[id];if(pv&&pv[0]!==p[0]&&pv[1]!==p[1])pts.push(pv[0]+','+p[1]);pts.push(p.join(','));pv=p});return pts.join(' ')}
-SC.forEach(o=>{const b=document.createElement('button');b.textContent=o.k;b.onclick=()=>{const on=b.classList.contains('on');sc.querySelectorAll('button').forEach(x=>x.classList.remove('on'));
- if(on){rl.setAttribute('points','');mm.classList.remove('dim');rt.style.display='none';return}
- b.classList.add('on');rl.setAttribute('points',pth(o.r));mm.classList.add('dim');rt.style.display='block';rt.innerHTML=o.d;pickB(o.r[o.r.length-1]);};sc.appendChild(b)});
-pickB('ch6');
-
-// 站內跳轉：用 JS 捲動，避免卡住
-function goTo(id){
- const t=document.getElementById(id); if(!t) return;
- const navH=document.querySelector('.snav').offsetHeight;
- const y=t.getBoundingClientRect().top+window.pageYOffset-navH-8;
- window.scrollTo({top:y,behavior:'smooth'});
-}
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
- a.addEventListener('click',e=>{e.preventDefault();goTo(a.getAttribute('href').slice(1));});
-});
-
-// 第五章主題切換
-const IC=[
- '<b>寵物</b>　規約範本提供三選一：①可以養，但不得妨礙公共衛生、安寧、安全，授權管委會訂管理辦法（預設）②住戶不得飼養動物 ③其他規定。要全面禁養，一定要寫進規約才有效。<br><span class="law" style="background:#123a52;color:#5BC8E8;border-color:#1A6E8E">範本第22條第9款</span><span class="law" style="background:#123a52;color:#5BC8E8;border-color:#1A6E8E">條例第16條、第23條</span>',
- '<b>裝修</b>　動到天花板、牆面、高隔屏、分間牆，要委託合法業者並申請室內裝修許可，施工許可要貼在現場。施工前向管委會交具結書，或遵守管委會訂的裝修規定。<br><span class="law" style="background:#123a52;color:#5BC8E8;border-color:#1A6E8E">範本第22條之1</span>',
- '<b>噪音惡臭</b>　不得任意棄置垃圾、排放污染物或惡臭物質，不得發生喧囂、振動等行為。修繕專有部分時，不得妨害其他住戶的安寧、安全及衛生。<br><span class="law" style="background:#123a52;color:#5BC8E8;border-color:#1A6E8E">範本第22條</span><span class="law" style="background:#123a52;color:#5BC8E8;border-color:#1A6E8E">條例第6條、第16條</span>',
- '<b>堆置與營業</b>　樓梯間、共同走廊、防火巷、避難設備等地方，不得堆置雜物、設柵欄門扇或營業使用。專有部分的用途要符合使用執照。<br><span class="law" style="background:#123a52;color:#5BC8E8;border-color:#1A6E8E">範本第22條</span><span class="law" style="background:#123a52;color:#5BC8E8;border-color:#1A6E8E">條例第16條</span>',
- '<b>承租人</b>　房子出租，承租人也要遵守規約。區分所有權人要在租約中載明不得違反規約，並向管委會提切結書。<br><span class="law" style="background:#123a52;color:#5BC8E8;border-color:#1A6E8E">範本第24條</span>',
- '<b>禁菸等自訂條款</b>　範本沒有固定寫法，但很多社區會在這章加訂公共區域禁菸、停車位使用規則等。自訂條款寫得越具體，越好執行。<br><span class="law" style="background:#123a52;color:#5BC8E8;border-color:#1A6E8E">範本第24條</span>'
-];
-const panel=document.getElementById('icpanel');
-document.querySelectorAll('.ic').forEach(el=>{
- el.addEventListener('click',()=>{document.querySelectorAll('.ic').forEach(x=>x.classList.remove('on'));el.classList.add('on');panel.innerHTML=IC[el.dataset.i];});
-});
-panel.innerHTML=IC[0];
-
-// 看過的章節打勾＋上方導覽高亮
+const D={
+ch1:{n:"第一章",t:"使用區分及管理",q:"哪裡是你的、哪裡是大家的",a:"範本第1～4條",tags:["四種空間","停車空間"],
+ one:"先把空間分清楚：哪些是你的、哪些是大家的、哪些是大家的但給特定人用。",
+ nums:[["4 種","專有・共用・約定專用・約定共用"],["每年 1 次","管委會檢視外牆磁磚"],["12 歲以下","有兒童可設防墜設施"]],
+ rows:[["效力","及於全體區分所有權人、無權占有人及住戶","承租人也算住戶，一樣要遵守"],
+  ["四種空間","專有、共用、約定專用、約定共用","範圍依竣工圖或附件圖說認定"],
+  ["法定空地・樓頂","原則上供全體使用","要約定給特定戶專用，須經區權會決議"],
+  ["停車空間","依登記編號，或依買賣、分管契約","<span class='warn'>確認你的車位寫在哪</span>"],
+  ["外牆","管委會每年至少檢視一次外牆磁磚","新增剝落要召開區權會、影響安全要通報"],
+  ["防墜設施","有十二歲以下住戶可以設置","不得妨礙逃生、不得突出外牆面"],
+  ["專有部分","依使用執照所載用途使用","不得損害建築物主要構造"]],
+ opt:{h:"停車空間使用管理辦法由誰訂",o:["由區分所有權人會議決議訂定","授權管理委員會訂定","其他使用管理方式"]},
+ look:["你的車位屬於哪一種權利","法定空地、樓頂平臺有沒有約定給特定人","外牆、鐵窗、防墜設施的限制清不清楚"],
+ law:["條例第3條","條例第8條","條例第9條","範本第1～4條"]},
+ch2:{n:"第二章",t:"區分所有權人會議",q:"社區最高權力怎麼開會",a:"範本第5～10條",tags:["決議門檻","委託出席"],
+ one:"社區最高意思機關。規約怎麼訂、錢要不要動、要不要大修，都在這裡決定。",
+ nums:[["每年 1 次","至少開一次定期會議"],["前 10 日","書面通知開會"],["2/3・3/4","重大事項出席・同意"],["1/5","一人代理上限"],["15 日內","會議紀錄送達"]],
+ rows:[["召開","每年至少一次定期會議","臨時會：重大事故，或 1/5 以上書面請求"],
+  ["通知","開會前十日以書面通知","以十日前的區分所有權人名冊為準"],
+  ["代理","可書面委託他人出席","<span class='warn'>受託比例上限全部 1/5</span>"],
+  ["必須決議","規約訂定變更、重大修繕、重建、強制遷離、約定專用或共用","這些事管委會不能自己決定"],
+  ["流會","同一議案可重新召集，門檻降低","紀錄送達後 7 日內可書面反對"],
+  ["選委員","要寫在開會通知並公告","<span class='warn'>不能用臨時動議</span>"],
+  ["紀錄","主席簽名，會後十五日內送達並公告","連同簽名簿、委託書一起保存"]],
+ opt:{h:"決議門檻（三選一）",o:["重大事項：2/3 出席、3/4 同意；其餘：過半出席、過半同意，人數與比例都要達到","重大事項同上；其餘：過半出席，同意只計人數過半","社區自訂其他門檻"]},
+ look:["你的社區用哪一種決議門檻","你這一票，人數跟比例各算多少","不能出席，委託書要先給誰"],
+ law:["條例第25條","條例第27條","條例第30～32條","條例第34條"]},
+ch3:{n:"第三章",t:"管理委員會",q:"誰幫大家做事、做多久",a:"範本第11～16條",tags:["任期","名額"],
+ one:"管委會是區權會選出來執行事情的團隊，要向區權會負責、報告會務。",
+ nums:[["1～2 年","委員任期"],["連任 1 次","主委・財委・監委"],["15 日內","委員會紀錄公告"]],
+ rows:[["組成","主委、副主委、財務委員、監察委員、委員","名額寫在規約裡"],
+  ["名額分配","可不分配，或按樓層、棟別、區域分配","<span class='warn'>你那一區有沒有名額</span>"],
+  ["資格","主委、副主委、財委、監委通常須具區分所有權人身分","其他委員由住戶擔任"],
+  ["消極資格","例如受破產宣告尚未復權、曾犯詐欺背信侵占罪未逾二年","有這些情形當然解任"],
+  ["任期","一至二年，依區權會或規約","主委、財委、監委連選得連任一次"],
+  ["會議","作成紀錄，主席簽名，會後十五日內公告","委員也可書面委託其他委員代理"],
+  ["保管移交","規約、紀錄、圖說、印鑑、帳冊由管委會保管","改組時要完整移交"]],
+ opt:{h:"委員名額分配方式（五選一）",o:["不分配","依樓層劃分","依棟別劃分","依區域劃分","其他分配方式"]},
+ look:["委員幾席、怎麼分配","任期一年還是兩年","有沒有利益迴避的規定"],
+ law:["條例第29條","條例第36條","範本第11～16條"]},
+ch4:{n:"第四章",t:"財務管理",q:"錢怎麼收、怎麼花",a:"範本第17～21條",tags:["管理費","公共基金"],
+ one:"兩個錢包分開管：管理費付日常開銷，公共基金存起來應付大修。",
+ nums:[["2 個專戶","管理費・公共基金分開"],["10 萬元","範本預設重大修繕門檻"],["逾 2 期","欠繳可催告、訴請給付"]],
+ rows:[["專戶","管理費與公共基金分別設專戶","以管委會名義開戶"],
+  ["管理費分擔","按應有部分比例、依區權會決議、或按坪數定額","<span class='warn'>直接影響你每月繳多少</span>"],
+  ["管理費用途","物業保全報酬、共用部分維護、保險、事務費、專業諮詢","以足夠日常開支為原則"],
+  ["公共基金用途","計畫性修繕、臨時急修、重大修繕或改良","運用要依區權會決議"],
+  ["重大修繕","超過門檻的工程要經區權會決議","門檻是規約自己選的"],
+  ["欠繳","逾二期或達一定金額，催告後仍不給付，可訴請法院","可請求遲延利息"],
+  ["審核監督","帳冊經經辦人、財委、主委簽章","監察委員在區權會提出監督報告"]],
+ opt:{h:"重大修繕或改良的金額門檻（四選一）",o:["新臺幣十萬元以上","逾公共基金的百分之五","逾共用部分一個月管理維護費用","其他標準"]},
+ look:["管理費用哪一種方式算","重大修繕門檻是多少錢","帳冊誰簽章、多久公告一次"],
+ law:["條例第10條","條例第11條","條例第18條","條例第21條"]},
+ch5:{n:"第五章",t:"住戶共同遵守協定事項",q:"住在這裡的生活規矩",a:"範本第22～24條",tags:["寵物","裝修","承租人"],
+ one:"住在一起的生活規矩。住戶最常吵的，幾乎都在這一章。",
+ nums:[["3 選 1","寵物條款寫法"],["4 類","裝修須申請許可"],["7 日","危險營業催告投保"]],
+ rows:[["安寧衛生","不得妨害其他住戶的安寧、安全及衛生","修繕專有部分時也一樣"],
+  ["惡臭喧囂","不得棄置垃圾、排放惡臭物質、發生喧囂振動","違反可報主管機關處罰"],
+  ["堆置雜物","樓梯間、共同走廊、防火巷等不得堆置雜物或營業","鞋櫃、腳踏車都算"],
+  ["寵物","不得妨礙公共衛生、安寧及安全","<span class='warn'>要全面禁養，一定要寫進規約</span>"],
+  ["室內裝修","天花板、牆面、高隔屏、分間牆要申請許可","施工前交具結書給管委會"],
+  ["危險營業","餐飲、瓦斯等應投保公共意外責任險","催告七日內未辦，管委會代為投保"],
+  ["承租人","出租時承租人也要遵守規約","租約要載明，並提切結書"]],
+ opt:{h:"飼養動物規定（三選一）",o:["可以養，但不得妨礙公共衛生、安寧、安全，授權管委會訂管理辦法","住戶不得飼養動物","其他規定（例如限制種類、數量、公共區域牽繩）"]},
+ look:["寵物選的是哪一種寫法","裝修要交什麼文件","房子出租時，租約要怎麼寫"],
+ law:["條例第6條","條例第16條","條例第23條","範本第22～24條"]},
+ch6:{n:"第六章",t:"爭議事件及違反義務之處理",q:"出事了，怎麼處理",a:"範本第25～26條",tags:["制止","報主管機關","強制遷離"],hot:1,
+ one:"前面五章寫的是「應該怎樣」，這一章寫的是「不照做會怎樣」。沒有這章，前面都只是建議。",
+ nums:[["3 種","強制遷離的情形"],["3 個月","促請改善仍未改善"],["1%","再度積欠達區分所有權總價"]],
+ flow:[["協調","管委會邀集當事人"],["制止","依規約處理"],["報主管機關","經制止仍不遵從"],["促請改善","三個月內未改善"],["訴請法院","強制遷離或出讓"]],
+ rows:[["爭議處理","管委會協調，或申請調處、調解","調處：縣市政府；調解：區公所"],
+  ["管轄法院","社區所在地的地方法院為第一審","—"],
+  ["違規制止","妨害公共安全、衛生、安寧，應予制止","制止不聽，報地方主管機關"],
+  ["外牆變更","任意變更外牆、裝鐵窗，制止不聽報主管機關","一個月內未回復，管委會回復、費用住戶負擔"],
+  ["強制遷離 ①","積欠費用經強制執行，再度積欠達總價 1%","<span class='warn'>依區權會決議訴請法院</span>"],
+  ["強制遷離 ②","違規經處罰鍰後，仍不改善或續犯","同上"],
+  ["強制遷離 ③","其他違反法令或規約，情節重大","同上"],
+  ["強制出讓","判決確定後三個月內不自行出讓","管委會可聲請法院拍賣"]],
+ look:["違規處理的流程寫得夠不夠具體","有沒有寫明管委會「應」制止","罰則、催告方式是不是都寫清楚"],
+ law:["條例第16條","條例第22條","條例第47條","範本第25～26條"]},
+ch7:{n:"第七章",t:"附則",q:"文件、送達、繼受",a:"範本第27～30條",tags:["閱覽影印","繼受人"],
+ one:"看起來最不起眼，但跟你的知情權、買賣房子都有關。",
+ nums:[["書面","申請閱覽影印"],["書面","催告一律書面"],["訂立日","從這天起取代草約"]],
+ rows:[["閱覽影印","利害關係人可書面申請閱覽或影印規約、帳冊、會議紀錄","<span class='warn'>管委會不得拒絕</span>"],
+  ["繼受人","買房的人繼受前可申請閱覽文件","繼受後要遵守原屋主的權利義務"],
+  ["催告","應行催告事項以書面為之","—"],
+  ["送達","投遞到住戶登記的地址","沒登記就投社區信箱或公告"],
+  ["規約訂立","寫明規約訂立的日期","從這天起正式取代規約草約"]],
+ opt:{h:"送達方式（二選一）",o:["投遞到登記地址，未登記則投社區信箱或公告","其他送達方式"]},
+ look:["你的聯絡地址有沒有登記給管委會","想調閱文件，要怎麼申請"],
+ law:["條例第24條","條例第35條","範本第27～30條"]}
+};
+const ORDER=["ch6","ch1","ch2","ch3","ch4","ch5","ch7"], IDS=["ch1","ch2","ch3","ch4","ch5","ch6","ch7"];
+const cls={ch6:"t6",ch1:"t1",ch2:"t2",ch3:"t3",ch4:"t4",ch5:"t5",ch7:"t7"};
+const bento=document.getElementById('bento'),tabs=document.getElementById('tabs'),page=document.getElementById('page');
+ORDER.forEach(id=>{const c=D[id];const b=document.createElement('button');b.className='tile '+cls[id];b.dataset.c=id;
+ b.innerHTML=`<small>${c.n}${c.hot?'　★ 最重要':''}</small><b>${c.t}</b><span class="q">${c.q}</span>${c.tags.map(t=>`<span class="tg">${t}</span>`).join('')}<span class="k">0${id[2]}</span><span class="ck">已看 ✓</span>`;
+ b.onclick=()=>{show(id);scrollToBook()};bento.appendChild(b)});
+IDS.forEach(id=>{const b=document.createElement('button');b.className='tab';b.dataset.c=id;b.innerHTML='<i>0'+id[2]+'</i>'+['使用區分','區權會','管委會','財務','住戶遵守','爭議處理★','附則'][+id[2]-1];b.onclick=()=>{show(id);scrollToBook()};tabs.appendChild(b)});
 const seen=new Set();
-const navs=document.querySelectorAll('.snav a[data-s]');
-const io=new IntersectionObserver(es=>{
- es.forEach(e=>{
-  if(e.isIntersecting){
-   const id=e.target.id;
-   navs.forEach(a=>a.classList.toggle('on',a.dataset.s===id));
-   const act=document.querySelector('.snav a.on'); if(act){const bar=act.parentElement;bar.scrollLeft=act.offsetLeft-(bar.clientWidth-act.offsetWidth)/2;}
-   if(/^ch\d$/.test(id)&&!seen.has(id)){seen.add(id);
-    const n=document.querySelector('#chips button[data-c="'+id+'"]'); if(n) n.classList.add('seen');
-    document.getElementById('seenN').textContent=seen.size;
-    document.getElementById('seenBar').style.width=(seen.size/7*100)+'%';}
-  }
- });
-},{rootMargin:'-40% 0px -55% 0px'});
-document.querySelectorAll('section[id]').forEach(s=>io.observe(s));
-
-// 回地圖按鈕
-const tm=document.getElementById('tomap'),mapEl=document.getElementById('map');
-window.addEventListener('scroll',()=>{tm.classList.toggle('show',window.scrollY>mapEl.offsetTop+mapEl.offsetHeight)});
+function show(id){
+ const c=D[id],i=IDS.indexOf(id);
+ document.getElementById('book').dataset.c=id;
+ tabs.querySelectorAll('.tab').forEach(t=>t.classList.toggle('on',t.dataset.c===id));
+ bento.querySelectorAll('.tile').forEach(t=>t.classList.toggle('on',t.dataset.c===id));
+ let h=`<span class="pill">${c.n}・${c.a}</span><div class="ptitle"><span class="big">0${id[2]}</span>${c.t}${c.hot?'<span class="hot">最重要</span>':''}</div><div class="pone">${c.one}</div>`;
+ h+=`<div class="nums">${c.nums.map(n=>`<div class="num"><b>${n[0]}</b><span>${n[1]}</span></div>`).join('')}</div>`;
+ if(c.flow) h+=`<h3>違規處理流程</h3><div class="flow">${c.flow.map((f,k)=>`<div class="fs${k==c.flow.length-1?' end':''}"><b>${k+1}. ${f[0]}</b><span>${f[1]}</span></div>`).join('')}</div>`;
+ h+=`<h3>這章在講什麼</h3><div class="tw"><table class="rt"><thead><tr><th>項目</th><th>規約在講什麼</th><th>你要注意</th></tr></thead><tbody>${c.rows.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join('')}</tbody></table></div>`;
+ if(c.opt) h+=`<h3>範本選項</h3><div class="opt"><div class="oh">${c.opt.h}<small>翻你家規約，看勾了哪一個</small></div>${c.opt.o.map((o,k)=>`<div class="or"><span class="r${k==0?' on':''}"></span><span>${o}${k==0?'<em>未勾選時適用</em>':''}</span></div>`).join('')}</div>`;
+ h+=`<div class="look"><b>開會前看這裡</b><ul>${c.look.map(x=>`<li>${x}</li>`).join('')}</ul></div>`;
+ h+=`<h3>相關依據</h3>${c.law.map(x=>`<span class="law">${x}</span>`).join('')}`;
+ h+=`<div class="pn"><button ${i==0?'disabled':''} onclick="show('${IDS[i-1]||''}');scrollToBook()">← ${i>0?D[IDS[i-1]].n:''}</button><button class="nx" ${i==6?'disabled':''} onclick="show('${IDS[i+1]||''}');scrollToBook()">${i<6?D[IDS[i+1]].n+' '+D[IDS[i+1]].t:''} →</button></div>`;
+ page.innerHTML=h;
+ if(!seen.has(id)){seen.add(id);const t=bento.querySelector(`.tile[data-c="${id}"]`);if(t)t.classList.add('seen');
+  document.getElementById('seenN').textContent=seen.size;document.getElementById('seenBar').style.width=(seen.size/7*100)+'%';}
+ const at=tabs.querySelector('.tab.on');tabs.scrollLeft=at.offsetLeft-(tabs.clientWidth-at.offsetWidth)/2;
+}
+function scrollToBook(){const y=document.getElementById('book').getBoundingClientRect().top+window.pageYOffset;window.scrollTo({top:y,behavior:'smooth'})}
+// 初始：不計入已看
+(function(){show('ch1');seen.clear();bento.querySelector('.tile[data-c="ch1"]').classList.remove('seen');document.getElementById('seenN').textContent=0;document.getElementById('seenBar').style.width='0';
+ const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting&&!seen.size){seen.add('ch1');bento.querySelector('.tile[data-c="ch1"]').classList.add('seen');document.getElementById('seenN').textContent=1;document.getElementById('seenBar').style.width=(100/7)+'%';}})},{threshold:.3});io.observe(page);})();
 
 // 檢查清單
-const boxes=document.querySelectorAll('#chk input');
-boxes.forEach(b=>b.addEventListener('change',()=>{
- b.parentElement.classList.toggle('done',b.checked);
- const n=[...boxes].filter(x=>x.checked).length;
- document.getElementById('ckN').textContent=n;
- document.getElementById('ckBar').style.width=(n/boxes.length*100)+'%';
-}));
+const CK=[["確認自己的車位寫在哪一條、屬於哪一種權利","ch1"],["看懂決議門檻，知道自己這一票的份量","ch2"],["不能出席的話，委託書已經準備好","ch2"],["知道委員幾席、任期多久","ch3"],["知道管理費怎麼算、重大修繕門檻多少","ch4"],["寵物、裝修規定跟自己的生活合得來","ch5"],["違規處理流程寫得夠具體","ch6"],["聯絡地址已經登記給管委會","ch7"]];
+const chk=document.getElementById('chk');
+CK.forEach(([t,id])=>{const l=document.createElement('label');l.innerHTML=`<input type="checkbox"><span>${t}</span><button class="go" data-c="${id}">${D[id].n}</button>`;
+ l.querySelector('.go').onclick=e=>{e.preventDefault();show(id);scrollToBook()};
+ l.querySelector('input').onchange=()=>{l.classList.toggle('done',l.querySelector('input').checked);const n=chk.querySelectorAll('input:checked').length;document.getElementById('ckN').textContent=n;document.getElementById('ckBar').style.width=(n/CK.length*100)+'%'};chk.appendChild(l)});
+
+// 法規總表
+const LW=[["第3條","專有、共用、約定專用、約定共用、住戶等名詞定義","ch1"],["第8條","外牆、樓頂平臺變更構造、設置鐵鋁窗的限制","ch1"],["第10條","共用部分修繕維護費用的負擔","ch4"],["第11條","共用部分拆除、重大修繕或改良應經區權會決議","ch4"],["第16條","不得棄置垃圾、排放惡臭、喧囂；堆置雜物；飼養動物規範","ch5"],["第18條","公共基金設專戶，運用依區權會決議","ch4"],["第21條","積欠費用經催告仍不給付，得訴請法院","ch4"],["第22條","強制遷離、強制出讓的條件","ch6"],["第23條","禁止飼養動物等事項，非經載明於規約不生效力","ch5"],["第24條","繼受人應遵守原區分所有權人的權利義務","ch7"],["第25條","定期會議每年至少一次；臨時會議召開條件","ch2"],["第27條","委託出席，受託人代理以全部五分之一為上限","ch2"],["第29條","委員任期一至二年，主委、財委、監委連任一次","ch3"],["第30條","開會前十日以書面通知","ch2"],["第31條","決議門檻：三分之二出席、四分之三同意，規約可另定","ch2"],["第32條","重新召集的開議與決議門檻、七日書面反對","ch2"],["第34條","會議紀錄會後十五日內送達並公告","ch2"],["第35條","利害關係人得請求閱覽或影印規約、帳冊、會議紀錄","ch7"],["第36條","管理委員會的職務","ch3"],["第47條","違反第16條等規定，處新臺幣3,000元以上15,000元以下罰鍰","ch6"],["第56條","規約草約經承受人簽署同意，於訂定規約前視為規約","ch7"],["第60條","規約範本由中央主管機關定之，為參考性質","ch7"]];
+const lt=document.getElementById('lawt');
+LW.forEach(([a,b,id])=>{const tr=document.createElement('tr');tr.dataset.c=id;tr.innerHTML=`<td>${a}</td><td>${b}</td><td><button>${D[id].n}</button></td>`;tr.querySelector('button').onclick=()=>{show(id);scrollToBook()};lt.appendChild(tr)});
+
+// 回總覽
+const tt=document.getElementById('totop'),topSec=document.getElementById('top');
+tt.onclick=()=>window.scrollTo({top:topSec.getBoundingClientRect().top+window.pageYOffset,behavior:'smooth'});
+window.addEventListener('scroll',()=>tt.classList.toggle('show',window.scrollY>topSec.offsetTop+topSec.offsetHeight));
 </script>
 </body>
 </html>
