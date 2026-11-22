@@ -9,7 +9,7 @@
 <style>
 :root{--main:#1A6E8E;--acc:#5BC8E8;--ink:#0D1F2D;--navy:#0a1628;--soft:#F0F8FC;--line:#cfe5ee;--muted:#4a6272}
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:70px}
+html{scroll-padding-top:70px}
 body{font-family:'Noto Sans TC',sans-serif;color:var(--ink);background:#fff;line-height:1.75;text-align:left}
 .container{max-width:860px;margin:0 auto;padding:0 24px}
 .serif{font-family:'Noto Serif TC',serif}
@@ -171,6 +171,100 @@ td a{color:var(--main)}
 .chkbar{display:flex;align-items:center;gap:10px;margin-bottom:12px;font-size:14px;color:var(--main);font-weight:700}
 .chkbar .bar{width:200px;background:var(--line)}
 
+[data-c="ch1"]{--c:#2f5d9e;--t:#e8eff9}
+[data-c="ch2"]{--c:#23806c;--t:#e3f3ee}
+[data-c="ch3"]{--c:#6a4fb3;--t:#efeaf9}
+[data-c="ch4"]{--c:#b07a1c;--t:#fbf2df}
+[data-c="ch5"]{--c:#c0583d;--t:#fbebe6}
+[data-c="ch6"]{--c:#4d8a2f;--t:#ebf4e4}
+[data-c="ch7"]{--c:#4b5966;--t:#eceff2}
+/* chapter colour system */
+section[data-c] .cno{background:var(--c);color:#fff}
+section[data-c] .chead h2{color:var(--c)}
+section[data-c] .one{border-left-color:var(--c);background:var(--t)}
+section[data-c] details[open] summary{background:var(--t);color:var(--c)}
+section[data-c] summary::after{color:var(--c)}
+section[data-c] .law{color:var(--c);background:var(--t);border-color:transparent}
+section[data-c] .look{background:var(--t);color:var(--ink);border-left:4px solid var(--c)}
+section[data-c] .look b{color:var(--c)}
+section[data-c] h3{color:var(--c)}
+section[data-c] .ob.mid{border-color:var(--c)}
+section[data-c] .ob.top{background:var(--c);border-color:var(--c)}
+section[data-c] .ob.top span{color:#fff;opacity:.85}
+section[data-c] .st .sn{background:var(--c)}
+section[data-c] .st.end .sn{background:#c0392b}
+section[data-c] .tl .dot{background:var(--c)}
+section[data-c] .tl b{color:var(--c)}
+section[data-c] .meter .tr i{background:var(--c)}
+section[data-c] .meter span:last-child{color:var(--c)}
+section[data-c] .c4 b,.icx b{color:var(--c)}
+.snav a[data-s]{border-color:var(--t,var(--line))}
+.snav a[data-s].on{background:var(--c,var(--main));border-color:var(--c,var(--main));color:#fff}
+.snav a svg,.tomap svg{vertical-align:-3px;margin-right:3px}
+.c4 .ib{display:inline-flex;width:34px;height:34px;border-radius:9px;background:var(--t);color:var(--c);align-items:center;justify-content:center;margin-bottom:6px}
+.ic{color:var(--c)}
+.ic .em{display:inline-flex;width:44px;height:44px;border-radius:12px;background:var(--t);align-items:center;justify-content:center}
+.ic b{color:var(--ink)}
+.ic.on{border-color:var(--c);box-shadow:0 4px 14px rgba(192,88,61,.16)}
+.icpanel{background:var(--t);color:var(--ink);border-left:4px solid var(--c)}
+.icpanel b{color:var(--c)}
+.icpanel .law{background:#fff!important;color:var(--c)!important;border-color:transparent!important}
+
+/* house */
+.duo{display:grid;grid-template-columns:1.25fr 1fr;gap:20px;align-items:start}
+.bld{width:100%;height:auto;display:block;background:linear-gradient(180deg,#dff1f8 0%,#f7fbfd 55%);border:1px solid var(--line);border-radius:14px}
+.z{cursor:pointer}
+.z .f{fill:var(--t);stroke:var(--c);stroke-width:1.6;transition:fill .2s}
+.z:hover .f{fill:#fff}
+.z.on .f,.z[data-c="ch5"].on .f{fill:var(--c)}
+.z text{font-family:'Noto Sans TC';font-size:12.5px;fill:#0D1F2D;pointer-events:none;font-weight:500}
+.z.on text{fill:#fff;font-weight:700}
+.z .b{fill:var(--c)}.z.on .b{fill:#fff}
+.z .bt{fill:#fff;font-size:11px;font-weight:700}.z.on .bt{fill:var(--c)}
+.z .dec{fill:#fff;stroke:var(--c);stroke-opacity:.45;stroke-width:1.2;pointer-events:none}
+.z[data-c="ch5"] .f{fill:#f7ddd5}
+.z.on .dec{fill:#fff;fill-opacity:.35;stroke-opacity:0}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.chips button{font-family:inherit;font-size:13px;border:1px solid var(--c);background:var(--t);border-radius:16px;padding:3px 12px;color:var(--c);cursor:pointer}
+.chips button.on{background:var(--c);color:#fff}
+.chips button.seen::after{content:" ✓"}
+.panel{position:sticky;top:70px;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 8px 24px rgba(10,22,40,.08)}
+.pcard{border-top:6px solid var(--c);padding:18px 20px}
+.ph{display:flex;gap:12px;align-items:center}
+.pi{width:48px;height:48px;border-radius:12px;background:var(--t);color:var(--c);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.pn{font-size:12px;color:var(--muted)}.pt{font-family:'Noto Serif TC',serif;font-weight:700;font-size:19px;line-height:1.35;color:var(--c)}
+.pq{margin:12px 0 8px;font-weight:700}
+.pcard ul{padding-left:18px;font-size:14.5px}.pcard li{margin-bottom:4px}
+.pa{display:inline-block;margin-top:10px;font-size:12px;color:var(--c);background:var(--t);border-radius:12px;padding:0 10px}
+.pgo{display:block;margin-top:14px;text-align:center;background:var(--c);color:#fff;text-decoration:none;border-radius:20px;padding:8px;font-size:14px;font-weight:700}
+.prog2{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--main);font-weight:700;margin-bottom:10px}
+.prog2 .bar{width:150px;background:var(--line);height:6px;border-radius:4px;overflow:hidden}
+.prog2 .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#2f5d9e,#23806c,#6a4fb3,#b07a1c,#c0583d,#4d8a2f,#4b5966);transition:width .4s}
+
+/* metro */
+.mapm{width:100%;height:auto;display:block;background:#fbfdfe;border:1px solid var(--line);border-radius:14px}
+.ln{fill:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;transition:opacity .3s}
+.stn{cursor:pointer}
+.stn circle.o{fill:#fff;stroke:var(--c);stroke-width:4;transition:.2s}
+.stn circle.i{fill:var(--c)}
+.stn:hover circle.o{fill:var(--t)}
+.stn.on circle.o{fill:var(--c)}.stn.on circle.i{fill:#fff}
+.stn text{font-family:'Noto Sans TC';font-size:13.5px;font-weight:700;fill:var(--c);pointer-events:none}
+.stn text.n{font-size:11px;font-weight:400;fill:#4a6272}
+.route{fill:none;stroke:#f2a81d;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:10 8;animation:mv 1s linear infinite}
+@keyframes mv{to{stroke-dashoffset:-18}}
+.dim .ln{opacity:.22}
+.keys{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;margin:0 0 8px}
+.keys span{display:flex;align-items:center;gap:6px}.keys i{display:inline-block;width:22px;height:6px;border-radius:3px}
+.sc{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.sc button{font-family:inherit;font-size:14px;border:1px solid #f2c14e;background:#fff8e6;color:#7a5200;border-radius:18px;padding:5px 14px;cursor:pointer;font-weight:700}
+.sc button.on{background:#f2a81d;color:#fff;border-color:#f2a81d}
+.rt{margin-top:10px;background:#0a1628;color:#fff;border-radius:10px;padding:12px 14px;font-size:14.5px;display:none}
+.rt b{color:#f2c14e}
+.why{margin-top:34px}
+section[data-c] .one{margin-bottom:14px}
+@media(max-width:760px){.duo{grid-template-columns:1fr}.panel{position:static}}
+
 /* 寶哥說 */
 .bao{background:#fff;padding:36px 0 40px}
 .bao h3{font-family:'Noto Serif TC',serif;font-size:22px;font-weight:700;color:#1A6E8E;margin:0 0 16px;background:#fff}
@@ -216,46 +310,76 @@ footer{background:#0a1628;color:#fff;text-align:center;padding:36px 24px 90px}
 </div></header>
 
 <nav class="snav"><div class="container">
-<a href="#map" class="map">🗺 地圖</a>
-<a href="#ch1" data-s="ch1">一 使用區分</a>
-<a href="#ch2" data-s="ch2">二 區權會</a>
-<a href="#ch3" data-s="ch3">三 管委會</a>
-<a href="#ch4" data-s="ch4">四 財務</a>
-<a href="#ch5" data-s="ch5">五 住戶遵守</a>
-<a href="#ch6" data-s="ch6">六 爭議處理</a>
-<a href="#ch7" data-s="ch7">七 附則</a>
+<a href="#map" class="map" data-icon="map" data-size="15">地圖</a>
+<a href="#route" class="map" style="background:#f2a81d;border-color:#f2a81d;color:#fff">遇到問題</a>
+<a href="#ch1" data-s="ch1" data-c="ch1">一 使用區分</a>
+<a href="#ch2" data-s="ch2" data-c="ch2">二 區權會</a>
+<a href="#ch3" data-s="ch3" data-c="ch3">三 管委會</a>
+<a href="#ch4" data-s="ch4" data-c="ch4">四 財務</a>
+<a href="#ch5" data-s="ch5" data-c="ch5">五 住戶遵守</a>
+<a href="#ch6" data-s="ch6" data-c="ch6">六 爭議處理</a>
+<a href="#ch7" data-s="ch7" data-c="ch7">七 附則</a>
 <a href="#check" data-s="check">✓ 開會清單</a>
 </div></nav>
 
-<!-- MAP -->
 <section id="map"><div class="container">
-<h2>導讀地圖</h2>
-<p class="lead">規約通常分成七章。點任何一章就會跳過去，看過的會打勾。</p>
-<div class="mapwrap">
- <div class="maptop">
-  <div class="t">社區規約七大章<small>以內政部《公寓大廈規約範本》為架構</small></div>
-  <div class="prog">已看 <span id="seenN">0</span> / 7 章<div class="bar"><i id="seenBar"></i></div></div>
- </div>
- <div class="grid">
-  <a class="node" href="#ch1" data-c="ch1"><span class="ck">✓</span><span class="no">1</span><div class="nm">使用區分及管理</div><div class="q">哪裡是你的、哪裡是大家的？</div></a>
-  <a class="node" href="#ch2" data-c="ch2"><span class="ck">✓</span><span class="no">2</span><div class="nm">區分所有權人會議</div><div class="q">社區最高權力怎麼開會？</div></a>
-  <a class="node" href="#ch3" data-c="ch3"><span class="ck">✓</span><span class="no">3</span><div class="nm">管理委員會</div><div class="q">誰幫大家做事、做多久？</div></a>
-  <a class="node" href="#ch4" data-c="ch4"><span class="ck">✓</span><span class="no">4</span><div class="nm">財務管理</div><div class="q">錢怎麼收、怎麼花？</div></a>
-  <a class="node" href="#ch5" data-c="ch5"><span class="ck">✓</span><span class="no">5</span><div class="nm">住戶共同遵守協定事項</div><div class="q">住在這裡的生活規矩</div></a>
-  <a class="node hot" href="#ch6" data-c="ch6"><span class="badge">最重要</span><span class="ck">✓</span><span class="no">6</span><div class="nm">爭議事件及違反義務之處理</div><div class="q">出事了，怎麼處理？</div></a>
-  <a class="node" href="#ch7" data-c="ch7"><span class="ck">✓</span><span class="no">7</span><div class="nm">附則</div><div class="q">文件、送達、繼受</div></a>
-  <a class="node core" href="#check"><span class="no">✓</span><div class="nm">開會前檢查清單</div><div class="q">第一屆區權會前打勾確認</div></a>
- </div>
- <div class="legend"><span>① 空間 → ②③ 組織 → ④ 錢 → ⑤ 生活 → ⑥ 出事 → ⑦ 收尾</span></div>
+<h2>導讀地圖：規約藏在這棟房子裡</h2>
+<p class="lead">房子是硬體，規約是軟體。點房子任何一個地方，看它歸哪一章管。</p>
+<div class="prog2">已看 <span id="seenN">0</span> / 7 章<div class="bar"><i id="seenBar"></i></div></div>
+<div class="duo">
+<div>
+<svg class="bld" viewBox="0 0 420 540" xmlns="http://www.w3.org/2000/svg">
+ <rect x="0" y="392" width="420" height="148" fill="#e3e9ec"/>
+ <line x1="0" y1="392" x2="420" y2="392" stroke="#9bb8c4" stroke-width="2"/>
+ <g class="z" data-c="ch1"><rect class="f" x="60" y="64" width="300" height="20" rx="2"/><rect class="f" x="270" y="30" width="56" height="34" rx="3"/><text x="96" y="78">樓頂平臺</text><text x="286" y="52">水塔</text><circle class="b" cx="76" cy="74" r="9"/><text class="bt" x="72.5" y="78">1</text></g>
+ <g class="z" data-c="ch5"><rect class="f" x="76" y="84" width="284" height="210"/>
+  <g class="dec"><rect x="96" y="100" width="40" height="30" rx="2"/><rect x="156" y="100" width="40" height="30" rx="2"/><rect x="216" y="100" width="40" height="30" rx="2"/><rect x="290" y="100" width="40" height="30" rx="2"/><rect x="96" y="170" width="40" height="30" rx="2"/><rect x="156" y="170" width="40" height="30" rx="2"/><rect x="216" y="170" width="40" height="30" rx="2"/><rect x="290" y="170" width="40" height="30" rx="2"/><rect x="96" y="240" width="40" height="30" rx="2"/><rect x="156" y="240" width="40" height="30" rx="2"/><rect x="216" y="240" width="40" height="30" rx="2"/><rect x="290" y="240" width="40" height="30" rx="2"/></g>
+  <rect x="140" y="140" width="164" height="24" rx="12" fill="#0a1628" opacity=".85"/><text x="152" y="157" style="fill:#fff">住家：寵物・裝修・噪音</text>
+  <circle class="b" cx="345" cy="98" r="9"/><text class="bt" x="341.5" y="102">5</text></g>
+ <g class="z" data-c="ch1"><rect class="f" x="60" y="84" width="16" height="308"/></g>
+ <g class="z" data-c="ch2"><rect class="f" x="76" y="294" width="118" height="98"/><g class="dec"><rect x="104" y="340" width="62" height="14" rx="3"/><circle cx="114" cy="332" r="5"/><circle cx="135" cy="332" r="5"/><circle cx="156" cy="332" r="5"/></g><text x="92" y="380">大廳・區權會</text><circle class="b" cx="182" cy="308" r="9"/><text class="bt" x="178.5" y="312">2</text></g>
+ <g class="z" data-c="ch3"><rect class="f" x="194" y="294" width="78" height="98"/><g class="dec"><rect x="206" y="344" width="54" height="18" rx="2"/></g><text x="203" y="380">管理中心</text><circle class="b" cx="260" cy="308" r="9"/><text class="bt" x="256.5" y="312">3</text></g>
+ <g class="z" data-c="ch7"><rect class="f" x="272" y="294" width="42" height="98"/><g class="dec"><rect x="280" y="316" width="11" height="9"/><rect x="295" y="316" width="11" height="9"/><rect x="280" y="329" width="11" height="9"/><rect x="295" y="329" width="11" height="9"/></g><text x="281" y="380">信箱</text><circle class="b" cx="293" cy="356" r="9"/><text class="bt" x="289.5" y="360">7</text></g>
+ <g class="z" data-c="ch6"><rect class="f" x="314" y="294" width="46" height="98"/><g class="dec"><rect x="324" y="330" width="26" height="62" rx="2"/></g><text x="324" y="318">門禁</text><circle class="b" cx="337" cy="352" r="9"/><text class="bt" x="333.5" y="356">6</text></g>
+ <g class="z" data-c="ch1"><rect class="f" x="60" y="404" width="210" height="110" rx="2"/><g class="dec"><rect x="110" y="432" width="30" height="24" rx="5"/><rect x="210" y="432" width="30" height="24" rx="5"/></g><g stroke="#2f5d9e" stroke-opacity=".35" stroke-width="1.5"><line x1="100" y1="420" x2="100" y2="470"/><line x1="150" y1="420" x2="150" y2="470"/><line x1="200" y1="420" x2="200" y2="470"/><line x1="250" y1="420" x2="250" y2="470"/></g><text x="84" y="500">地下室停車空間</text><circle class="b" cx="76" cy="420" r="9"/><text class="bt" x="72.5" y="424">1</text></g>
+ <g class="z" data-c="ch4"><rect class="f" x="270" y="404" width="90" height="110" rx="2"/><g class="dec"><rect x="292" y="428" width="46" height="40" rx="4"/></g><circle cx="315" cy="448" r="9" fill="none" stroke="#b07a1c" stroke-width="2" pointer-events="none"/><text x="281" y="500">機房・基金</text><circle class="b" cx="348" cy="420" r="9"/><text class="bt" x="344.5" y="424">4</text></g>
+ <text x="370" y="388" font-size="11" fill="#4a6272" font-family="Noto Sans TC">地面</text>
+</svg>
+<div class="chips" id="chips"></div>
 </div>
-
-<div class="hw">
- <div class="box h"><b>房子</b><span>建商蓋的，交屋就定型</span></div>
- <div class="plus">＋</div>
- <div class="box s"><b>規約</b><span>住戶自己訂的，決定社區怎麼運作</span></div>
+<div class="panel" id="panelA"></div>
 </div>
+</div></section>
 
-<h3>第一屆為什麼特別重要？</h3>
+<section id="route" class="alt"><div class="container">
+<h2>遇到問題，走哪條路？</h2>
+<p class="lead">規約七章像一張捷運圖。點下面的情境，看一個問題會經過哪幾章；點站名看那一章。</p>
+<div class="duo">
+<div>
+<div class="keys"><span><i style="background:#e07a5f"></i>生活線</span><span><i style="background:#1A6E8E"></i>組織線</span><span><i style="background:#8f7fd1"></i>權利線</span><span><i style="background:#5fa36a"></i>處理線</span><span>◎ 轉乘站</span></div>
+<svg class="mapm" id="mapm" viewBox="0 0 440 480" xmlns="http://www.w3.org/2000/svg">
+ <path class="ln" stroke="#8f7fd1" d="M80 420 V110"/>
+ <path class="ln" stroke="#e07a5f" d="M80 110 H360"/>
+ <path class="ln" stroke="#1A6E8E" d="M80 270 H360"/>
+ <path class="ln" stroke="#5fa36a" d="M360 270 V110"/>
+ <polyline class="route" id="routeLine" points=""/>
+ <g class="stn" data-c="ch1"><circle class="o" cx="80" cy="110" r="16"/><circle class="i" cx="80" cy="110" r="6"/><text x="58" y="76">使用區分</text><text class="n" x="62" y="60">第一章</text></g>
+ <g class="stn" data-c="ch5"><circle class="o" cx="220" cy="110" r="13"/><text x="190" y="76">住戶遵守</text><text class="n" x="202" y="60">第五章</text></g>
+ <g class="stn" data-c="ch6"><circle class="o" cx="360" cy="110" r="16"/><circle class="i" cx="360" cy="110" r="6"/><text x="330" y="76">爭議處理</text><text class="n" x="338" y="60">第六章★</text></g>
+ <g class="stn" data-c="ch2"><circle class="o" cx="80" cy="270" r="16"/><circle class="i" cx="80" cy="270" r="6"/><text x="104" y="304">區權會</text><text class="n" x="104" y="320">第二章</text></g>
+ <g class="stn" data-c="ch3"><circle class="o" cx="220" cy="270" r="13"/><text x="198" y="304">管委會</text><text class="n" x="202" y="320">第三章</text></g>
+ <g class="stn" data-c="ch4"><circle class="o" cx="360" cy="270" r="16"/><circle class="i" cx="360" cy="270" r="6"/><text x="342" y="304">財務</text><text class="n" x="336" y="320">第四章</text></g>
+ <g class="stn" data-c="ch7"><circle class="o" cx="80" cy="420" r="13"/><text x="104" y="418">附則</text><text class="n" x="104" y="434">第七章</text></g>
+ <text x="232" y="196" font-size="11.5" fill="#4d8a2f" font-family="Noto Sans TC">欠費、違規</text><text x="232" y="212" font-size="11.5" fill="#4d8a2f" font-family="Noto Sans TC">最後都到第六章 →</text>
+</svg>
+<div style="margin-top:14px;font-weight:700">轉乘情境</div>
+<div class="sc" id="sc"></div>
+<div class="rt" id="rt"></div>
+</div>
+<div class="panel" id="panelB"></div>
+</div>
+</div></section>
+<section><div class="container"><h2>第一屆為什麼特別重要？</h2><p class="lead">交屋到第一屆區權會這段時間，最容易被忽略。</p>
 <div class="tw"><table>
 <thead><tr><th>常見說法</th><th>實際上</th></tr></thead>
 <tbody>
@@ -267,7 +391,7 @@ footer{background:#0a1628;color:#fff;text-align:center;padding:36px 24px 90px}
 </div></section>
 
 <!-- CH1 -->
-<section id="ch1" class="alt"><div class="container">
+<section id="ch1" class="alt" data-c="ch1"><div class="container">
 <div class="chead"><div class="cno">1</div><div><h2>第一章　使用區分及管理</h2><div class="art">範本第1～4條</div></div></div>
 <div class="one">先把空間分清楚：哪些是你的、哪些是大家的、哪些是大家的但給特定人用。</div>
 
@@ -291,7 +415,7 @@ footer{background:#0a1628;color:#fff;text-align:center;padding:36px 24px 90px}
 </div></section>
 
 <!-- CH2 -->
-<section id="ch2"><div class="container">
+<section id="ch2" data-c="ch2"><div class="container">
 <div class="chead"><div class="cno">2</div><div><h2>第二章　區分所有權人會議</h2><div class="art">範本第5～10條</div></div></div>
 <div class="one">區權會是社區最高意思機關。規約怎麼訂、錢怎麼用、要不要大修，都在這裡決定。</div>
 
@@ -329,7 +453,7 @@ footer{background:#0a1628;color:#fff;text-align:center;padding:36px 24px 90px}
 </div></section>
 
 <!-- CH3 -->
-<section id="ch3" class="alt"><div class="container">
+<section id="ch3" class="alt" data-c="ch3"><div class="container">
 <div class="chead"><div class="cno">3</div><div><h2>第三章　管理委員會</h2><div class="art">範本第11～16條</div></div></div>
 <div class="one">管委會是區權會選出來執行事情的團隊，要向區權會負責、報告會務。</div>
 
@@ -364,7 +488,7 @@ footer{background:#0a1628;color:#fff;text-align:center;padding:36px 24px 90px}
 </div></section>
 
 <!-- CH4 -->
-<section id="ch4"><div class="container">
+<section id="ch4" data-c="ch4"><div class="container">
 <div class="chead"><div class="cno">4</div><div><h2>第四章　財務管理</h2><div class="art">範本第17～21條</div></div></div>
 <div class="one">兩個錢包分開管：管理費付日常開銷，公共基金存起來應付大修。</div>
 
@@ -394,18 +518,18 @@ footer{background:#0a1628;color:#fff;text-align:center;padding:36px 24px 90px}
 </div></section>
 
 <!-- CH5 -->
-<section id="ch5" class="alt"><div class="container">
+<section id="ch5" class="alt" data-c="ch5"><div class="container">
 <div class="chead"><div class="cno">5</div><div><h2>第五章　住戶共同遵守協定事項</h2><div class="art">範本第22～24條</div></div></div>
 <div class="one">住在一起的生活規矩。住戶最常吵的，幾乎都在這一章。</div>
 
 <h3>點一個主題看重點</h3>
 <div class="icons" id="icons">
- <div class="ic on" data-i="0"><div class="em">🐶</div><b>寵物</b></div>
- <div class="ic" data-i="1"><div class="em">🔨</div><b>裝修</b></div>
- <div class="ic" data-i="2"><div class="em">🔊</div><b>噪音惡臭</b></div>
- <div class="ic" data-i="3"><div class="em">📦</div><b>堆置與營業</b></div>
- <div class="ic" data-i="4"><div class="em">🔑</div><b>承租人</b></div>
- <div class="ic" data-i="5"><div class="em">🚭</div><b>禁菸等自訂條款</b></div>
+ <div class="ic on" data-i="0"><div class="em" data-icon="pet" data-size="24"></div><b>寵物</b></div>
+ <div class="ic" data-i="1"><div class="em" data-icon="tool" data-size="24"></div><b>裝修</b></div>
+ <div class="ic" data-i="2"><div class="em" data-icon="sound" data-size="24"></div><b>噪音惡臭</b></div>
+ <div class="ic" data-i="3"><div class="em" data-icon="box" data-size="24"></div><b>堆置與營業</b></div>
+ <div class="ic" data-i="4"><div class="em" data-icon="key" data-size="24"></div><b>承租人</b></div>
+ <div class="ic" data-i="5"><div class="em" data-icon="nosmoke" data-size="24"></div><b>自訂條款</b></div>
 </div>
 <div class="icpanel" id="icpanel"></div>
 
@@ -413,7 +537,7 @@ footer{background:#0a1628;color:#fff;text-align:center;padding:36px 24px 90px}
 </div></section>
 
 <!-- CH6 -->
-<section id="ch6"><div class="container">
+<section id="ch6" data-c="ch6"><div class="container">
 <div class="chead"><div class="cno">6</div><div><h2>第六章　爭議事件及違反義務之處理<span class="hotline">最重要</span></h2><div class="art">範本第25～26條</div></div></div>
 <div class="one">前面五章寫的是「應該怎樣」，這一章寫的是「不照做會怎樣」。沒有這章，前面都只是建議。</div>
 
@@ -436,14 +560,14 @@ footer{background:#0a1628;color:#fff;text-align:center;padding:36px 24px 90px}
 </div></section>
 
 <!-- CH7 -->
-<section id="ch7" class="alt"><div class="container">
+<section id="ch7" class="alt" data-c="ch7"><div class="container">
 <div class="chead"><div class="cno">7</div><div><h2>第七章　附則</h2><div class="art">範本第27～30條</div></div></div>
 <div class="one">看起來最不起眼，但跟你的知情權、買賣房子都有關。</div>
 <div class="cards4">
- <div class="c4"><b>📄 閱覽影印</b><p>利害關係人可以書面請求閱覽或影印規約、帳冊、會議紀錄，管委會不得拒絕。<br><span class="law">範本第27條</span><span class="law">條例第35條</span></p></div>
- <div class="c4"><b>🏠 繼受人</b><p>買房子的人，要遵守原屋主依條例或規約的一切權利義務，買之前可以先調閱文件。<br><span class="law">範本第28條</span><span class="law">條例第24條</span></p></div>
- <div class="c4"><b>✉️ 催告送達</b><p>催告要用書面；送達投到住戶登記的地址，沒登記就投社區信箱或公告。<br><span class="law">範本第29條</span></p></div>
- <div class="c4"><b>📅 規約制定</b><p>規約訂立的日期寫在這裡，從這天起正式取代草約。<br><span class="law">範本第30條</span></p></div>
+ <div class="c4"><span class="ib" data-icon="doc" data-size="20"></span><b>閱覽影印</b><p>利害關係人可以書面請求閱覽或影印規約、帳冊、會議紀錄，管委會不得拒絕。<br><span class="law">範本第27條</span><span class="law">條例第35條</span></p></div>
+ <div class="c4"><span class="ib" data-icon="ch5" data-size="20"></span><b>繼受人</b><p>買房子的人，要遵守原屋主依條例或規約的一切權利義務，買之前可以先調閱文件。<br><span class="law">範本第28條</span><span class="law">條例第24條</span></p></div>
+ <div class="c4"><span class="ib" data-icon="ch7" data-size="20"></span><b>催告送達</b><p>催告要用書面；送達投到住戶登記的地址，沒登記就投社區信箱或公告。<br><span class="law">範本第29條</span></p></div>
+ <div class="c4"><span class="ib" data-icon="cal" data-size="20"></span><b>規約制定</b><p>規約訂立的日期寫在這裡，從這天起正式取代草約。<br><span class="law">範本第30條</span></p></div>
 </div>
 <div class="look"><b>開會前看這裡</b><ul><li>你的聯絡地址有沒有登記給管委會</li><li>想調閱文件，申請流程寫在哪</li></ul></div>
 </div></section>
@@ -512,9 +636,72 @@ footer{background:#0a1628;color:#fff;text-align:center;padding:36px 24px 90px}
 </footer>
 
 <a class="back" href="https://bensonhsu0205.github.io/property-30days/"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>回主頁</a>
-<a class="tomap" id="tomap" href="#map">🗺 回地圖</a>
+<a class="tomap" id="tomap" href="#map" data-icon="map" data-size="15">回地圖</a>
 
 <script>
+const ICON={
+ch1:'<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 12h9V3M12 12v9M16 12h5"/>',
+ch2:'<circle cx="8" cy="8" r="3"/><circle cx="16.5" cy="9" r="2.5"/><path d="M2.5 20c.6-3.6 2.9-5.5 5.5-5.5s4.9 1.9 5.5 5.5M14 15.2c.8-.5 1.6-.7 2.5-.7 2.2 0 4 1.6 4.5 5.5"/>',
+ch3:'<rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1M8.5 12.5l2.3 2.3 4.7-4.8"/>',
+ch4:'<ellipse cx="12" cy="6" rx="7" ry="2.6"/><path d="M5 6v4.5c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6V6M5 10.5V15c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6v-4.5M5 15v3c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6v-3"/>',
+ch5:'<path d="M3.5 11 12 4l8.5 7"/><path d="M5.5 9.5V20h13V9.5"/><path d="M10 20v-5h4v5"/>',
+ch6:'<path d="M10 6l2-2 8 8-2 2zM12.5 10.5 4 19"/><path d="M3 21h9"/>',
+ch7:'<rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="m3.5 7 8.5 6 8.5-6"/>',
+map:'<path d="M9 4 3 6.5V20l6-2.5 6 2.5 6-2.5V4l-6 2.5z"/><path d="M9 4v13.5M15 6.5V20"/>',
+pet:'<circle cx="6" cy="10" r="1.8"/><circle cx="10" cy="6.2" r="1.8"/><circle cx="14.5" cy="6.2" r="1.8"/><circle cx="18.3" cy="10" r="1.8"/><path d="M12.2 11.5c-2.6 0-5.2 3.7-5.2 6 0 1.6 1.2 2.5 2.7 2.5 1 0 1.7-.5 2.5-.5s1.5.5 2.5.5c1.5 0 2.7-.9 2.7-2.5 0-2.3-2.6-6-5.2-6z"/>',
+tool:'<path d="M14 6.5 17.5 3 21 6.5 17.5 10z"/><path d="M15.7 8.3 5 19l-1.5.5.5-1.5L14.7 7.3"/>',
+sound:'<path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/>',
+box:'<path d="M3.5 7.5 12 3.5l8.5 4v9L12 20.5l-8.5-4z"/><path d="M3.5 7.5 12 11.5l8.5-4M12 11.5v9"/>',
+key:'<circle cx="8" cy="15" r="4"/><path d="M11 12.2 19.5 3.7M16 7.2l2.5 2.5M18.3 5l2 2"/>',
+nosmoke:'<rect x="3" y="13" width="14" height="4" rx="1"/><path d="M19 13v4M21.5 13v4M17 9c0-2 2-2 2-4M3 3l18 18"/>',
+doc:'<path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 16h6"/>',
+cal:'<rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 9.5h17M8 3v4M16 3v4"/>'};
+const svgIcon=(k,s=22)=>`<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${ICON[k]}</svg>`;
+document.querySelectorAll('[data-icon]').forEach(e=>{e.innerHTML=svgIcon(e.dataset.icon,+e.dataset.size||22)+e.innerHTML});
+const CH={
+ch1:{n:"第一章",t:"使用區分及管理",q:"哪裡是你的、哪裡是大家的",p:["專有、共用、約定專用、約定共用四種空間","停車空間的權利與使用辦法","外牆、樓頂平臺、防墜設施的限制"],a:"範本第1～4條"},
+ch2:{n:"第二章",t:"區分所有權人會議",q:"社區最高權力怎麼開會",p:["每年至少開一次定期會議","重大事項：2/3出席、3/4同意","委託出席不得超過全部1/5"],a:"範本第5～10條"},
+ch3:{n:"第三章",t:"管理委員會",q:"誰幫大家做事、做多久",p:["委員名額怎麼分配","任期一至二年，主委、財委、監委連任一次","保管、公告、移交責任"],a:"範本第11～16條"},
+ch4:{n:"第四章",t:"財務管理",q:"錢怎麼收、怎麼花",p:["管理費付日常，公共基金存大修","重大修繕金額門檻","欠繳催告後可訴請法院"],a:"範本第17～21條"},
+ch5:{n:"第五章",t:"住戶共同遵守協定事項",q:"住在這裡的生活規矩",p:["寵物：三種寫法選一種","裝修要申請許可、交具結書","承租人一樣要遵守規約"],a:"範本第22～24條"},
+ch6:{n:"第六章",t:"爭議事件及違反義務之處理",q:"出事了，怎麼處理（最重要）",p:["協調 → 制止 → 報主管機關","三個月仍未改善可訴請法院","強制遷離的三種情形"],a:"範本第25～26條"},
+ch7:{n:"第七章",t:"附則",q:"文件、送達、繼受",p:["可以申請閱覽影印規約、帳冊","買房子的人要繼受原屋主義務","催告一律用書面"],a:"範本第27～30條"}};
+function card(id){const c=CH[id];return `<div class="pcard" data-c="${id}"><div class="ph"><span class="pi">${svgIcon(id,26)}</span><div><div class="pn">${c.n}</div><div class="pt">${c.t}</div></div></div><div class="pq">${c.q}</div><ul>${c.p.map(x=>`<li>${x}</li>`).join("")}</ul><div class="pa">${c.a}</div><a class="pgo" href="#${id}" onclick="event.preventDefault();goTo('${id}')">看完整內容 →</a></div>`}
+
+// 房子
+const zones=document.querySelectorAll('.z'),chips=document.getElementById('chips'),pA=document.getElementById('panelA');
+const nm={ch1:"一 空間",ch2:"二 區權會",ch3:"三 管委會",ch4:"四 財務",ch5:"五 生活",ch6:"六 爭議",ch7:"七 附則"};
+Object.keys(nm).forEach(k=>{const b=document.createElement('button');b.textContent=nm[k];b.dataset.c=k;b.onclick=()=>pickA(k);chips.appendChild(b)});
+function pickA(id){zones.forEach(z=>z.classList.toggle('on',z.dataset.c===id));chips.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.c===id));pA.innerHTML=card(id)}
+zones.forEach(z=>z.addEventListener('click',()=>pickA(z.dataset.c)));pickA('ch5');
+// 捷運
+const P={ch1:[80,110],ch5:[220,110],ch6:[360,110],ch2:[80,270],ch3:[220,270],ch4:[360,270],ch7:[80,420]};
+const SC=[
+ {k:"寵物太臭",r:["ch5","ch6"],d:"<b>第五章</b>先看規約怎麼寫寵物 → <b>第六章</b>違規就照流程制止、報主管機關"},
+ {k:"有人欠管理費",r:["ch4","ch6"],d:"<b>第四章</b>欠繳催告、訴請給付 → <b>第六章</b>再度積欠達總價1%，可走強制遷離"},
+ {k:"我的車位",r:["ch1","ch2"],d:"<b>第一章</b>確認車位權利 → <b>第二章</b>約定專用事項要經區權會決議"},
+ {k:"社區要大修",r:["ch4","ch2","ch3"],d:"<b>第四章</b>看金額門檻 → <b>第二章</b>區權會決議 → <b>第三章</b>管委會執行"},
+ {k:"想看帳冊",r:["ch7","ch2","ch3","ch4"],d:"<b>第七章</b>有權書面申請閱覽影印 → 管委會提供 → <b>第四章</b>帳冊與財務報表"}];
+const sts=document.querySelectorAll('.stn'),rl=document.getElementById('routeLine'),mm=document.getElementById('mapm'),rt=document.getElementById('rt'),sc=document.getElementById('sc'),pB=document.getElementById('panelB');
+function pickB(id){sts.forEach(x=>x.classList.toggle('on',x.dataset.c===id));pB.innerHTML=card(id)}
+sts.forEach(x=>x.addEventListener('click',()=>pickB(x.dataset.c)));
+function pth(r){let pts=[],pv=null;r.forEach(id=>{const p=P[id];if(pv&&pv[0]!==p[0]&&pv[1]!==p[1])pts.push(pv[0]+','+p[1]);pts.push(p.join(','));pv=p});return pts.join(' ')}
+SC.forEach(o=>{const b=document.createElement('button');b.textContent=o.k;b.onclick=()=>{const on=b.classList.contains('on');sc.querySelectorAll('button').forEach(x=>x.classList.remove('on'));
+ if(on){rl.setAttribute('points','');mm.classList.remove('dim');rt.style.display='none';return}
+ b.classList.add('on');rl.setAttribute('points',pth(o.r));mm.classList.add('dim');rt.style.display='block';rt.innerHTML=o.d;pickB(o.r[o.r.length-1]);};sc.appendChild(b)});
+pickB('ch6');
+
+// 站內跳轉：用 JS 捲動，避免卡住
+function goTo(id){
+ const t=document.getElementById(id); if(!t) return;
+ const navH=document.querySelector('.snav').offsetHeight;
+ const y=t.getBoundingClientRect().top+window.pageYOffset-navH-8;
+ window.scrollTo({top:y,behavior:'smooth'});
+}
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+ a.addEventListener('click',e=>{e.preventDefault();goTo(a.getAttribute('href').slice(1));});
+});
+
 // 第五章主題切換
 const IC=[
  '<b>寵物</b>　規約範本提供三選一：①可以養，但不得妨礙公共衛生、安寧、安全，授權管委會訂管理辦法（預設）②住戶不得飼養動物 ③其他規定。要全面禁養，一定要寫進規約才有效。<br><span class="law" style="background:#123a52;color:#5BC8E8;border-color:#1A6E8E">範本第22條第9款</span><span class="law" style="background:#123a52;color:#5BC8E8;border-color:#1A6E8E">條例第16條、第23條</span>',
@@ -538,9 +725,9 @@ const io=new IntersectionObserver(es=>{
   if(e.isIntersecting){
    const id=e.target.id;
    navs.forEach(a=>a.classList.toggle('on',a.dataset.s===id));
-   const act=document.querySelector('.snav a.on'); if(act) act.scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'});
+   const act=document.querySelector('.snav a.on'); if(act){const bar=act.parentElement;bar.scrollLeft=act.offsetLeft-(bar.clientWidth-act.offsetWidth)/2;}
    if(/^ch\d$/.test(id)&&!seen.has(id)){seen.add(id);
-    const n=document.querySelector('.node[data-c="'+id+'"]'); if(n) n.classList.add('seen');
+    const n=document.querySelector('#chips button[data-c="'+id+'"]'); if(n) n.classList.add('seen');
     document.getElementById('seenN').textContent=seen.size;
     document.getElementById('seenBar').style.width=(seen.size/7*100)+'%';}
   }
